@@ -72,7 +72,7 @@ Then open PuTTY
 
 *Here we ping google.com, we can connect to the internet*
 
-## Step 5: Connect instance 
+## Step 5: Allow instance 1 to reach to instance 3
 Go to the security group of the private subnet instance (instance #3) and add inbound rule
 
 **All ICMP-IPv4 select the security group of the instance #1**
