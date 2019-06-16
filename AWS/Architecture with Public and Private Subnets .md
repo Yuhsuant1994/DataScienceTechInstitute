@@ -22,7 +22,7 @@ We want to make the instance (#3) in the private subnet able to reach to the int
 * Specify the NAT instance with the pre-created key pair
 <img src="image/AWSimg5.png" width=450>
 
-* Now in **EC2** we can see NAT instance sucessfully created
+* Now in **EC2** we can see NAT instance sucessfully created (instance #2)
 <img src="image/AWSimg6.png" width=600>
 
 
