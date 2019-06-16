@@ -76,6 +76,7 @@ Go to the security group of the private subnet instance (instance #3) and add in
 <img src="image/AWSimg17.png" width=600>
  
 ## Step 7: check NAT (instance 2) security group inbound rule
+
 Be sure the NAT inbound rule source should be from our instance #3, allowing instance #3 from the private subnet to reach.
 <img src="image/AWSimg18.png" width=600>
 
