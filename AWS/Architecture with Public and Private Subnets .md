@@ -73,8 +73,9 @@ Then open PuTTY
 *Here we ping google.com, we can connect to the internet*
 
 ## Step 5: Connect instance 
-Go to the security group of the private subnet instance (instance #3) and add inbound rule 
-**All ICMP-IPv4 select the security group of the instance #1 **
+Go to the security group of the private subnet instance (instance #3) and add inbound rule
+
+**All ICMP-IPv4 select the security group of the instance #1**
 
 <img src="image/AWSimg14.png" width=600>
 
