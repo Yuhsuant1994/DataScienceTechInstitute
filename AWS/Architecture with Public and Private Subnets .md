@@ -23,11 +23,9 @@ We want to make the instance (#3) in the private subnet able to reach to the int
 <img src="image/AWSimg4.png" width=600>
 
 * Specify the NAT instance with the pre-created key pair
-
 <img src="image/AWSimg5.png" width=450>
 
 * Now in **EC2** we can see NAT instance sucessfully created (instance #2)
-
 <img src="image/AWSimg6.png" width=600>
 
 ## Step 3: Create EC2 instances 
@@ -41,22 +39,18 @@ Create 2 instances under private and public subnet, under the VPC we’ve create
 
 <img src="image/AWSimg7.png" width=600>
 
-Launch and choose the key pair I’ve created
-
+* Launch and choose the key pair I’ve created
 <img src="image/AWSimg8.png" width=600>
 
 ## Step 4: Convert .pem pair key to .ppk 
-Using puttygen to transform the key from .pem (amazon provided) to .ppk
+* Using puttygen to transform the key from .pem (amazon provided) to .ppk
 
-Load and import our key: S19Lab.pem -> save private key
-
+* Load and import our key: S19Lab.pem -> save private key
  <img src="image/AWSimg9.png" width=450>
  
-Open PuTTy.exe
-
-Get the public address from our instance #3
-
-Check the security group ports
+* Open PuTTy.exe
+* Get the public address from our instance #3
+* Check the security group ports
 
 <img src="image/AWSimg10.png" width=600>
 
@@ -104,6 +98,7 @@ Be sure the NAT inbound rule source should be from our instance #3, allowing ins
 2. ‘ssh -i "S19Lab.pem" ec2-user@10.0.1.226’
 
 <img src="image/AWSimg19.png" width=600>
+
 *now we can reach private subnet instance #3 from public subnet instance #1*
 
 ## Conclude: Ping google.com from instance #3
