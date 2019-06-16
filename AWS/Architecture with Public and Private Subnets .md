@@ -49,7 +49,7 @@ Using puttygen to transform the key from .pem (amazon provided) to .ppk
 
 Load and import our key: S19Lab.pem -> save private key
 
- <img src="image/AWSimg9.png" width=600>
+ <img src="image/AWSimg9.png" width=450>
  
 Open PuTTy.exe
 
@@ -59,16 +59,16 @@ Check the security group ports
 
 <img src="image/AWSimg10.png" width=600>
 
-<img src="image/AWSimg11.png" width=600>
+<img src="image/AWSimg11.png" width=450>
 
 Go to auth and load the keypair .bbk that we have generated
 
-<img src="image/AWSimg12.png" width=600>
+<img src="image/AWSimg12.png" width=450>
 
 Then open PuTTY
 * Login as `ec2-user`
 
-<img src="image/AWSimg13.png" width=600>
+<img src="image/AWSimg13.png" width=450>
 
 *Here we ping google.com, we can connect to the internet*
 
