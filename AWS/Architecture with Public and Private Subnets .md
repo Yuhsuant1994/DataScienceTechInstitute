@@ -7,6 +7,21 @@ We want to make the instance (#3) in the private subnet able to reach to the int
 
 ## Step 1: Create Key Pair 
 In EC2: Create EC2 Key pair for the NAT instance to use.
-
 ![](image/AWSimg1.png)
+![](image/AWSimg2.png)
+
+## Step 2: launch VPC
+In VPC: Using VPC Wizard
+![](image/AWSimg3.png)
+
+Select VPC with public and private subnet
+![](image/AWSimg4.png)
+
+Specify the NAT instance with the pre-created key pair
+![](image/AWSimg5.png)
+
+Now in **EC2** we can see NAT instance sucessfully created
+![](image/AWSimg6.png)
+
+
 
