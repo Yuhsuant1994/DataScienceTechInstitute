@@ -25,5 +25,45 @@ We want to make the instance (#3) in the private subnet able to reach to the int
 * Now in **EC2** we can see NAT instance sucessfully created (instance #2)
 <img src="image/AWSimg6.png" width=600>
 
+## Step 3: Create EC2 instances 
+Create 2 instances under private and public subnet, under the VPC we’ve created
+* Public:
+1. Subnet choose the public subnet
+2. Enable auto-assign public IP 
+* Private:
+1. Same procedure as Public
+2. But subnet choose the private subnet
+<img src="image/AWSimg7.png" width=600>
+
+Launch and choose the key pair I’ve created
+<img src="image/AWSimg8.png" width=600>
+
+## Step 4: Convert .pem pair key to .ppk 
+Using puttygen to transform the key from .pem (amazon provided) to .ppk
+Load and import our key: S19Lab.pem -> save private key
+ <img src="image/AWSimg9.png" width=600>
+ 
+Open PuTTy.exe
+Get the public address from our instance #3
+Check the security group ports
+<img src="image/AWSimg10.png" width=600>
+<img src="image/AWSimg11.png" width=600>
+
+Go to auth and load the keypair .bbk that we have generated
+<img src="image/AWSimg12.png" width=600>
+
+Then open PuTTY
+* Login as `ec2-user`
+<img src="image/AWSimg13.png" width=600>
+*Here we ping google.com, we can connect to the internet*
+
+## Step 5: Connect instance 
+Go to the security group of the private subnet instance (instance #3) and add inbound rule 
+**All ICMP-IPv4 select the security group of the instance #1 **
+ <img src="image/AWSimg14.png" width=600>
+Choose the private instance (instance #3) and press connect
+*As a result now in the public instance #1 we can reach to instance #3 by its private IP address*
+
+
 
 
