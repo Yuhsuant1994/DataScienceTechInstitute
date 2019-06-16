@@ -13,16 +13,16 @@ In EC2: Create EC2 Key pair for the NAT instance to use.
 
 ## Step 2: launch VPC
 In VPC: Using VPC Wizard
-![](image/AWSimg3.png)
+<img src="image/AWSimg3.png" width=600>
 
 Select VPC with public and private subnet
-![](image/AWSimg4.png)
+<img src="image/AWSimg4.png" width=600>
 
 Specify the NAT instance with the pre-created key pair
-![](image/AWSimg5.png)
+<img src="image/AWSimg5.png" width=600>
 
 Now in **EC2** we can see NAT instance sucessfully created
-![](image/AWSimg6.png)
+<img src="image/AWSimg6.png" width=600>
 
 
 
