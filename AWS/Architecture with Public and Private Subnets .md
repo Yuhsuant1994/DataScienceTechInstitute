@@ -8,18 +8,15 @@ We want to make the instance (#3) in the private subnet able to reach to the int
 
 ## Step 1: Create Key Pair 
 * In EC2: Create EC2 Key pair for the NAT instance to use.
-
 <img src="image/AWSimg1.png" width=600>
 
 <img src="image/AWSimg2.png" width=600>
 
 ## Step 2: launch VPC
 * In VPC: Using VPC Wizard
-
 <img src="image/AWSimg3.png" width=600>
 
 * Select VPC with public and private subnet
-
 <img src="image/AWSimg4.png" width=600>
 
 * Specify the NAT instance with the pre-created key pair
@@ -51,20 +48,15 @@ Create 2 instances under private and public subnet, under the VPC we’ve create
 * Open PuTTy.exe
 * Get the public address from our instance #3
 * Check the security group ports
-
 <img src="image/AWSimg10.png" width=600>
 
 <img src="image/AWSimg11.png" width=450>
 
-Go to auth and load the keypair .bbk that we have generated
-
+* Go to auth and load the keypair .bbk that we have generated
 <img src="image/AWSimg12.png" width=450>
 
-Then open PuTTY
-* Login as `ec2-user`
-
+* Then open PuTTY,Login as `ec2-user`
 <img src="image/AWSimg13.png" width=450>
-
 *Here we ping google.com, we can connect to the internet*
 
 ## Step 5: Allow instance #1 to reach to instance #3
@@ -73,22 +65,18 @@ Go to the security group of the private subnet instance (instance #3) and add in
 **All ICMP-IPv4 select the security group of the instance #1**
 
 <img src="image/AWSimg14.png" width=600>
-
 *As a result now in the public instance #1 we can reach to instance #3 by its private IP address*
 
 ## Step 6: Copy private key on Public #1
-Using WinSCP to login the instance 1
-
+* Using WinSCP to login the instance 1
 <img src="image/AWSimg15.png" width=600>
 
-Then put the key pair up to the public EC2 instance
- 
+* Then put the key pair up to the public EC2 instance
 <img src="image/AWSimg16.png" width=600>
 <img src="image/AWSimg17.png" width=600>
  
 ## Step 7: check NAT (instance 2) security group inbound rule
 Be sure the NAT inbound rule source should be from our instance #3, allowing instance #3 from the private subnet to reach.
-
 <img src="image/AWSimg18.png" width=600>
 
 ## Step 8: Connect the instances
