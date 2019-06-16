@@ -4,6 +4,7 @@ Reference link: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.h
 This exercise is to create a simple architecture on AWS, using 1 VPC with public and private subnet.
 
 We want to make the instance (#3) in the private subnet able to reach to the internet on google.com for example.
+<img src="image/AWSimg0.png" width=600>
 
 ## Step 1: Create Key Pair 
 * In EC2: Create EC2 Key pair for the NAT instance to use.
@@ -81,6 +82,39 @@ Go to the security group of the private subnet instance (instance #3) and add in
 
 *As a result now in the public instance #1 we can reach to instance #3 by its private IP address*
 
+## Step 6: Copy private key on Public #1
+Using WinSCP to login the instance 1
 
+<img src="image/AWSimg15.png" width=600>
 
+Then put the key pair up to the public EC2 instance
+ 
+<img src="image/AWSimg16.png" width=600>
+<img src="image/AWSimg17.png" width=600>
+ 
+## Step 7: check NAT (instance 2) security group inbound rule
+Be sure the NAT inbound rule source should be from our instance #3, allowing instance #3 from the private subnet to reach.
 
+<img src="image/AWSimg18.png" width=600>
+
+## Step 8: Connect the instances
+* Choose the private instance (instance #3) and press connect
+* -We see the command line on the instruction to type on PuTTY  (of instance #1)
+1. ‘chmod 400 S19Lab.pem’
+2. ‘ssh -i "S19Lab.pem" ec2-user@10.0.1.226’
+
+<img src="image/AWSimg19.png" width=600>
+*now we can reach private subnet instance #3 from public subnet instance #1*
+
+## Conclude: Ping google.com from instance #3
+Since now we are on instance #3, we can reach our target: 
+**To ping google.com from instance #3**
+<img src="image/AWSimg20.png" width=600>
+
+## Extension 
+
+* Create another instance #4 under private subnet, with the same security group as instance #3, it can also ping google.com (as NAT has set the inbound security group)
+
+* Clean the environment: when we don’t need the environment anymore it is better to clear everything we are not using anymore
+1. Terminate all instances, security group (VPC can be left undeleted, no extra charges requires
+2. Release also the auto-assigned IP 
