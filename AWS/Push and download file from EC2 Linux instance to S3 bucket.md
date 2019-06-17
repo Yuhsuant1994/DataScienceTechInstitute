@@ -54,3 +54,5 @@ With the command `rm Hsuan.txt`
 # Extension
 
 When we create a new instance, in the advanced details of the configuration part, we can also put the cript `aws s3 cp s3://hsuantest/Hsuan.txt .` so that it would automatically download the file down to the instance once it's created.
+
+*note that IAM role should assign to the one allowing EC2 to connect to S3 **(EC2 to S3 full access)***
