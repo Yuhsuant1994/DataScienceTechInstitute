@@ -47,5 +47,8 @@ Create an IAM role allowing EC2 to connect to S3 **(EC2 to S3 full access)**
 
 With the command `rm Hsuan.txt`
 
-## Step 2:
+## Step 2: write the code on the instance to download file
+
+`aws s3 cp s3://hsuantest/Hsuan.txt .`
+
 
