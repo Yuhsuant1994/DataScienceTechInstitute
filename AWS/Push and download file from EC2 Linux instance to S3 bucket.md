@@ -4,7 +4,7 @@
 <img src="image/S3test1.png" width=600>
 
 ## Step 2: Assign instance to IAM role
-Create an IAM role allowing EC2 to connect to S3 (EC2 to S3 full access)
+Create an IAM role allowing EC2 to connect to S3 **(EC2 to S3 full access)**
 
 <img src="image/S3test2.png" width=600>
 ## Step 3: Create a txt file on the instance
