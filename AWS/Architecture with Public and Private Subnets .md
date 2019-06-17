@@ -4,7 +4,7 @@ Reference link: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Scenario2.h
 This exercise is to create a simple architecture on AWS, using 1 VPC with public and private subnet.
 
 We want to make the instance (#3) in the private subnet able to reach to the internet on google.com for example.
-<img src="AWSimg0.png.jpg" width=600>
+<img src="image/AWSimg0.jpg" width=600>
 
 ## Step 1: Create Key Pair 
 * In EC2: Create EC2 Key pair for the NAT instance to use.
