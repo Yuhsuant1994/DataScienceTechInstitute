@@ -31,9 +31,9 @@ Create an IAM role allowing EC2 to connect to S3 **(EC2 to S3 full access)**
  
 2. From Linux instance to push, enter below code
 
-      aws
+      `aws`
 
-      aws s3 cp  <source> s3://<nameofyourbucket>
+      `aws s3 cp  <source> s3://<nameofyourbucket>`
 
 <img src="image/S3test6.png" width=600>
  
