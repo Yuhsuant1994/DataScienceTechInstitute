@@ -7,7 +7,9 @@
 Create an IAM role allowing EC2 to connect to S3 **(EC2 to S3 full access)**
 
 <img src="image/S3test2.png" width=600>
+
 ## Step 3: Create a txt file on the instance
+
 * Once I login to my instance type `echo “Hsuan” >> Hsuan.txt`
 * File is created
 
