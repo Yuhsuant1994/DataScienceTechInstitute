@@ -90,5 +90,5 @@ node server.js 				#Run node server.js
 
 <img src="documents/im3.png" width=600>
 
-*note nodejs bug, if we have error running ` node server.js` then use the command  `killall -9 node`*
+*note nodejs bug, if we have error running ` node server.js` then use the command  `killall -9 node` to clear the running server.js and rerun `node server.js` again* 
 
