@@ -79,14 +79,14 @@ node server.js 				#Run node server.js
 3. Test if server.js is working
 
 * Leave the command running
-* On the browser type `<your app server ip>:8080` if you see `LEOOO GET` on the command prompt means it is working
+* On the browser type `<your app server ip>:8080` if you see `LEOOO GET` on the command prompt (App Server) means it is working
 
 ## Step 5: See final result
 
 * On your app server command, run `node server.js`
 * Open your browser `<web server ip>/DSTIFamily.html`
 * Press Register to take yourself a picture
-* Press Rekognise to see the similarity on your prompt
+* Press Rekognise to see the similarity on your prompt (App Server)
 
 <img src="documents/im3.png" width=600>
 
