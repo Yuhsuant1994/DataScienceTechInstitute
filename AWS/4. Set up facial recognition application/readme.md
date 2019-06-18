@@ -78,7 +78,7 @@ node server.js 				#Run node server.js
 
 3. Test if server.js is working
 
-* Leave the command running
+* Leave the command running  (App server from above step)
 * On the browser type `<your app server ip>:8080` if you see `LEOOO GET` on the command prompt (App Server) means it is working
 
 ## Step 5: See final result
