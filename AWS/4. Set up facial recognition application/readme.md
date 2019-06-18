@@ -34,7 +34,7 @@ sudo yum -y install httpd    	          	#Answer yes to any question
 sudo service httpd start       	        	#Start the servcie
 sudo service httpd status     	        	#Check if its working
 ```
-*now go to your public ip address from the browser, you should see Test page of Apache*
+*(now go to your public ip address from the browser, you should see Test page of Apache)*
  
 2. Try to launch simple html web page
  
@@ -90,5 +90,5 @@ node server.js 				#Run node server.js
 
 <img src="documents/im3.png" width=600>
 
-*note nodejs bug, if we have error running ` node server.js` then use the command  `killall -9 node` to clear the running server.js and rerun `node server.js` again* 
+*(note nodejs bug, if we have error running ` node server.js` then use the command  `killall -9 node` to clear the running server.js and rerun `node server.js` again)* 
 
