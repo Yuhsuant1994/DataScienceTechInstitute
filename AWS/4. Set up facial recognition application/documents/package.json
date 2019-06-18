@@ -1,0 +1,17 @@
+{
+  "name": "dstifamily",
+  "version": "1.0.0",
+  "description": "DSTIFamily Project for AWS Course",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.147.0",
+    "body-parser": "^1.18.2",
+    "data-uri-to-buffer": "^2.0.0",
+    "express": "^4.16.2"
+  }
+}
