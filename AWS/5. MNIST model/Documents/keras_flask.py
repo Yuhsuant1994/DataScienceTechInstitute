@@ -7,7 +7,7 @@ import os
 import re
 import base64
 from flask_cors import CORS
-from scipy import imresize
+from scipy.misc import imresize
 
 from keras.models import load_model
 import tensorflow as tf
