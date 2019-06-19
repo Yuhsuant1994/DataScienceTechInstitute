@@ -92,3 +92,5 @@ node server.js 				#Run node server.js
 
 *(note nodejs bug, if we have error running ` node server.js` then use the command  `killall -9 node` to clear the running server.js and rerun `node server.js` again)* 
 
+
+reference: https://github.com/leodsti/AWS_Tutorials/tree/master/Rekognition
