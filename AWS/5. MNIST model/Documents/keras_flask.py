@@ -6,13 +6,15 @@ import sys
 import os
 import re
 import base64
+from flask_cors import CORS
+from scipy import imresize
 
 from keras.models import load_model
 import tensorflow as tf
 import numpy as np
 
 app = Flask(__name__)
-
+CORS(app, support_credentials=True)  
 # Path to our saved model
 sys.path.append(os.path.abspath("./cnn-mnist"))
 #Initialize some global variables
