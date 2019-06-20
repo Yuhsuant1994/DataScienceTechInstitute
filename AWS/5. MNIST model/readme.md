@@ -90,7 +90,7 @@ conda install opencv
 1. (basic)Linux instance: Web server for front end (with HTTP firewall open: port 80)
 2. (basic)Ubuntu instance: App server for backend 
 
-<img src="image/im5.png" width=600>
+<img src="image/im5.png" width=800>
 
 ## Step 2: Setup web server (Front end)
  
