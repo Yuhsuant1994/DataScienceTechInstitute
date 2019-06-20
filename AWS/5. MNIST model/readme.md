@@ -143,17 +143,18 @@ sudo pip3 install flask_cors
 
 6. Run the python code (note that the trained model should be on the same directory): `python3 keras_flask.py`
 
-<img src="image/im7.png" width=450>
+<img src="image/im7.png" width=600>
 
 7. Above image shown that we need to modify the security group (App server): add port 5000
 
+<img src="image/im8.png" width=450>
 
 # Result
 
 1. Run `python3 keras_flask.py`
 2. Open your web to predict and see the result
 
-<img src="image/im8.png" width=600>
+<img src="image/im9.png" width=600>
 
 
 
