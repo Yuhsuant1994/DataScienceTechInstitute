@@ -1,4 +1,6 @@
-# Optimization for below 3 functions using gradient based algorithm (in Python Scipy) and heuristic technique (in R GA)
+# Content
+
+Optimization for below 3 functions using gradient based algorithm (in Python Scipy) and heuristic technique (in R GA)
 
 1. Banana (Rosenvrock) function
 2. Eggcrate function
