@@ -8,4 +8,4 @@ Topic link:
 
 [4. Set up facial recognition application](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/AWS/4.%20Set%20up%20facial%20recognition%20application)
 
-[5. MNIST model](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/AWS/5.%20MNIST%20model)
+[5. Website interface MNIST model](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/AWS/5.%20MNIST%20model)
