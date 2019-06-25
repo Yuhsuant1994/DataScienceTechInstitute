@@ -1,8 +1,7 @@
 ## DataScienceTechInstitute
 Projects and exercise from DSTI
 
-### 1. Software Engineerting (TBF)
-[(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering)
+### 1. Software Engineerting (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering)
 
 Basic concept of several different computer languages.
 
@@ -10,9 +9,7 @@ Basic concept of several different computer languages.
 2. C++
 3. Python 
 
-### 2. Statistic (TBF)
-
-[(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
+### 2. Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
 
 ### 3. AWS 
 
