@@ -5,9 +5,9 @@ Projects and exercise from DSTI
 
 Basic concept of several different computer languages.
 
-1. C
-2. C++
-3. Python 
+  * C
+  * C++
+  * Python 
 
 ### 2. Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
 
