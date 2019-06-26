@@ -1,8 +1,8 @@
 ---
 title: "D1 K Mean"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 # reminder about the descriptive statisic
 ```{r}
@@ -18,7 +18,7 @@ As we saw, descriptive statistics are useful to start discovering the data
 hist(x$Sepal.Length)
 ```
 
-#best choice by ggplot (bins number)
+* best choice by ggplot (bins number)
 ```{r}
 library(ggplot2)
 ggplot(x)+geom_histogram(aes(x=Sepal.Length))
@@ -41,7 +41,7 @@ pairs(x[,-5],col=as.numeric(x$Species))
 ```
 
 
-# Cluster
+# (Unsupervised learning) Clustering
 ## K-means
 
 The K means algorithm is provided in the 'class package ' and the function is named 'kmeans'
@@ -87,7 +87,23 @@ for (k in 1:15){
   out=kmeans(x1,k,nstart=15)
   J1[k]=out$betweenss/out$totss   #B/S
 }
-plot(1:15,J,type='b') 
+plot(1:15,J1,type='b') 
+
+# we find a smallest point up to the last 10 % (we can put a threshold on the plot)
+abline(h=0.9*max(J1[15]-J1[1]),col='red')
+J1
+```
+
+Better automation to find give us the optimal point with threshold=0.1
+```{r}
+#better automation: point to point difference
+thd=0.1
+plot(diff(J1),type='b')
+abline(h=thd*max(diff(J1)),col='red')
+#plus one because the points here are the difference
+#for
+Kstar=max(which(diff(J1)>=thd*max(diff(J1))))+1
+Kstar
 ```
 
 I assume either 4 or 5 groups to choose
@@ -100,8 +116,7 @@ pairs(x1,col=out12$cluster,pch=19)
 out12
 #here we see that the cluster 2 means we think it is a big city, more balance
 #there's geneve, Rive Droite, Rive Gauche
+#with K-mean we don't really see which variable is most contributed
 ```
-
-
 
 (short insert cut ctrl+alt+I)
