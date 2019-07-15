@@ -8,6 +8,7 @@ Basic concept of several different computer languages.
    * C
    * C++
    * Python 
+   * SQL
 
 ### 2. Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
 
