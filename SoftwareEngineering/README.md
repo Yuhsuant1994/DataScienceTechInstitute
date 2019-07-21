@@ -21,9 +21,9 @@ Basic class inheritance in C++ with the virtual class Mamal with Dog and Cat cla
 
 [3. 2DGeometry And Overload](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/Python/Python_3_2DGeometryAndOverload.py)
 2DGeometry of **Point2D, StraightLine and LineSegment**, with overloading class 
-*	__init__  (and copy constructor)
-*	__str__
-*	__new__
-*	__eq__
+*	`__init__`  (and copy constructor)
+*	`__str__`
+*	`__new__`
+*	`__eq__`
 
 ## SQL
