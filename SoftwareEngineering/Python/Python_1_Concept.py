@@ -46,4 +46,86 @@ print(instlookup(test,'y'))
 
 
 
+#list method
+a=1
+b=2
+c=3
+d= Point2D(x=2,y=4)
+#print(hex(id(a)))
+#print(hex(id(b)))
+#print(hex(id(c)))
+#cleaner way to print address
+mylist=[a,b,c,d]
+for currentValue in mylist:
+    print(hex(id(currentValue)))
+#a=50 is different memory location then a=1
+a=50
+print(hex(id(a)))
+#when a change back to 1 the memory location is the same, Python is storing the value
+#the location is not immediately release
+a=1
+print(hex(id(a)))
+print(mylist)
+
+obj1, obj2, *_=mylist
+obj1=30
+
+mylist[0]=500
+mylist.append('a')
+mylist.remove(b)
+
+
+list3=[1,2,3]+[4,5]
+if(7 not in list3):                               
+    print("7 not in list 3")
+
+list4=list3[0:3]  # include first element exclude last [1,2,3]
+list5=list3[1:-2] #[2,3]
+
+#list can be sorted
+list3.reverse()
+list3.sort()
+
+listNumAndTex=["hello",50,20,"Guys"]
+#listNumAndTex.sort() 
+#"<" not support, so we also need to define this overload for different datatype if we need to do this
+
+list3=[1,2,3]+[4,5]
+def apply_to_list(aList, lmd):
+    return[lmd(x)for x in aList]
+list3Times3=list3*3 #[12345 12345 12345]
+list3Times3a=apply_to_list(list3, lambda x: x*3) #[3,6,9,12,15]
+list3Times3b=apply_to_list(list3, lambda x: int(x/3))
+
+
+#dictionary:
+#can be multitype
+my_dict={'a':1,'b':2,'c':3}
+for currentkey in my_dict:
+    print(currentkey)
+print(len(my_dict))
+my_dict[1]=50  #add 50 with the key 1
+#even the key doesn't need to be consistance
+my_dict['a']=50
+
+
+#generator
+mygenerator=iter(my_dict)
+listcoversion=list(mygenerator) #here it give me a list of the keys in the dictionary
+
+#generator
+def square(n=10):
+    print("generating squares of number form 1 to {0}".format(n))
+    for i in range(1,n+1):
+        yield i**2
+        #yeild provides an generator
+
+gen=square(n=5)
+#this does not trigger the execution of the square
+#the function will be execited only when the generator is iterated over
+print(gen)
+for x in gen:
+    print(x)
+
+
 print('hi')
