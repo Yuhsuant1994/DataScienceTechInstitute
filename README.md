@@ -22,5 +22,5 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
    * Gradient based algorithm **(in python)**
    * Heuristic technique (GA) **(in R)**
 
-### 5. Statistical analysis of massive data **(in R)** [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
+### 5. Statistical analysis of massive data (in R)(TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
 
