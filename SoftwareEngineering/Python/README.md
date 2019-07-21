@@ -1,4 +1,6 @@
-[1. concept](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/Python/Python_1_Concept.py)
+# Python
+
+[1. Concept](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/Python/Python_1_Concept.py)
 * Dynamic object
 * Initial Constructors 
 * Class attribute vs. instance attribute
