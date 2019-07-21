@@ -6,8 +6,8 @@ Projects and exercise from DSTI
 Basic concept of several different computer languages.
 
    * C
-   * C++
-   * Python 
+   * [C++](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/CPP_1_Class%20inheritance)
+   * [Python](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/Python) 
    * SQL
 
 ### 2. Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
