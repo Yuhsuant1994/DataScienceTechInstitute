@@ -40,7 +40,7 @@ DB: WideWorldImporters ([From SQL sample database]( https://github.com/Microsoft
 
 DB: irissql ([see database folder](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/DataBase))
 
-Scenario 1:
+Scenario 1: (default)
 --- 
 * Open 2 query at the same time
 * Query 1: `Begin transaction` -> delete data
@@ -50,7 +50,7 @@ Scenario 1:
 
 *During the transaction, if the data is updated, inserted or deleted, it would block other transactions to view the table*
 
-Scenario 2:
+Scenario 2: (snaspshot)
 ---
 * Open 2 query at the same time
 * Query 1: `SET TRANSACTION ISOLATION LEVEL SNAPSHOT` -> `Begin transaction` -> delete data
