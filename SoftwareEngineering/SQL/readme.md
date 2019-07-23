@@ -35,3 +35,27 @@ DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsof
 
 * Q10: DO WE HAVE CONSISTENCY OF PRICES BETWEEN THE UNITPRICE COLUMN IN INVOICELINES AND THE STOCKITEMS TABLE ?
   1. Extract all the StockItemID from InvoiceLines where the UnitPrice of the product is different from the StockItem table
+  
+   
+## [SQL_3_Transaction (default and snapshot)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_3_Transaction.sql)
+
+Scenario 1:
+--- 
+* Open 2 query at the same time
+* Query 1: `Begin transaction` -> delete data
+* Query 2: `Begin transaction` -> select deleted data from Query 1, or even select all -> non stop loading
+* Query 1: `ROLLBACK` 
+* Query 2: see the result
+
+*During the transaction, if the data is updated, inserted or deleted, it would block other transactions to view the table*
+
+Scenario 2:
+---
+* Open 2 query at the same time
+* Query 1: `SET TRANSACTION ISOLATION LEVEL SNAPSHOT` -> `Begin transaction` -> delete data
+* Query 2: `Begin transaction` -> select deleted data from Query 1, or even select all -> we can see the result
+* Query 1: `COMMIT`
+* Query 2: select again the deleted data -> not be able to seen anymore
+
+*SET TRANSACTION ISOLATION LEVEL SNAPSHOT: disabled by default in MSSQL for space preservation reason. We can change it in the database `property`->`option`->`miscellaneous`->`allow snapshot Isolation & is read committed snapshot on`*
+
