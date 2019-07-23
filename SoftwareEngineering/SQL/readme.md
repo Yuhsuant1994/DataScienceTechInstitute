@@ -3,7 +3,7 @@
 DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0))
 
 * Q1: count the number of cities (Distinct) in the table: application cities
-
+---
 * Q2: How could we hard-code a query which levarages two rows as a resultset? 
 
 * Q3: (self Join) BillToCustomerId materialises the following business requirement
