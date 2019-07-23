@@ -3,7 +3,7 @@
 DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0))
 
 * Q1: count the number of cities (Distinct) in the table: application cities
----
+
 * Q2: How could we hard-code a query which levarages two rows as a resultset? 
 
 * Q3: (self Join) BillToCustomerId materialises the following business requirement
@@ -31,4 +31,4 @@ DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsof
 * Q9: Date format playground
 
 * Q10: DO WE HAVE CONSISTENCY OF PRICES BETWEEN THE UNITPRICE COLUMN IN INVOICELINES AND THE STOCKITEMS TABLE ?
-  1. Extract all the StockItemID from InvoiceLines where the UnitPrice of the product is different from the StockItem table 
+  1. Extract all the StockItemID from InvoiceLines where the UnitPrice of the product is different from the StockItem table
