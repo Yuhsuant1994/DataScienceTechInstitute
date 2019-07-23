@@ -8,7 +8,7 @@ Basic concept of several different computer languages.
    * C
    * [C++](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/CPP_1_Class%20inheritance)
    * [Python](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/Python) 
-   * SQL
+   * [SQL](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL)
 
 ### 2. Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
 
