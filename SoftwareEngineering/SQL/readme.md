@@ -1,5 +1,5 @@
 # SQL
-## SQL_1_BasicQuery1
+## [SQL_1_BasicQuery1](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_1_BasicQuery1.sql)
 DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0))
 
 * Q1: count the number of cities (Distinct) in the table: application cities
@@ -21,6 +21,9 @@ DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsof
   1. ResultSet: One Column, One Row
 
 * Q6: INSPECTING DATA FOR POSSIBLE INCONSISTENCIES, can we find invoices where the value of BillToCustomerID is different from the value of the same attribute in the Customers table?
+
+## [SQL_2_BasicQuery2](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_2_BasicQuery2.sql)
+DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0))
 
 * Q7: PIVOTING ANG AGGREGATES COMPUTATION
   1. This query must extract the total sales for the period 2013-2015, the years being in columns
