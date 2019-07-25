@@ -42,3 +42,8 @@ Basic class inheritance in C++ with the virtual class Mamal with Dog and Cat cla
 * default transaction
 * snapshot transaction
 
+[4. Extract all by NOT EXISTS](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_4_Extract_all_by_NOT_EXISTS.sql)
+
+[5. Pivoting survey table](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_5_PivotingSurveyTable.sql)
+
+[6. Programmatic SQL](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL)
