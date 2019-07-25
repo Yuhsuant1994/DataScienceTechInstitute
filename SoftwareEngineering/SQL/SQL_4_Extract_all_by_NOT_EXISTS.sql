@@ -30,3 +30,6 @@ WHERE NOT EXISTS(
 		AND PR.ProductId=PU.ProductId)
 			)
 
+--Code to insert data
+INSERT INTO Product(ProductDescription, ProductUnitPrice)
+VALUES ('Laptop Windows 10 Pro', 1500)
