@@ -60,3 +60,12 @@ Scenario 2: (snaspshot)
 
 *SET TRANSACTION ISOLATION LEVEL SNAPSHOT: disabled by default in MSSQL for space preservation reason. We can change it in the database `property`->`option`->`miscellaneous`->`allow snapshot Isolation & is read committed snapshot on`*
 
+## [SQL_4_Extract all by NOT EXISTS](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_4_Extract_all_by_NOT_EXISTS.sql)
+
+* EXTRACT ALL THE CUSTOMERS WHO HAVE BOUGHT (been invoiced) ALL THE PRODUCTS (StockItems)
+
+DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0))
+
+*first part of the code, no data would return, therefore we build a simple database to check if the code is correct*
+
+DB: Sqlplayground_s19 ([see database folder](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/DataBase))
