@@ -69,3 +69,20 @@ DB: WideWorldImporters ([From SQL sample data base]( https://github.com/Microsof
 *first part of the code, no data would return, therefore we build a simple database to check if the code is correct*
 
 DB: Sqlplayground_s19 ([see database folder](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/DataBase))
+
+## [SQL_5_PivotingSurveyTable](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_5_PivotingSurveyTable.sql)
+
+DB: NOT PROVIDED
+
+Expected result table:
+
+| UserID | SurveyID | Q1 | Q2 |
+|---|---|---|---|
+|X|1|1|10|
+|Y|1|2|5|
+|Z|3|1|50|
+
+From Table
+* Answer (`QuestionID`,`SurveyID`,`UserID`,`Answer`)
+* User (`UserID`,`UserName`,`UserEmail`)
+* SurveyStructure (`SurveyID`,`QuestionID`,`OrdinalValue`)
