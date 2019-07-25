@@ -72,7 +72,7 @@ DB: Sqlplayground_s19 ([see database folder](https://github.com/Yuhsuant1994/Dat
 
 ## [SQL_5_PivotingSurveyTable](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_5_PivotingSurveyTable.sql)
 
-DB: NOT PROVIDED
+
 
 Expected result table:
 
@@ -82,12 +82,14 @@ Expected result table:
 |Y|1|2|5|
 |Z|3|1|50|
 
-From Tables
+## [SQL_6_Programmatic_SQL](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL)
+
+DB: NOT PROVIDED 
+
+Tables
 * Answer (`QuestionID`,`SurveyID`,`UserID`,`Answer`)
 * User (`UserID`,`UserName`,`UserEmail`)
 * SurveyStructure (`SurveyID`,`QuestionID`,`OrdinalValue`)
-
-## [SQL_6_Programmatic_SQL](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL)
 
 1. Query: Generate Random Users in the user table (using GUID) ([code](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.1_QueryGenerateRandomUser.sql))
 2. Stored Procedure: Generate Random Users ([code](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.2_ProcedureGenerateRandomUser.sql))
