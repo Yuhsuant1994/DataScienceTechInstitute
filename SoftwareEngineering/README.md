@@ -2,13 +2,13 @@
 
 ## C
 
-## [C++](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/CPP_1_Class%20inheritance)
+## C++ [(C++ folder link)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/CPP_1_Class%20inheritance)
 
 [1. Class inheritance](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/CPP_1_Class%20inheritance)
 
 Basic class inheritance in C++ with the virtual class Mamal with Dog and Cat class belonging to Mamal.
 
-## [Python](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/Python) 
+## Python [(Python folder link)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/Python) 
 [1. concept](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/Python/Python_1_Concept.py)
 * Dynamic object
 * Initial Constructors 
@@ -26,7 +26,7 @@ Basic class inheritance in C++ with the virtual class Mamal with Dog and Cat cla
 *	`__new__`
 *	`__eq__`
 
-## [SQL](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL)
+## SQL [(SQL folder link)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL)
 [1. Basic Query part1](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_1_BasicQuery1.sql)
 
 [2. Basic Query part2](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_2_BasicQuery2.sql)
