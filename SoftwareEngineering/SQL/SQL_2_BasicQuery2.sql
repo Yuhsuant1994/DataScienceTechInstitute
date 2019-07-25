@@ -124,8 +124,8 @@ WHERE AccountOpenedDate Between convert(date, '01/01/2013', @UKDateFormat)
 SELECT DATEDIFF(month, '2004-12-31 23:59:59.9999999', '2006-01-01 00:00:00.0000000');
 SELECT CONVERT(date, '28/05/2019', 103)
 
-/* Q10: DO WE HAVE CONSISTENCY OF PRICES BETWEEN THE UNITPRICE COLUMN IN INVOICELINES AND THE STOCKITEMS TABLE ?*/
-/* Extract all the StockItemID from InvoiceLines where the UnitPrice of the product is different from the StockItem table */
+/* Q10: DO WE HAVE CONSISTENCY OF PRICES BETWEEN THE UNITPRICE COLUMN IN INVOICELINES AND THE STOCKITEMS TABLE 
+Extract all the StockItemID from InvoiceLines where the UnitPrice of the product is different from the StockItem table */
 
 SELECT DISTINCT W.StockItemID, W.StockItemName, IL.UnitPrice as InvoicePrice, W.UnitPrice as WarehousePrice	
 FROM Sales.InvoiceLines as IL,
@@ -133,4 +133,19 @@ FROM Sales.InvoiceLines as IL,
 WHERE W.StockItemID=IL.StockItemID	
 AND W.UnitPrice<>IL.UnitPrice
 ORDER BY StockItemID, InvoicePrice
+
+/* Q11: EXTRACT ALL THE CUSTOMERS WHO HAVE BOUGHT (been invoiced) ALL THE PRODUCTS (StockItems) */
+SELECT * --C.CustomerID, C.CustomerName 
+FROM Sales.Customers as C
+WHERE NOT EXISTS(
+	SELECT *
+	FROM Warehouse.StockItems as S
+	WHERE NOT EXISTS(
+		SELECT *
+		FROM Sales.InvoiceLines as IL
+			,Sales.Invoices as I
+		WHERE I.InvoiceID=IL.InvoiceID
+			AND S.StockItemID=IL.StockItemID
+			AND C.CustomerID=I.CustomerID)
+			)
 
