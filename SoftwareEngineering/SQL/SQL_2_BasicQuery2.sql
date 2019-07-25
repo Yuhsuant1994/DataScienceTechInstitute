@@ -134,18 +134,3 @@ WHERE W.StockItemID=IL.StockItemID
 AND W.UnitPrice<>IL.UnitPrice
 ORDER BY StockItemID, InvoicePrice
 
-/* Q11: EXTRACT ALL THE CUSTOMERS WHO HAVE BOUGHT (been invoiced) ALL THE PRODUCTS (StockItems) */
-SELECT * --C.CustomerID, C.CustomerName 
-FROM Sales.Customers as C
-WHERE NOT EXISTS(
-	SELECT *
-	FROM Warehouse.StockItems as S
-	WHERE NOT EXISTS(
-		SELECT *
-		FROM Sales.InvoiceLines as IL
-			,Sales.Invoices as I
-		WHERE I.InvoiceID=IL.InvoiceID
-			AND S.StockItemID=IL.StockItemID
-			AND C.CustomerID=I.CustomerID)
-			)
-
