@@ -36,8 +36,6 @@ DB: WideWorldImporters ([From SQL sample database]( https://github.com/Microsoft
 * Q10: DO WE HAVE CONSISTENCY OF PRICES BETWEEN THE UNITPRICE COLUMN IN INVOICELINES AND THE STOCKITEMS TABLE ?
   1. Extract all the StockItemID from InvoiceLines where the UnitPrice of the product is different from the StockItem table
 
-* Q11: EXTRACT ALL THE CUSTOMERS WHO HAVE BOUGHT (been invoiced) ALL THE PRODUCTS (StockItems)
-
 ## [SQL_3_Transaction (default and snapshot)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_3_Transaction.sql)
 
 DB: irissql ([see database folder](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/DataBase))
