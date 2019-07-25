@@ -33,3 +33,5 @@ WHERE NOT EXISTS(
 --Code to insert data
 INSERT INTO Product(ProductDescription, ProductUnitPrice)
 VALUES ('Laptop Windows 10 Pro', 1500)
+INSERT INTO Purchase(Quantity, ProductId, CustomerId)
+VALUES (4, 4, 1)
