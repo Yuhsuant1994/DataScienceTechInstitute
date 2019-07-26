@@ -1,4 +1,4 @@
-# SQL
+# SQL: MSSQL
 ## [SQL_1_BasicQuery1](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_1_BasicQuery1.sql)
 DB: WideWorldImporters ([From SQL sample database]( https://github.com/Microsoft/sql-server-samples/releases/tag/wide-world-importers-v1.0))
 
