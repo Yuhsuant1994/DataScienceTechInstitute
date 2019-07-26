@@ -93,3 +93,12 @@ Expected result table:
 2. Stored Procedure: Generate Random Users ([code](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.2_ProcedureGenerateRandomUser.sql))
 3. Stored Procedure: Generate Random Answer ([code](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.3_ProcedureGenerateRandomAnswer.sql))
 
+## [SQL_7_Trigger](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/SQL_7_Trigger)
+
+DB: S19SQLPlayground_student ([see database folder](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/DataBase))
+
+* Trigger (one row at a time): StudentNumberGeneration (expected result: `year of cohort`, `last / max sequence nb in the database for this year`+1) [[code]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_7_Trigger/SQL_7.1_TriggerOneStudentNumber.sql)
+* Trigger (multiple row): ): StudentNumberGeneration (expected result: `year of cohort`, `last / max sequence nb in the database for this year`+1) [[code]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_7_Trigger/SQL_7.2_TriggerMultiStudentNumber.sql)
+
+
+
