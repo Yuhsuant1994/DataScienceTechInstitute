@@ -30,7 +30,7 @@ Basic class inheritance in C++ with the virtual class Mamal with Dog and Cat cla
 *	`__new__`
 *	`__eq__`
 
-## SQL 
+## SQL: MSSQL
 
 [(SQL folder link)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL)
 
@@ -47,3 +47,5 @@ Basic class inheritance in C++ with the virtual class Mamal with Dog and Cat cla
 [5. Pivoting survey table](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_5_PivotingSurveyTable.sql)
 
 [6. Programmatic SQL](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL)
+
+[7. SQL Trigger](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/SQL_7_Trigger)
