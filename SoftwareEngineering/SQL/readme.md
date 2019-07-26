@@ -89,9 +89,10 @@ Expected result table:
 
 ## [SQL_6_Programmatic_SQL](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL)
 
-1. Query: Generate Random Users in the user table (using GUID) ([code](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.1_QueryGenerateRandomUser.sql))
-2. Stored Procedure: Generate Random Users ([code](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.2_ProcedureGenerateRandomUser.sql))
-3. Stored Procedure: Generate Random Answer ([code](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.3_ProcedureGenerateRandomAnswer.sql))
+1. Query: Generate Random Users in the user table (using GUID) [[code]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.1_QueryGenerateRandomUser.sql)
+2. Stored Procedure: Generate Random Users [[code]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.2_ProcedureGenerateRandomUser.sql)
+3. Stored Procedure: Generate Random Answer [[code]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.3_ProcedureGenerateRandomAnswer.sql)
+4. Dynamic Generate Answer Table (reference as [SQL_5_PivotingSurveyTable](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL#sql_5_pivotingsurveytable)) [[code]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/SQL/SQL_6_Programmatic_SQL/SQL_6.4_DynamicGenerateAnswerTable.sql)
 
 ## [SQL_7_Trigger](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL/SQL_7_Trigger)
 
