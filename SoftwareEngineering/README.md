@@ -30,6 +30,10 @@ Basic class inheritance in C++ with the virtual class Mamal with Dog and Cat cla
 *	`__new__`
 *	`__eq__`
 
+[4. Connect Python to MSSQL server for Query](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/SoftwareEngineering/Python/Python_4_PythonConnectMSSQL.py)
+This code, we tried to find the customer who has bought all the product from purchase table (there's customer, product and purchase table).
+
+
 ## SQL: MSSQL
 
 [(SQL folder link)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL)
