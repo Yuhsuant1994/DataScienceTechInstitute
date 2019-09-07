@@ -23,7 +23,7 @@
 
 This code, we tried to find the customer who has bought all the product from purchase table (there's customer, product and purchase table).
 
-Steps:
+**Steps:**
 * we connect to the MSSQL server to S19SQLPlayground Database. 
 * Write query to store the data into Pandas dataframe. 
 * Iterate over the 3 tables created in order to count How many purchase they have made
