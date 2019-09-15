@@ -2,25 +2,25 @@ import pandas as pd
 import revoscalepy as revoscale 
 import time
 #used as DB Connection framework, in MSSQL Python env
-
 def DoInMemoryDivision_SQLPlayground():
     start_time=time.time()
     #define the strings for connection
-    conn_str = 'Driver=SQL Server;Server=<your server>;Database=S19SQLPlayground;Trusted_Connection=True;'
+    conn_str = 'Driver=SQL Server;Server=SANDY;Database=S19SQLPlayground;Trusted_Connection=True;'
     customer_query='''SELECT * FROM dbo.Customer;'''
     product_query='''SELECT * FROM dbo.Product;'''
     purchase_query='''SELECT * FROM dbo.Purchase;'''
 
+    input_query=[customer_query,product_query,purchase_query]
+    table_name=['customer_data','product_data','purchase_data']
+
     #try connection and write query to build the dataframe
     connected=True
     try:
-        cu_data_source = revoscale.RxSqlServerData(sql_query=customer_query,connection_string=conn_str)
-        pr_data_source = revoscale.RxSqlServerData(sql_query=product_query,connection_string=conn_str)
-        pu_data_source = revoscale.RxSqlServerData(sql_query=purchase_query,connection_string=conn_str)
-        revoscale.RxInSqlServer(connection_string=conn_str, num_tasks=1, auto_cleanup=False)
-        customer_data = pd.DataFrame(revoscale.rx_import(cu_data_source))
-        product_data = pd.DataFrame(revoscale.rx_import(pr_data_source))
-        purchase_data = pd.DataFrame(revoscale.rx_import(pu_data_source))
+        for i in range(len(input_query)):
+            data_source = revoscale.RxSqlServerData(sql_query=input_query[i],connection_string=conn_str)        
+            revoscale.RxInSqlServer(connection_string=conn_str, num_tasks=1, auto_cleanup=False)
+            #globals()[name] create new variable
+            globals()[table_name[i]]=pd.DataFrame(revoscale.rx_import(data_source))
     except:
         print("Cannot connect to DataBase and create the data table, existing...")
         connected=False
@@ -51,7 +51,5 @@ def DoInMemoryDivision_SQLPlayground():
 
     end_time=time.time()
     print("This took "+str(end_time-start_time)+" s")
-
-                    
-
+                   
 DoInMemoryDivision_SQLPlayground()
