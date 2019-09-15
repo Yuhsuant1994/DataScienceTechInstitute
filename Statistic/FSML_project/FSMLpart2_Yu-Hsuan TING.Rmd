@@ -1,0 +1,304 @@
+---
+title: "FSML_Part 2_YuHsuanTING"
+author: "Yu-Hsuan TING"
+date: "Sep. 16 2019"
+output:
+  html_document: 
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,fig.height = 3.5)
+```
+
+---
+
+# Exercise 1:
+
+## (a). $X \sim \mathcal{N} (-1,0.01)$ 0.01 is variance. Compute:
+
+1. $P(X \le -0.98)$
+2. $P(X \le -1.02)$
+3. $P(X \ge -0.82)$
+4. $P(X \in [-1.22;-0.96])$
+
+```{r}
+#1
+pnorm(-0.98,mean = -1,sd = sqrt(0.01))
+#2.
+pnorm(-1.02,mean = -1,sd = sqrt(0.01))
+#3.
+1-pnorm(-0.82,mean = -1,sd = sqrt(0.01))
+#4.
+pnorm(-0.96,mean = -1,sd = sqrt(0.01))-pnorm(-1.22,mean = -1,sd = sqrt(0.01))
+```
+
+## (b). $X \sim \mathcal{N} (0,1)$ determine $t$ such that:
+
+1. $P(X \le t) = 0.9$
+2. $P(X \le t) = 0.2$
+3. $P(X \in [-t,t]) = 0.95$
+```{r}
+#1.
+qnorm(0.9)
+#2.
+qnorm(0.2)
+#3. 
+qnorm((1-0.95)/2)
+```
+
+# Exercise 2:
+
+## (a) Give the definition of a density function $f_d$
+
+>For continuous variable we use density function, we need to define first the number of class and the class range
+
+
+table class | relative frequence | density
+---|---|---
+$[\rho_1,\rho_2[$ | $f_1$ |$d_1$
+$[\rho_2,\rho_3[$ | $f_2$ |$d_2$
+... | ... | ...
+$[\rho_k,\rho_{k+1}[$ | $f_k$ |$d_k$
+
+>where $f_i=P(x \in [\rho_i,\rho_{i+1}])$ and $d_i=\frac{f_i}{\rho_{i+1}-\rho_i}$
+
+>Therefore density function is define as:
+
+$$\begin{aligned}
+f_d(x)=d_i \quad \text{if} \quad t\in[\rho_i,\rho_{i+1}[ \\
+0 \quad \qquad otherwise
+\end{aligned}$$
+
+  * $\forall x \in \mathbb{R} \quad f_d(x) \ge 0$
+
+  * $\int f_d(x) dx =1$
+
+## (b) Let $\theta_n$ an estimator of a parameter $\theta$. Give the definition of $\theta_n$ an unbiased estimator of $\theta$.
+
+> we say that $\theta_n$ is an unbiased estimator of $\theta$ if $\mathbb{E}[\theta_n]=\theta$ (expectation of $\theta_n$ is $\theta$)
+
+## (c) Let $X_1,...,X_n$ a n-sample. We denote by $\mu$ the expectation of $X_1$ and $\sigma^2$ its variance. Let $\overline {X_n}$ the empirical mean associated. Compute the expectation and the variance of $\overline {X_n}$.
+
+  *note that $\mathbb{E}[X_i]=\mu$ and $V[X_i]=\sigma^2$*
+
+> $\overline{X_n}=\frac{1}{n}\sum_{i=1}^{n} X_i$ we see that $\overline{X_n}$ just depend on $X_1,...,X_n$ so it is an estimator
+
+> $\mathbb{E}[\overline{X_n}]=\mathbb{E}[\frac{1}{n}\sum_{i=1}^{n} X_i]=\frac{1}{n}\sum_{i=1}^{n}\mathbb{E}[X_i]=\frac{1}{n}\times n \mu=\mu$ (here we understand that $\overline{X_n}$ is an unbiased estimator for $\mu$)
+
+> $V[\overline{X_n}]=V[\frac{1}{n}\sum X_i]=\frac{1}{n^2}\sum V[X_i]=\frac{1}{n^2}\times n\sigma^2=\frac{\sigma^2}{n}$
+
+
+## (d) Let $X_1,...,X_n$ a n-sample with a $\mathcal{N}(\mu,\sigma^2)$ distribution. Give an unbiased estimator of $\sigma^2$ when we assume that $\mu$ is unknown. Prove the fact that it is unbiased.
+
+  *note that $\mathbb{E}[X_i]=\mu$ and $V[X_i]=\sigma^2$*
+
+> $\hat{\sigma_n^2}$ is an estimator because it's just a function of $X_1,...,X_n$, and we can compute the expectation of $\hat{\sigma_n^2}$
+
+**we denote that:**
+
+> $V[X_i]=\mathbb{E}[X_i^2]-(\mathbb{E}[X_i])^2 \quad \text{so} \quad \sum\mathbb{E}[X_i^2]=n(\sigma^2+\mu)\\$
+
+> $V[\overline{X_n}]=\mathbb{E}[\overline{X_n}^2]-(\mathbb{E}[\overline{X_n}])^2 \quad \text{so} \quad\sum\mathbb{E}[\overline{X_n}^2]=n(\frac{\sigma^2}{n}+\mu) \quad \text{(refer to (c))}\\$
+
+> $\sum X_i=n\overline{X_n} \quad \text{so} \quad \sum 2X_i\overline{X_n}=2n\overline{X_n}^2 \\$
+
+**We can now compute the following:**
+
+> $\mathbb{E}[\hat{\sigma_n^2}]= \mathbb{E}[\frac{1}{n} \sum_{i=1}^{n}(X_i-\overline{X_n})^2]\\$
+
+> $=\frac{1}{n}\mathbb{E}[\sum X_i^2-\sum 2X_i\overline{X_n}+\sum\overline{X_n}^2]\\$
+
+> $=\frac{1}{n}(\mathbb{E}[\sum X_i^2]-\mathbb{E}[\sum 2X_i\overline{X_n}]+\mathbb{E}[\sum\overline{X_n}^2])\\$
+
+> $=\frac{1}{n}(\mathbb{E}[\sum X_i^2]-2n\mathbb{E}[\sum \overline{X_n}^2]+\mathbb{E}[\sum\overline{X_n}^2])\\$
+
+> $=(\sigma^2+\mu)-2\mathbb{E}[\overline{X_n}^2]+\mathbb{E}[\overline{X_n}^2]\\$
+
+> $=(\sigma^2+\mu)-(\frac{\sigma^2}{n}+\mu)=\frac{n-1}{n}\sigma^2\\$
+
+> we see from the equation $\mathbb{E}[\hat{\sigma_n^2}] = \frac{n-1}{n}\sigma^2 \ne \sigma^2$ so it is not an unbiased estimator, although $\frac{n-1}{1} \to 1 \quad\text{when}\quad n \to \infty$ we can say that $\hat{\sigma_n}^2$ is asymptotically an unbiased estimator of $\sigma^2$
+
+> we can do a linear transformation for our estimator (it would still be an estimator) $\mathbb{E}[\hat{\sigma_n^2}] = \frac{n-1}{n}\sigma^2 \quad \text{to}\quad \mathbb{E}[\frac{n}{n-1}\hat{\sigma_n^2}] = \sigma^2$ 
+.Therefore we can say that $\frac{n}{n-1}\hat{\sigma_n^2}$ is an unbiased estimator of $\sigma^2$
+
+# Exercise 3:
+```{r eval=FALSE, include=FALSE}
+getwd()
+dir()
+```
+* read table into `T1`
+```{r}
+T1=read.table('dataexam.txt')
+head(T1)
+dim(T1)
+```
+
+## (a) Make a test to show that those times are distributed according to a uniform distribution.
+
+* draw a histogram
+```{r,fig.width=5}
+T1=as.matrix(T1)
+hist(T1,freq=FALSE)
+```
+
+Uniform distrivurion $X \sim \mathrm{U}(a,b)$ where a is the lowest of x and b is the highest value of x
+
+with density function $f(x)= \frac{1}{b-a}$ for $a \le x\le b$
+
+theoretical mean and sd are $\mu = \frac{a+b}{2}$ and $\sigma = \sqrt{\frac{(b-a)^2}{12}}$
+
+* all the value is between
+```{r}
+maxT1=max(T1[,1])
+minT1=min(T1[,1])
+```
+* now we compute the sample mean
+```{r}
+sm=mean(T1[,1])
+ssd=sd(T1[,1])
+sm
+ssd
+```
+* we check the theoretical mean and sd, it is very close to the sample true mean and sd
+```{r}
+tm=(maxT1+minT1)/2
+tsd=sqrt((maxT1-minT1)**2/12)
+tm
+tsd
+```
+
+We see from the graph generate random uniform distribution it looks similar as our dataset, that we can say our dataset is uniform distribution
+
+```{r,fig.width=10}
+T2=runif(1625, minT1, maxT1)
+par(mfrow=c(1,2))
+hist(T1,freq=FALSE,main="actual data")
+hist(T2, freq = FALSE, main="random_uniform")
+lines(density(T2),col='red')
+#density(T2)
+```
+
+## (b) Now if we consider the time between two events, how can you modelize this distribution?
+draw the histogram of the difference between the data, it seems to be exponential distribution
+```{r,fig.width=5}
+difference=diff(T1[,1])
+hist(difference)
+```
+
+if $x\sim E(\lambda)$, $\mathbb E[x]=\frac{1}{\lambda}$
+```{r,fig.width=10}
+#actual
+m=mean(difference)
+m
+#theoretical
+lambda=1/m
+lambda
+
+#compare 2 histogram
+
+par(mfrow=c(1,2))
+hist(difference,freq=FALSE,main="actual data")
+#curve(dexp(lambda))
+test=rexp(n=1625,lambda)
+hist(test,freq = FALSE)
+#curve(dexp,xlim = c(0,1.2),add = TRUE)
+lines(density(test),col='red')
+```
+
+## (c) Guess the value of the parameter and compute a confidence interval for it.
+
+we assum that lambda is 8.121868, we are going to compute the confidence interval
+
+* Thanks to Central Limit theorem we have $\sqrt n \frac{\overline{x_{n}}-\mu}{\sigma} \sim \mathcal{N}(0,1)$
+
+* we denote that:
+
+  1. $\mu=\mathbb E[x]$ which is $\frac{1}{\lambda}$ in exponential distribution 
+  2. $\sigma = \sqrt {V[x]}$ which is $\sqrt{\frac{1}{\lambda^2}}$
+
+* so we can get:
+$\sqrt n (\lambda \overline{x_n}-1) \sim \mathcal{N}(0,1)$
+
+* we define S and T such that:
+$\mathrm{P}(\sqrt n (\lambda \overline{x_n}-1) \in [S,T])=1-\alpha$
+
+* we make a choice that S=-T, so T is the fractile of $1-\frac{\alpha}{2}$
+
+* it means that $P(\mathcal{N}(0,1) \le t)=1-\frac{\alpha}{2}$
+
+  $\mathrm{P}(\sqrt n (\lambda \overline{x_n}-1) \in [-T,T])=1-\alpha$
+
+  $\Leftrightarrow P(\frac{1}{\overline{x}}(1-\frac{t}{\sqrt{n}})\le\lambda\le \frac{1}{\overline{x}}(1+\frac{t}{\sqrt{n}}))$ with
+$\alpha =0.05$
+
+
+```{r}
+t=qnorm(0.975) #1-0.05/2
+lb=1/m*(1-t/sqrt(length(difference)))
+ub=1/m*(1+t/sqrt(length(difference)))
+cat("confidence interval:[",c(lb,ub),"]")
+```
+
+# Exercise 4:
+
+Let $X$ be a random variable whose distribution is an exponential with parameter $\lambda$ > 0
+
+## (a) We define the conditional probability $\mathrm{P}(A \mid B)$ by:
+
+$$\mathrm{P}(A \mid B)= \frac{\mathrm{P}(A \cap B)}{\mathrm{P}(B)}$$
+
+if $P(B)\ne 0$ Prove that the exponential random variable is with no memory which means:
+
+$$\forall s,t >0, \quad \mathrm P(X>t+s \mid X>t)=P(X>s)$$
+
+* for exponential cumulative probability $P(X<x)=1-e^{-\lambda x}$ that is $P(X>x)=e^{-\lambda x}$
+
+* equations:
+
+  $P(X>t+s \mid X>t)= \frac{P(X>t+s \quad\cap\quad X >t)}{P(X>t)}=\frac{P(X>t+s)}{P(x>t)}$
+  
+  $\Leftrightarrow \frac{e^{-\lambda (t+s)}}{e^{-\lambda t}}=\frac{e^{-\lambda t}\times e^{-\lambda s}}{e^{-\lambda t}}=e^{-\lambda s}$
+  
+  $\Leftrightarrow P(X>s)$
+
+*here since it is exponential distribution and s,t > 0, we can say that $P(X>t+s  \cap X >t)=P(X>t+s)$*
+
+* let's try with the code, set lambda=1, random choose an integer between 1 to 5 for t and s
+```{r}
+#random choose t and s
+set.seed(10)
+t=sample(1:5,1)
+s=sample(1:5,1)
+t
+s
+
+(1-pexp(t+s))/(1-pexp(t))
+
+1-pexp(s)
+```
+
+## (b) Let's consider $Y=E(x)+1$ where E(x) is the biggest integer smaller or equal to x
+
+let's try with 1000 random data, here we can see that our data is not anymore continuous. Moreover, y cannot be 0 the smallest is 1, we can assum it to be geometric distribution.
+```{r,fig.width=10}
+set.seed(10)
+par(mfrow=c(1,2))
+x=rexp(1000)
+hist(x, freq=FALSE)
+
+y=floor(x)+1
+hist(y)
+table(y)
+```
+
+
+with Geometric distribution, $\mu=\frac{1}{p}$ therefor we get p=0.6207325 and we do a random 1000 data from geometric distribution to see if it looks like our y
+```{r,fig.width=10}
+gp=1/mean(y)
+par(mfrow=c(1,2))
+hist(y)
+hist(rgeom(1000,gp))
+```
+
