@@ -14,6 +14,6 @@ follow the edX corse FA18: Time Series Analysis using R
 
 Comparing the trend with dataset `AvTempAtlanta.txt`, first to plot a time serie of the data using `ts()`, then to create the data point. Finally we use different methods to fit the trend of the data to see the comparison of different trend estimation method.
   * Moving average: built-in `ksmooth()`
-  * Parametric regression: quadratic polynomial $X_1+X_2$ using built-in `lm()`
+  * Parametric regression: quadratic polynomial ![X_1+X_2](https://latex.codecogs.com/gif.latex?x_1&plus;x_2) using built-in `lm()`
   * Non-Parametric Regression: **Local Polynomial trend estimation** with built-in `loess()` and **splines trend estimation** with `gam()` from `mgcv` library
   
