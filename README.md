@@ -12,7 +12,7 @@ Basic concept of several different computer languages.
 
 ### 2. Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
 
-  * [FSML project](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic/FSML_project)[[Questions]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/DSTIFundationsjuil19.pdf)[[Report]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/FSMLpart2_Yu-Hsuan_TING.pdf)
+  * [FSML project](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic/FSML_project)[[Questions]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/DSTIFundationsjuil19.pdf)[[Report]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/(Report_PDF)FSMLpart2_Yu-Hsuan_TING.pdf)
 
 ### 3. AWS [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/AWS)
 
