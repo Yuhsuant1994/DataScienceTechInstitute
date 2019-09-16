@@ -4,11 +4,10 @@
 
 [Report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/(Report_PDF)FSMLpart2_Yu-Hsuan_TING.pdf)
 
-  
-    -> Use R to compute probability and quantile 
+   -> Use R to compute probability and quantile 
     
-    -> Estimator exercise
+   -> Estimator exercise
     
-    -> Estimate distribution from raw data
+   -> Estimate distribution from raw data
     
-    -> Exercise with exponential distribution
+   -> Exercise with exponential distribution
