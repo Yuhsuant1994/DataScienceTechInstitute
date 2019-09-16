@@ -34,3 +34,6 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
 
 ### 5. Statistical analysis of massive data (in R)(TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
 
+### 6. Time series analysis [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
+
+  * Topic 1: Analyzing trend [(R exercise)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1.%20Analyzing%20trend.R)
