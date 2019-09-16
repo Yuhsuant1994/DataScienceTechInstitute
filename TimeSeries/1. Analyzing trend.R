@@ -1,5 +1,5 @@
 getwd()
-setwd("C:/Users/720S/Desktop/timeseries(edx")
+setwd("./timeseries(edx")
 data=read.table("AvTempAtlanta.txt",header=T)
 head(data)
 names(data)
