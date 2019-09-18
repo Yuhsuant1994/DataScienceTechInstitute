@@ -61,6 +61,6 @@ Linear regression, <br>gradient descent,<br>polynomial regression, | Logistic re
  #### Specific topics:
   * Feature selection: Wrapper methods (forward, backward, and stepwise selection),  Filter methods (ANOVA, Pearson correlation, variance thresholding), Embedded methods (Lasso, Ridge, Decision Tree)
   * PCA transformation
-  * manage Time series data 
+  * [manage Time series data](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
   * NLP
   * Image image recognition
