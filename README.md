@@ -37,3 +37,14 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
 ### 6. Time series analysis [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
 
   * Topic 1: Analyzing trend [(R exercise)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1.%20Analyzing%20trend.R)
+  
+### 7. Machine learning in R and Python(self exploration)
+
+There are 3 types of learning: **supervised learning** **unsupervised learning** **reinforcement learning**
+
+#### Supervised learning
+
+  * Regression: output is a real number or vector 
+  * Classification: output is a class label
+
+#### Unsupervised learning
