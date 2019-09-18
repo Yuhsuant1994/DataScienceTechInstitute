@@ -48,7 +48,11 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
   * Classification: output is a class label
   
   Method:
+  
 Regression | Classification | Both
+--- | --- |---
+y | y | Random forest, decision tree,  k-nearest neighbors, neural network
+ 
 
 
   2) Unsupervised learning
