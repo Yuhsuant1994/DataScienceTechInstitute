@@ -42,11 +42,15 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
 
 There are 3 types of learning: **supervised learning** **unsupervised learning** **reinforcement learning**
 
-#### Supervised learning
+  1) Supervised learning
 
   * Regression: output is a real number or vector 
   * Classification: output is a class label
 
-#### Unsupervised learning
+  2) Unsupervised learning
 
   * Clustering
+  
+ #### Specific topics:
+  * Time series
+  * NLP
