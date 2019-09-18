@@ -46,6 +46,10 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
 
   * Regression: output is a real number or vector 
   * Classification: output is a class label
+  
+  Method:
+Regression | Classification | Both
+
 
   2) Unsupervised learning
 
