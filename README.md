@@ -52,5 +52,6 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
   * Clustering
   
  #### Specific topics:
-  * Time series
+  * manage Time series data 
   * NLP
+  * Image image recognition
