@@ -51,7 +51,7 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
   
 Regression | Classification | Both
 --- | --- |---
-y | y | Random forest, decision tree,  k-nearest neighbors, neural network
+y | y | [Random forest](https://alvinalexander.com/text/how-put-multiple-lines-markdown-table-cell-multiline-table),<br>decision tree,<br>k-nearest neighbors,<br>neural network
  
 
 
