@@ -51,15 +51,16 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
   
 Regression | Classification | Both
 --- | --- |---
-y | y | Random forest,<br>decision tree,<br>k-nearest neighbors,<br>neural network
- 
+Linear regression, <br>gradient descent,<br>polynomial regression, | Logistic regression, <br> Support Vector Machine | K-nearest neighbors (KNN), <be> Random forest,<br>decision tree,<br>k-nearest neighbors,<br>artificial neural network
 
 
   2) Unsupervised learning
 
-  * Clustering
+  * Clustering: K-mean, Hierarchical clustering
   
  #### Specific topics:
+  * Feature selection: Wrapper methods (forward, backward, and stepwise selection),  Filter methods (ANOVA, Pearson correlation, variance thresholding), Embedded methods (Lasso, Ridge, Decision Tree)
+  * PCA transformation
   * manage Time series data 
   * NLP
   * Image image recognition
