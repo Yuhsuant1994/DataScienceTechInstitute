@@ -38,7 +38,7 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
 
   * Topic 1: Analyzing trend [(R exercise)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1.%20Analyzing%20trend.R)
   
-### 7. Machine learning in R and Python(self exploration)
+### 7. Machine learning in R and Python (self exploration and overview)
 
 There are 3 types of learning: **supervised learning** **unsupervised learning** **reinforcement learning**
 
@@ -51,7 +51,7 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
   
 Regression | Classification | Both
 --- | --- |---
-y | y | [Random forest](https://alvinalexander.com/text/how-put-multiple-lines-markdown-table-cell-multiline-table),<br>decision tree,<br>k-nearest neighbors,<br>neural network
+y | y | Random forest,<br>decision tree,<br>k-nearest neighbors,<br>neural network
  
 
 
