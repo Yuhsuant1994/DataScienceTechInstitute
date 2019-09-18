@@ -20,7 +20,7 @@ follow the edX corse FA18: Time Series Analysis using R
   1.	Moving Average
   2.	Parametric Regression (Linear, Quadratic, etc…)
   3.	Non-Parametric Regression
-### [Analyzing trend: R exercise](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1.%20Analyzing%20trend.R)
+### [Analyzing trend: R exercise](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_1_Analyzing_Trend.ipynb)
 
 Comparing the trend with dataset `AvTempAtlanta.txt`, first to plot a time serie of the data using `ts()`, then to create the data point. Finally we use different methods to fit the trend of the data to see the comparison of different trend estimation method.
   * Moving average: built-in `ksmooth()`
