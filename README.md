@@ -48,3 +48,5 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
   * Classification: output is a class label
 
 #### Unsupervised learning
+
+  * Clustering
