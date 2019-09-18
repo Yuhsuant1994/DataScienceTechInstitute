@@ -51,7 +51,7 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
   
 Regression | Classification | Both
 --- | --- |---
-Linear regression, <br>gradient descent,<br>polynomial regression, | Logistic regression, <br> Support Vector Machine | K-nearest neighbors (KNN), <be> Random forest,<br>decision tree,<br>k-nearest neighbors,<br>artificial neural network
+Linear regression, <br>gradient descent,<br>polynomial regression, | Logistic regression, <br> Support Vector Machine | K-nearest neighbors (KNN), <br> Random forest,<br>decision tree,<br>k-nearest neighbors,<br>artificial neural network
 
 
   2) Unsupervised learning
