@@ -50,3 +50,27 @@ Comparing the trend with dataset `AvTempAtlanta.txt`, first to plot a time serie
 **Part 3: check the stationary with autocorrelation functions**
 
 Here we would use the built-in `ACF` functions in R to check if the trend and seasonality is correctly removed.
+
+## Topic 3: Case Study
+
+[Emergency department care case](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_3_case_study_Emergency_department_care.ipynb)
+
+**Objective:**
+
+
+* Identify temporal patterns in the Emergency Department (ED) volume of patients
+
+* Develop a model to predict ED volum
+
+**Time Series Data:**
+
+* Daily number of patients visiting an emergency department of a hospital in the Atlanta area with observations from 2010 until mid 2015
+
+* Other predicting variables were made available by the hospital but we will only focus on the predictability of the time series with respect to temporal factors
+
+**Steps:**
+
+* We first do some data transformaiton for the date data, then normalize the `Volume` by `sqrt(Volume+3/8)`
+* Estimate trend: by **Local Polynomial Trend Estimation** and **## Splines Trend Estimation** we see the R-square is way too low
+* Estimate seasonality with **Seasonal means model** with only month first, then month+weekdays
+* We check for the stationary
