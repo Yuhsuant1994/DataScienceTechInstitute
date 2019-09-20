@@ -52,3 +52,14 @@ Comparing the trend with dataset `AvTempAtlanta.txt`, first to plot a time serie
  * **Cos-Sin model:** with R built-in `harmonic` function alone with `lm` function. A matrix consist of ![sincos](https://latex.codecogs.com/gif.latex?%5Ccos%282k%5Cpi%20t%29%24%2C%20%24%5Csin%282k%5Cpi%20t%29%2C%5Cquad%20k%3D1%2C2%2C...%2Cm). Here we try with one and two cosine curves. (note that sometimes it would improve the fit) 
  
  * if 2 models are similar in fitting the seasonality. We would prefer the **Cos-Sin model** due to the fact that it has less variables.
+ 
+**Part 2: Adding both seasonality and trend to the model**
+ 
+ * Simplest parametric model and non parametric model for the trend
+ * Cosine-sine model for seasonality
+ * Adding both trend and seasonality we can see that it explain well the data (here Adjusted R-squared is more than 90%)
+ * Plot the data eliminating both seasonality and trend gave us the plot of the residual.
+
+**Part 3: check the stationary with autocorrelation functions**
+
+Here we would use the built-in `ACF` functions in R to check if the trend and seasonality is correctly removed.
