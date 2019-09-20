@@ -10,3 +10,7 @@ Where ![z_WN](https://latex.codecogs.com/gif.latex?Z_t%20%5Csim%20%5Ctext%7BWN%7
 
 * AR order p and MA order q
 
+Write the ARMA model in a more compact form
+
+![compact](https://latex.codecogs.com/gif.latex?%5Cphi%28B%29X_t%3D%5Ctheta%28B%29Z_t)
+
