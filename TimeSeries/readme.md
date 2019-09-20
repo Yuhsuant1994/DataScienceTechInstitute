@@ -20,10 +20,35 @@ follow the edX corse FA18: Time Series Analysis using R
   1.	Moving Average
   2.	Parametric Regression (Linear, Quadratic, etc…)
   3.	Non-Parametric Regression
+
 ### [Analyzing trend: R exercise](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_1_Analyzing_Trend.ipynb)
 
 Comparing the trend with dataset `AvTempAtlanta.txt`, first to plot a time serie of the data using `ts()`, then to create the data point. Finally we use different methods to fit the trend of the data to see the comparison of different trend estimation method.
   * Moving average: built-in `ksmooth()`
-  * Parametric regression: quadratic polynomial ![X_1+X_2](https://latex.codecogs.com/gif.latex?x&plus;x%5E2) using built-in `lm()`
+  * Parametric regression: quadratic polynomial ![X_1+X_2](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_1_Analyzing_Trend.ipynb) using built-in `lm()`
   * Non-Parametric Regression: **Local Polynomial trend estimation** with built-in `loess()` and **splines trend estimation** with `gam()` from `mgcv` library
   
+## Topic 2: Analyzing seasonality
+
+### Elimination of Seasonality
+
+ 1. Estimate Seasonality and remove it
+ 2. Difference the data to remove the Seasonality directly
+
+### Estimation Methods
+
+ 1. Seasonal average
+ 2. Parametric regression
+ 
+ * Fit a mean for each seasonality group (e.g. month) using linear regression
+ * Use a cosine-sin curve to fit the seasonal component
+
+### [Elimilating both seasonality and trend: R exercise](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_2_Analyzing_Seasonality_plus_autocorrelation_function.ipynb)
+
+**Part 1: For elimilating seasonality:**
+
+ * **Seasonal means model:**: with `season` in `TSA` library alone with `lm` functions. This method we create 12 dummy variable (categories) as our frequency is 12. We also compare 2 different model with and without intercept. (note that if there is intercept the coefficient is interpreted as the difference between 2 months: n and n-1)
+ 
+ * **Cos-Sin model:** with R built-in `harmonic` function alone with `lm` function. Here we try with one and two cosine curves. (note that sometimes it would improve the fit) 
+ 
+ * if 2 models are similar in fitting the seasonality. We would prefer the **Cos-Sin model** due to the fact that it has less variables.
