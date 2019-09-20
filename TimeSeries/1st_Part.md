@@ -53,7 +53,7 @@ Here we would use the built-in `ACF` functions in R to check if the trend and se
 
 ## Topic 3: Case Study
 
-[Emergency department care case](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_3_case_study_Emergency_department_care.ipynb)
+[Emergency department care case: R exercise](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_3_case_study_Emergency_department_care.ipynb)
 
 **Objective:**
 
