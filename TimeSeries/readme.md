@@ -9,3 +9,11 @@ follow the edX corse FA18: Time Series Analysis using R
    * ![Xt](https://latex.codecogs.com/gif.latex?X_t) is a stationary component (its probability distribution does not change with shifted in time
   
   **Approach:** ![mt](https://latex.codecogs.com/gif.latex?m_t) and ![st](https://latex.codecogs.com/gif.latex?s_t) are first estimated and subtracted from ![Yt](https://latex.codecogs.com/gif.latex?Y_t) to have left the stationary process ![Xt](https://latex.codecogs.com/gif.latex?X_t) to be model using time series modeling approaches.
+
+## [1st_Part (see more in the file)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1st_Part.md)
+
+ * Trend
+ * Seasonality
+ * Stationary
+ 
+ 
