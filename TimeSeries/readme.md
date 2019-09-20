@@ -49,6 +49,6 @@ Comparing the trend with dataset `AvTempAtlanta.txt`, first to plot a time serie
 
  * **Seasonal means model:**: with `season` in `TSA` library alone with `lm` functions. This method we create 12 dummy variable (categories) as our frequency is 12. We also compare 2 different model with and without intercept. (note that if there is intercept the coefficient is interpreted as the difference between 2 months: n and n-1)
  
- * **Cos-Sin model:** with R built-in `harmonic` function alone with `lm` function. Here we try with one and two cosine curves. (note that sometimes it would improve the fit) 
+ * **Cos-Sin model:** with R built-in `harmonic` function alone with `lm` function. A matrix consist of ![sincos](https://latex.codecogs.com/gif.latex?%5Ccos%282k%5Cpi%20t%29%24%2C%20%24%5Csin%282k%5Cpi%20t%29%2C%5Cquad%20k%3D1%2C2%2C...%2Cm). Here we try with one and two cosine curves. (note that sometimes it would improve the fit) 
  
  * if 2 models are similar in fitting the seasonality. We would prefer the **Cos-Sin model** due to the fact that it has less variables.
