@@ -14,6 +14,15 @@ Write the ARMA model in a more compact form
 
 ![compact](https://latex.codecogs.com/gif.latex?%5Cphi%28B%29X_t%3D%5Ctheta%28B%29Z_t)
 
+We can then gerenerate
+
+![Xt](https://latex.codecogs.com/gif.latex?X_t%3D%5Cfrac%7B%5Ctheta%28B%29%7D%7B%5Cphi%28B%29%7DZ_t)
+
+![Zt](https://latex.codecogs.com/gif.latex?Z_t%3D%5Cfrac%7B%5Cphi%28B%29%7D%7B%5Ctheta%28B%29%7DX_t)
+
+* Stationarity is determined by the AR process
+* Invertibility is determined by the MA process
+
 ### [ARMA Basic: R](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_4_ARMA_Basic.ipynb)
 
  1. Simulate White noise: with `rnorm` and `rexp`
