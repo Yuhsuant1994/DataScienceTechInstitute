@@ -14,3 +14,15 @@ Write the ARMA model in a more compact form
 
 ![compact](https://latex.codecogs.com/gif.latex?%5Cphi%28B%29X_t%3D%5Ctheta%28B%29Z_t)
 
+### [ARMA Basic: R](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_4_ARMA_Basic.ipynb)
+
+ 1. Simulate White noise: with `rnorm` and `rexp`
+ 2. Simulate moving average: with `filter` function and specify `side=1` 
+  * here we compare MA(2) with normal and exponential distributed white noise with coefficient (1, 0.5, 0.2) vs (1, -0.5, 0.2)
+  * then we try to see with non-stationary WN, that is Zt=WN(0,1)\*(2t+0.5)
+  * We see that for MA, we cannot see the non-stationarity from  `ACF` graph
+ 3. Simulate Autoregressive process: with `filter` function and specify `method='recursive`
+  * Compare stationary AR(1) and non-stationary AR(2)
+  * For AR, the non-stationary can see clearly from the `ACF` graph
+
+
