@@ -35,3 +35,9 @@ We can then gerenerate
   * For AR, the non-stationary can see clearly from the `ACF` graph
 
 
+# Exponential Smoothing
+
+The idea is to forcast future values using all previous values in the series.
+ * Simple Exponential smoothing (SES)
+ * Holt's (double) exponential smoothing
+ * Winter's (Advanced) exponential smoothing
