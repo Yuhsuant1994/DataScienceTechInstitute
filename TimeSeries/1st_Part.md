@@ -8,7 +8,7 @@
   2.	Parametric Regression (Linear, Quadratic, etc…)
   3.	Non-Parametric Regression
 
-### [Analyzing trend: R exercise](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_1_Analyzing_Trend.ipynb)
+### Analyzing trend[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_1_Analyzing_Trend.ipynb)
 
 Comparing the trend with dataset `AvTempAtlanta.txt`, first to plot a time serie of the data using `ts()`, then to create the data point. Finally we use different methods to fit the trend of the data to see the comparison of different trend estimation method.
   * Moving average: built-in `ksmooth()`
@@ -30,7 +30,7 @@ Comparing the trend with dataset `AvTempAtlanta.txt`, first to plot a time serie
  * Fit a mean for each seasonality group (e.g. month) using linear regression
  * Use a cosine-sin curve to fit the seasonal component
 
-### [Elimilating both seasonality and trend: R exercise](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_2_Analyzing_Seasonality_plus_autocorrelation_function.ipynb)
+### Elimilating both seasonality and trend[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_2_Analyzing_Seasonality_plus_autocorrelation_function.ipynb)
 
 **Part 1: For elimilating seasonality:**
 
@@ -53,7 +53,7 @@ Here we would use the built-in `ACF` functions in R to check if the trend and se
 
 ## Topic 3: Case Study
 
-[Emergency department care case: R exercise](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_3_case_study_Emergency_department_care.ipynb)
+Emergency department care case: R exercise[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_3_case_study_Emergency_department_care.ipynb)
 
 **Objective:**
 
