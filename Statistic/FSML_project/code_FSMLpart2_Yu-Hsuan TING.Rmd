@@ -181,6 +181,13 @@ lines(density(T2),col='red')
 #density(T2)
 ```
 
+We can also check by `ks.test` to perform a one- or two-sample Kolmogorov-Smirnov test. 
+
+Here the null hypothesis is that the data follow a uniform distribution. We see that the p-value is high so that we don't reject the null hypothesis.
+```{r}
+ks.test(T1,"punif",minT1,maxT1)
+```
+
 ## (b) Now if we consider the time between two events, how can you modelize this distribution?
 draw the histogram of the difference between the data, it seems to be exponential distribution
 ```{r,fig.width=5}
@@ -207,6 +214,13 @@ hist(test,freq = FALSE)
 #curve(dexp,xlim = c(0,1.2),add = TRUE)
 lines(density(test),col='red')
 ```
+We can also use `ks.test` to check the goodness of fit for exponential distribution. As the p-value is high we also don't reject the null hypothesis that is the difference is exponential distribution.
+
+```{r}
+ks.test(difference,"pexp",lambda)
+```
+
+
 
 ## (c) Guess the value of the parameter and compute a confidence interval for it.
 
@@ -295,11 +309,17 @@ table(y)
 ```
 
 
-with Geometric distribution, $\mu=\frac{1}{p}$ therefor we get p=0.6207325 and we do a random 1000 data from geometric distribution to see if it looks like our y
+with Geometric distribution, $\mu=\frac{1}{p}$ therefor we get p=0.6207325 and we do a random 1000 data from geometric distribution to see if it looks like our y. But `rgeom` start at 0 so we can add the value all to 1
 ```{r,fig.width=10}
 gp=1/mean(y)
 par(mfrow=c(1,2))
 hist(y)
-hist(rgeom(1000,gp))
+rg=rgeom(1000,gp)+1
+hist(rg)
+```
+We can then check the distribution from `ks.test`, the p-value is high that we can say it is a geometric distribution.
+
+```{r}
+ks.test(y,rg)
 ```
 
