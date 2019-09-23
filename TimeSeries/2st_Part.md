@@ -23,7 +23,7 @@ We can then gerenerate
 * Stationarity is determined by the AR process
 * Invertibility is determined by the MA process
 
-### [ARMA Basic: R](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_4_ARMA_Basic.ipynb)
+### ARMA Basic: R[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_4_ARMA_Basic.ipynb)
 
  1. Simulate White noise: with `rnorm` and `rexp`
  2. Simulate moving average: with `filter` function and specify `side=1` 
@@ -38,7 +38,7 @@ We can then gerenerate
  * We see also if |phi| is 0.9 almost 1, the process is reaching non-causality and non-stationary
  5. Invertibility: to see if we can go from a ARMA process to an AR process where the order can be infinity meaning that the ARMA ininfinity meangining that the ARMA process is invertible
 
-### [ACF and PACF: AR & MA Simulation](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_5_ARMA_simulation_with_ACF_and_PACF.ipynb)
+### ACF and PACF: AR & MA Simulation[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_5_ARMA_simulation_with_ACF_and_PACF.ipynb)
 
 * We see the **Moving Average** process for stationary and non-stationary: we can use **acf** plot to define the order
 * For **Autoregressive** process for stationary and non-stationary: we can use **pacf** plot to define the order. *Note that if one solution to the equation is on unit circle (that is equal to 1) means that it is not stationary*
@@ -52,11 +52,11 @@ We can then gerenerate
 |ACF|→0|0 from h=q|
 |PACF|0 from h=p|→0|
 
-### [Parameter Estimation: simlutation example](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_6_ARMA_Parameter_Estimation_Linear_regression.ipynb)
+### Parameter Estimation: simlutation example[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_6_ARMA_Parameter_Estimation_Linear_regression.ipynb)
 
 Linear regression for AR model, even if we stimulate AR(1) and fit it to AR(2) lm model, we still see that it suggest us that the model is AR(1).
 
-# [Exponential Smoothing](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_ex_Exonential_smoothing.ipynb)
+# Exponential Smoothing[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_ex_Exonential_smoothing.ipynb)
 
 The idea is to forcast future values using all previous values in the series.
  * Simple Exponential smoothing (SES)
