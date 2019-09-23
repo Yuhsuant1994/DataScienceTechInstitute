@@ -3,9 +3,9 @@ title: "FSML_Part 2_YuHsuanTING"
 author: "Yu-Hsuan TING"
 date: "Sep. 16 2019"
 output:
+  pdf_document: default
   html_document: 
     df_print: paged
-  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -317,9 +317,11 @@ hist(y)
 rg=rgeom(1000,gp)+1
 hist(rg)
 ```
-We can then check the distribution from `ks.test`, the p-value is high that we can say it is a geometric distribution.
+We can then check the distribution from `ks.test`, but since ks.test is meant to use for continouse variable, therefore I use `chisq.test` instead and it suggest me that it is a geometric distribution.
 
 ```{r}
-ks.test(y,rg)
+#ks.test(y,rg)
+chisq.test(y,rg)
 ```
+
 
