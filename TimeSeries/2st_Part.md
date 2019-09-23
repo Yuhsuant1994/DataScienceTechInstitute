@@ -56,7 +56,7 @@ We can then gerenerate
 
 Linear regression for AR model, even if we stimulate AR(1) and fit it to AR(2) lm model, we still see that it suggest us that the model is AR(1).
 
-# Exponential Smoothing
+# [Exponential Smoothing](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_ex_Exonential_smoothing.ipynb)
 
 The idea is to forcast future values using all previous values in the series.
  * Simple Exponential smoothing (SES)
