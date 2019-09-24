@@ -58,6 +58,8 @@ We can then gerenerate
  
 Linear regression: for AR model, even if we stimulate AR(1) and fit it to AR(2) lm model, we still see that it suggest us that the model is AR(1).
 
+Yule-Walker: we try to fit AR(3) to AR(2) we can see from the result it still suggest us it is a AR(2) model
+
 * MA model: innovation algorithem 
 
 
