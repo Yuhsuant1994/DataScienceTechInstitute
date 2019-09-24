@@ -52,9 +52,14 @@ We can then gerenerate
 |ACF|→0|0 from h=q|
 |PACF|0 from h=p|→0|
 
-### Parameter Estimation: simlutation example[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_6_ARMA_Parameter_Estimation_Linear_regression.ipynb)
+### Parameter Estimation
 
-Linear regression for AR model, even if we stimulate AR(1) and fit it to AR(2) lm model, we still see that it suggest us that the model is AR(1).
+ * AR model: **Linear regression**, method of moment approach **Yule-Walker Equations**[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_6_ARMA_Parameter_Estimation_Linear_regression.ipynb)
+ 
+Linear regression: for AR model, even if we stimulate AR(1) and fit it to AR(2) lm model, we still see that it suggest us that the model is AR(1).
+
+* MA model: innovation algorithem 
+
 
 # Exponential Smoothing[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_ex_Exonential_smoothing.ipynb)
 
