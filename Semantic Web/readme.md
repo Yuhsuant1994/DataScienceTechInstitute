@@ -1,7 +1,7 @@
 # Semantic Web
 
 
-**Extra resource: **
+**Extra resource:**
 
  * SPARQL engine [(available here)](https://team.inria.fr/wimmics/)
  
