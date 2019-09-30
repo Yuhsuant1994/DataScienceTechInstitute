@@ -64,3 +64,11 @@ Linear regression, <br>gradient descent,<br>polynomial regression, | Logistic re
   * [manage Time series data](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
   * NLP
   * Image image recognition
+
+### 7. Semantic Web [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Semantic%20Web)
+  
+  * Principle Linked Data
+  * RDF
+  * SPARQL
+  * RDFS + OWL
+  * other Data Sources, Famous Schema
