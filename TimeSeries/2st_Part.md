@@ -78,9 +78,18 @@ Step 2: we improve output on the estimation of the coefficients by obtaining the
 
 We use the residuals to assess goodness of fit for ARMA model the property of residuals should be: 
 
-* Uncorrelated: White Noise
-* Independent: IID
-* Normal distribution
+ 1. Uncorrelated: White Noise
+ 
+ * Sample ACF & PACF
+ * Portmanteau test: based on the sample autocorrelation of the residuals.
+ * Ljung-Box test: a slight variation of the Portmanteau test
+ * McLeod-Li test: is based on the sample autocorrelation of the squared residuals.
+ 
+ 2. Independent: IID
+ 
+ 3. Normal distribution
+ 
+ * Use Q-Q plot.
 
 # Exponential Smoothing[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_ex_Exonential_smoothing.ipynb)
 
