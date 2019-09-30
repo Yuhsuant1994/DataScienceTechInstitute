@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#hasColleague">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="zh">同事</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#hasMother">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.unice.fr/voc#hasParent"/>
+    <rdfs:label xml:lang="zh">母親</rdfs:label>
+    <rdfs:range rdf:resource="http://www.unice.fr/voc#Human"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.unice.fr/voc#familyLink"/>
+    <rdfs:domain rdf:resource="http://www.unice.fr/voc#Women"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#familyLink">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:range rdf:resource="http://www.unice.fr/voc#FamilyMember"/>
+    <rdfs:domain rdf:resource="http://www.unice.fr/voc#FamilyMember"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#hasSpouse">
+    <rdfs:subPropertyOf rdf:resource="http://www.unice.fr/voc#familyLink"/>
+    <rdfs:label xml:lang="zh">伴侶</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#Man">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:seeAlso rdf:resource="http://www.unice.fr/voc#Women"/>
+    <rdfs:comment xml:lang="en">a male adult</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.unice.fr/voc#Human"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#hasChild">
+    <rdfs:subPropertyOf rdf:resource="http://www.unice.fr/voc#familyLink"/>
+    <rdfs:label xml:lang="zh">孩子</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#age">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#hasParent">
+    <rdfs:label xml:lang="zh">父母</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#Enginneer">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.unice.fr/voc#Women"/>
+    <rdfs:subClassOf rdf:resource="http://www.unice.fr/voc#Man"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#name">
+    <rdfs:label xml:lang="fr">nom</rdfs:label>
+    <rdfs:label xml:lang="en">name</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#hasFather">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:domain rdf:resource="http://www.unice.fr/voc#Man"/>
+    <rdfs:range rdf:resource="http://www.unice.fr/voc#Human"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.unice.fr/voc#hasParent"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.unice.fr/voc#familyLink"/>
+    <rdfs:label xml:lang="zh">父親</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#trouserSize">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#Women">
+    <rdfs:seeAlso rdf:resource="http://www.unice.fr/voc#Man"/>
+    <rdfs:subClassOf rdf:resource="http://www.unice.fr/voc#Human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment xml:lang="en">a female adult</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#FamilyMember">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.unice.fr/voc#Human"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/voc#shoesSize">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+</rdf:RDF>

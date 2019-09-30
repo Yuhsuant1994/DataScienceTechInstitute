@@ -1,0 +1,57 @@
+@prefix voc: <http://www.unice.fr/voc#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+ 
+#Class
+voc:Man a rdfs:Class; 
+    rdfs:subClassOf voc:Human ;
+    rdfs:seeAlso voc:Women ;
+    rdfs:comment "a male adult"@en.
+
+voc:FamilyMember a rdfs:Class;
+    rdfs:subClassOf voc:Human.
+
+voc:Women a rdfs:Class; 
+    rdfs:subClassOf voc:Human ;
+    rdfs:seeAlso voc:Man ;
+    rdfs:comment "a female adult"@en.
+voc:Enginneer a rdfs:Class; 
+    rdfs:subClassOf voc:Women, voc:Man.
+
+#Property
+voc:hasParent a rdf:Property;
+    rdfs:label "父母"@zh.
+
+voc:hasMother a rdf:Property;
+    rdfs:subPropertyOf voc:hasParent, voc:familyLink;
+    rdfs:domain voc:Women ;
+    rdfs:range voc:Human ;
+    rdfs:label "母親"@zh.
+
+voc:familyLink a rdf:Property;
+    rdfs:domain voc:FamilyMember ;
+    rdfs:range voc:FamilyMember .  
+
+voc:hasFather a rdf:Property;
+    rdfs:subPropertyOf voc:hasParent, voc:familyLink;
+    rdfs:domain voc:Man ;
+    rdfs:range voc:Human ;
+    rdfs:label "父親"@zh.
+
+voc:hasChild a rdf:Property;
+    rdfs:subPropertyOf voc:familyLink;
+    rdfs:label "孩子"@zh.
+
+voc:hasSpouse a rdf:Property;
+    rdfs:subPropertyOf voc:familyLink;
+    rdfs:label "伴侶"@zh.
+
+voc:hasColleague a rdf:Property;
+    rdfs:label "同事"@zh.
+
+#label
+voc:name a rdf:Property;
+    rdfs:label "nom"@fr,"name"@en.
+voc:age a rdf:Property.
+voc:shoesSize a rdf:Property.
+voc:trouserSize a rdf:Property.

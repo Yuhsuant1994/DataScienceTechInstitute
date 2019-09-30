@@ -1,0 +1,37 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rel: <http://vocab.org/relationship/>.
+
+<http://ns.inria.fr/yuhsuan.ting> a foaf:PersonalProfileDocument ;
+    foaf:maker <http://ns.inria.fr/yuhsuan.ting#me> ;
+    foaf:primaryTopic <http://ns.inria.fr/yuhsuan.ting#me> .
+
+<http://ns.inria.fr/yuhsuan.ting#me> a foaf:Person ;
+    foaf:depiction <http://www-sop.inria.fr/members/yuhsuan.ting/common/FabienGandonBackground.jpg> ;
+    foaf:family_name "TING" ;
+    foaf:givenname "Yu-Hsuan" ;
+    foaf:homepage <http://yuhsuan.info> ;
+    foaf:knows [ a foaf:Person ;
+            rdfs:seeAlso <http://ns.inria.fr/romain.poupon#me> ;
+            foaf:mbox <romain.poupon@polytech.unice.fr> ;
+            foaf:name "Romain Poupon" ],
+        [ a foaf:Person ;
+            rdfs:seeAlso <http://ns.inria.fr/alix#me> ;
+            foaf:mbox <alix@inria.fr> ;
+            foaf:name "Alix" ] ;
+    foaf:mbox <mailto:yuhsuan.ting@inria.fr> ;
+    foaf:name "Yu-Hsuan TING" ;
+    foaf:nick "Sandy" ;
+    foaf:phone <http://ns.inria.fr/tel:0640305607> ;
+    foaf:schoolHomepage <http://www.insa-rouen.fr> ;
+    foaf:title "Student" ;
+    foaf:workInfoHomepage <http://yuhsuan.info> ;
+    foaf:workplaceHomepage <http://www.inria.fr/> ;
+    rel:closeFriendOf <http://ns.inria.fr/romain.poupon#me>;
+    rel:childOf <http://ns.inria.fr/angela#me>;
+    rel:colleagueOf <http://ns.inria.fr/alix#me>;
+    rel:siblingOf <http://ns.inria.fr/kai#me>;
+    rel:siblingOf <http://ns.inria.fr/kerri#me>.

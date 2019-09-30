@@ -1,0 +1,19 @@
+@prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix dc:<http://purl.org/dc/elements/1.1/>.
+@prefix dcterms:<http://purl.org/dc/terms/>.
+@prefix cc:<http://creativecommons.org/ns#>.
+
+
+<https://www.allenandunwin.com/browse/books/general-books/self-help-practical/The-Courage-to-be-Disliked-Ichiro-Kishimi-and-Fumitake-Koga-9781760630492>
+    dc:creator <http://ns.inria.fr/fumitake.koga#me>,
+    <http://ns.inria.fr/ichiro.kishimi#me>;
+    dc:title "The Courage to be Disliked" ;
+    cc:license [a cc:License; 
+        cc:permits cc:DerivativeWorks, cc:Distribution; 
+        cc:requires cc:Attribution, cc:Notice, cc:ShareAlike];
+    dc:language "en";
+    dc:subject "RDF, RDFS, SPARQL, OWL, SKOS";
+    dc:date "2017 05 01" ;
+    dc:publisher <https://www.allenandunwin.com/>;
+    dc:format "text /html"; 
+    dc:type dcterms:Text.

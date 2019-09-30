@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:voc="http://www.unice.fr/voc#">
+
+  <rdf:Description rdf:about="http://www.unice.fr/data#Steffen">
+    <rdf:type rdf:resource="http://www.unice.fr/voc#Man"/>
+    <voc:name>Steffen</voc:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/data#Jen">
+    <voc:hasChild rdf:resource="http://www.unice.fr/data#Anny"/>
+    <rdf:type rdf:resource="http://www.unice.fr/voc#Engineer"/>
+    <voc:age>42</voc:age>
+    <rdf:type rdf:resource="http://www.unice.fr/voc#Women"/>
+    <voc:hasParent rdf:resource="http://www.unice.fr/data#Thomas"/>
+    <voc:shoesSize>36</voc:shoesSize>
+    <voc:hasChild rdf:resource="http://www.unice.fr/data#Steffen"/>
+    <voc:hasColleague rdf:resource="http://www.unice.fr/data#Catherine"/>
+    <voc:hasColleague rdf:resource="http://www.unice.fr/data#Fabien"/>
+    <voc:trouserSize>38</voc:trouserSize>
+    <voc:hasSpouse rdf:resource="http://www.unice.fr/data#Seb"/>
+    <voc:name>Jen</voc:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/data#Thomas">
+    <rdf:type rdf:resource="http://www.unice.fr/voc#Man"/>
+    <voc:name>Thomas</voc:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/data#Fabien">
+    <rdf:type rdf:resource="http://www.unice.fr/voc#Man"/>
+    <voc:name>Fabien</voc:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/data#Anny">
+    <voc:name>Anny</voc:name>
+    <rdf:type rdf:resource="http://www.unice.fr/voc#Women"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/data#Seb">
+    <rdf:type rdf:resource="http://www.unice.fr/voc#Man"/>
+    <voc:name>Seb</voc:name>
+    <voc:hasChild rdf:resource="http://www.unice.fr/data#Steffen"/>
+    <voc:hasChild rdf:resource="http://www.unice.fr/data#Anny"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.unice.fr/data#Catherine">
+    <rdf:type rdf:resource="http://www.unice.fr/voc#Women"/>
+    <voc:name>Catherine</voc:name>
+  </rdf:Description>
+</rdf:RDF>

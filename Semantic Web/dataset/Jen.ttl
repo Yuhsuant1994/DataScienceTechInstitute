@@ -1,0 +1,33 @@
+@prefix voc: <http://www.unice.fr/voc#> .
+@rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+<http://www.unice.fr/data#Jen> a voc:Engineer ,voc:Women ;
+    voc:age "42";
+    voc:hasChild <http://www.unice.fr/data#Anny>, <http://www.unice.fr/data#Steffen>;
+    voc:hasSpouse <http://www.unice.fr/data#Seb> ;
+    voc:name "Jen";
+    voc:hasParent <http://www.unice.fr/data#Thomas>;
+    voc:hasColleague <http://www.unice.fr/data#Fabien>, <http://www.unice.fr/data#Catherine>;
+    voc:trouserSize "38";
+    voc:shoesSize "36".
+<http://www.unice.fr/data#Seb> a voc:Man ;
+    voc:hasChild <http://www.unice.fr/data#Anny>,
+        <http://www.unice.fr/data#Steffen> ;
+    voc:name "Seb";
+    voc:hasChild <http://www.unice.fr/data#Anny>, <http://www.unice.fr/data#Steffen>.   
+
+#Child
+<http://www.unice.fr/data#Anny> a voc:Women ;
+    voc:name "Anny".
+<http://www.unice.fr/data#Steffen> a voc:Man ;
+    voc:name "Steffen".
+
+#Father
+<http://www.unice.fr/data#Thomas> a voc:Man ;
+    voc:name "Thomas".
+
+#Colleague
+<http://www.unice.fr/data#Catherine> a voc:Women ;
+    voc:name "Catherine".
+<http://www.unice.fr/data#Fabien> a voc:Man ;
+    voc:name "Fabien".
