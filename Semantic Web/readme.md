@@ -49,8 +49,20 @@ Common linked data format: Resource Description Framework (RDF) is commonly stor
  
 Learn to write schema in RDFS and OWL and compare the differences
 
-## Day5: other Data Soucrces, Famous Schema ([Day 5: Report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day05_otherDataSource%2C%20famousSchema.pdf))
+## Day5: other Data Sources, Famous Schema ([Day 5: Report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day05_otherDataSource%2C%20famousSchema.pdf))
 
+Famous Schemas:
+1. SKOS +SKOS-XL
+2. Dublin Core (DC)
+3. Creative Commons (CC)
+4. FOAF
+5. VoID: decribeing RDF datasets/linksets
+6. DCAT: for a CSV spreadsheet
+
+Data Sources:
+1. RDFa + HTML
+2. JSON syntax
+3. CSV
 
  
  
