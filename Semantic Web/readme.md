@@ -1,6 +1,23 @@
 # Semantic Web
 
-SPARQL engine [(available here)](https://team.inria.fr/wimmics/)
+
+**Extra resource: **
+
+ * SPARQL engine [(available here)](https://team.inria.fr/wimmics/)
+ 
+ * RDF Validator: visualize the triples and relation graph:
+ 
+ https://www.w3.org/RDF/Validator/
+ 
+ * RDF file translator: form format to format
+ 
+ http://rdf-translator.appspot.com/
+ 
+ http://www.easyrdf.org/converter
+ 
+ * Other rdf visual tool
+
+http://cltl.nl/visualrdf/?url=http://cltl.nl/visualrdf/
 
 ## Day1:Principles Linked Data ([Day 1: Report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day01_PrinciplesLinkedData.pdf))
 
@@ -26,21 +43,9 @@ Common linked data format: Resource Description Framework (RDF) is commonly stor
  
  * Explain the data in XML and Turtle.
  
- **Extra resource: **
  
- * RDF Validator: visualize the triples and relation graph:
- 
- https://www.w3.org/RDF/Validator/
- 
- * RDF file translator: form format to format
- 
- http://rdf-translator.appspot.com/
- 
- http://www.easyrdf.org/converter
- 
- * Other rdf visual tool
 
-http://cltl.nl/visualrdf/?url=http://cltl.nl/visualrdf/
+## Day3: SPARQL ([Day 3: Report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day03_SPARQL.pdf))
 
 
  
