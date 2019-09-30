@@ -31,21 +31,25 @@ Common linked data format: Resource Description Framework (RDF) is commonly stor
 
 `curl -o <givename>.txt -L -H "Accept: application/rdf+xml <URI>`
 
-## Day2: RDF ([Day 2: Report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day02_RDF.pdf))
+## Day2: RDF ([Day 2: Report (with hand-on Practice)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day02_RDF.pdf))
 
   1. Understand RDF triples
   2. Understand RDF / XML simple syntax
   3. Understand Turtle (N3) simple syntax
- 
- **Hand-On Practice**
- 
- * From an english description Write our own relationship rdf using Turtle and transform it to XML.
- 
- * Explain the data in XML and Turtle.
- 
- 
 
-## Day3: SPARQL ([Day 3: Report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day03_SPARQL.pdf))
+## Day3: SPARQL ([Day 3: Report (with hand-on Practice)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day03_SPARQL.pdf))
+
+ 1. Learn to write query in SPARQL
+ 
+ * Extract data
+ * Construct graph
+ * Modify data
+ 
+ ## Day4: RDFS, OWL ([Day 4: RDFS Report (with hand-on Practice)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day04_RDFS.pdf)) ([Day 4: OWL Report (with hand-on Practice)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day04_OWL.pdf))
+ 
+Learn to write schema in RDFS and OWL and compare the differences
+
+## Day5: other Data Soucrces, Famous Schema ([Day 5: Report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Semantic%20Web/Day05_otherDataSource%2C%20famousSchema.pdf))
 
 
  
