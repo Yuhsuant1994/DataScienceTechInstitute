@@ -62,6 +62,19 @@ Yule-Walker: we try to fit AR(3) to AR(2) we can see from the result it still su
 
 * MA model: innovation algorithem 
 
+* Maximumn Likelihood Estimation (MLE): it is most used due to its efficient (low variance estimator), Gaussian assumption is often reasonable.
+
+### Order Selection
+
+* AICC most use (it's equal to the log likelihood function plus a complexity penalty.)
+
+* EACF (Extended AutoCorrelation Function): simpler and less computationally expensive approach.
+
+Step 1: fit an ARMA(k,j): k is the maximum AR order then fit the j from 1 to N(large number)
+
+Step 2: we improve output on the estimation of the coefficients by obtaining the residuals, by extracting from Xt the AR part, but with the estimated coefficients from the previous step.
+
+### Residuals Analysis
 
 # Exponential Smoothing[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_ex_Exonential_smoothing.ipynb)
 
