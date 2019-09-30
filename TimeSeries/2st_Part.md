@@ -76,6 +76,12 @@ Step 2: we improve output on the estimation of the coefficients by obtaining the
 
 ### Residuals Analysis
 
+We use the residuals to assess goodness of fit for ARMA model the property of residuals should be: 
+
+* Uncorrelated: White Noise
+* Independent: IID
+* Normal distribution
+
 # Exponential Smoothing[ (link to jupyter notebook)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/TS_ex_Exonential_smoothing.ipynb)
 
 The idea is to forcast future values using all previous values in the series.
