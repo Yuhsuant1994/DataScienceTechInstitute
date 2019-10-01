@@ -3,8 +3,9 @@ directory.
 
 `hdfs dfs -mkdir raw`
 
-## 2. Download the most frequently downloaded e-book (in Plain
-Text UTF-8) from Project Gutenberg. and put it inside the directory.
+## 2. Download the most frequently downloaded e-book 
+
+(in Plain Text UTF-8) from Project Gutenberg. and put it inside the directory.
 
 * 2.1 download the file to the edge node
 
