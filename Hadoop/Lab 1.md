@@ -1,5 +1,4 @@
-## 1. Create a directory called raw inside your HDFS home
-directory.
+## 1. Create a directory called raw inside your HDFS home directory.
 
 `hdfs dfs -mkdir raw`
 
