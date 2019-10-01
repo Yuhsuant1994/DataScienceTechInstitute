@@ -26,3 +26,22 @@ or
 
 
 (note: that `-put` is from the edge to the HDFS and `-cp` is the HDFS copy internally)
+
+## 4. Read the input.txt
+
+`hdfs dfs -cat input.txt`
+
+## 5. Remove the (-f is force, -R recursive)
+
+`hdfs dfs -rm -skipTrash input.txt `
+
+## 6. List my home directory 
+
+`hdfs dfs -ls <-lah>`
+
+## 7. Retrieve the file from the raw directory from HDFS to the local filesystem and rename it local.txt.
+
+`hdfs dfs -get raw/Pride_and_Prejudict.txt local.txt`
+
+
+
