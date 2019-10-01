@@ -43,5 +43,9 @@ or
 
 `hdfs dfs -get raw/Pride_and_Prejudict.txt local.txt`
 
+or
+
+`hdfs dfs -cat  raw/Pride_and_Prejudict.txt > local2.txt`
+
 
 
