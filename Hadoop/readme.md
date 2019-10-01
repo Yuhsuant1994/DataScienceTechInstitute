@@ -1,6 +1,6 @@
 # Hadoop lab
 
-## [Lab 1: HDFS](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%201.md)
+## [Lab 1: HDFS](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%201:%20HDFS.md)
 
 * Download the most frequently downloaded e-book (in Plain Text UTF-8) from Project Gutenberg.
 * Create a directory called raw inside your HDFS home directory.
