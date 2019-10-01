@@ -12,6 +12,8 @@ either use the file system Like **File Zilla**
 
 or command from edge `wget Pride_and_Prejudict.txt http://www.gutenberg.org/files/1342/1342-0.txt` or `curl -0 Pride_and_Prejudict.txt http://www.gutenberg.org/files/1342/1342-0.txt`
 
+check if the file is downloaded `ls -lah`
+
 * 2.2 Put the file from the edge to directory and rename it:
 
 `hdfs dfs -put  Pride_and_Prejudict.txt   raw/` 
@@ -37,7 +39,7 @@ or
 
 ## 6. List my home directory 
 
-`hdfs dfs -ls <-lah>`
+`hdfs dfs -ls `
 
 ## 7. Retrieve the file from the raw directory from HDFS to the local filesystem and rename it local.txt.
 
