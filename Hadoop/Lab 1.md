@@ -12,7 +12,7 @@ either use the file system Like **File Zilla**
 
 or command from edge `wget Pride_and_Prejudict.txt http://www.gutenberg.org/files/1342/1342-0.txt` or `curl -0 Pride_and_Prejudict.txt http://www.gutenberg.org/files/1342/1342-0.txt`
 
-check if the file is downloaded `ls -lah`
+check if the file is downloaded `ls <-lah>`
 
 * 2.2 Put the file from the edge to directory and rename it:
 
