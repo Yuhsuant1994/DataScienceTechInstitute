@@ -72,3 +72,5 @@ Linear regression, <br>gradient descent,<br>polynomial regression, | Logistic re
   * SPARQL
   * RDFS + OWL
   * other Data Sources, Famous Schema
+  
+### 8. Hadoop [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Hadoop)
