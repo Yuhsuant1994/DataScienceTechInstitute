@@ -3,9 +3,9 @@ title: "FSML_Part 2_YuHsuanTING"
 author: "Yu-Hsuan TING"
 date: "Sep. 16 2019"
 output:
-  pdf_document: default
   html_document: 
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -185,7 +185,7 @@ We can also check by `ks.test` to perform a one- or two-sample Kolmogorov-Smirno
 
 Here the null hypothesis is that the data follow a uniform distribution. We see that the p-value is high so that we don't reject the null hypothesis.
 ```{r}
-ks.test(T1,"punif",minT1,maxT1)
+ks.test(T1,T2)
 ```
 
 ## (b) Now if we consider the time between two events, how can you modelize this distribution?
@@ -209,15 +209,15 @@ lambda
 par(mfrow=c(1,2))
 hist(difference,freq=FALSE,main="actual data")
 #curve(dexp(lambda))
-test=rexp(n=1625,lambda)
-hist(test,freq = FALSE)
+testexp=rexp(n=length(difference),lambda)
+hist(testexp,freq = FALSE)
 #curve(dexp,xlim = c(0,1.2),add = TRUE)
-lines(density(test),col='red')
+lines(density(testexp),col='red')
 ```
 We can also use `ks.test` to check the goodness of fit for exponential distribution. As the p-value is high we also don't reject the null hypothesis that is the difference is exponential distribution.
 
 ```{r}
-ks.test(difference,"pexp",lambda)
+ks.test(difference,testexp)
 ```
 
 
