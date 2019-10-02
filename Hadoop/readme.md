@@ -11,3 +11,14 @@
 * Remove this file (careful with this command).
 * List your HDFS home directory.
 * Retrieve the fule from the raw directory from HDFS to the local filesystem and rename it local.txt.
+
+## [Lab 2: YARN](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%202:%20YARN%20.md)
+
+We tried to execute a job (execute mapreduce example code) using YARN client from our edge node.
+
+## [Lab 3: Map-Reducer](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%203:%20Map-Reducer%20.md)
+
+We want to check what is the most used word in a e-book.
+
+- With only python code
+- Use YARN client to execute the job
