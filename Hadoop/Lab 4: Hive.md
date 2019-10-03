@@ -21,13 +21,7 @@ switch to dsti database
 `> use dsti;`
 
 ```
->CREATE EXTERNAL TABLE IF NOT EXISTS drivers_yuhsuan(
-	driverId INT,
-	name STRING,
-	ssn STRING,
-	location STRING,
-	certified STRING,
-	wage_plan STRING)
+>CREATE EXTERNAL TABLE IF NOT EXISTS drivers_yuhsuan(driverId INT, name STRING, ssn STRING, location STRING, certified STRING, wage_plan STRING)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
 STORED AS TEXTFILE
@@ -58,4 +52,9 @@ insert the data into internal table from external table
 check external table
 
 `> select * from drivers_yuhsuan_in;`
+
+
+Note delete talbe:
+
+`> DROP TABLE drivers_yuhsuan`
 
