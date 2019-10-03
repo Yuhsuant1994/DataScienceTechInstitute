@@ -12,15 +12,18 @@
 * List your HDFS home directory.
 * Retrieve the fule from the raw directory from HDFS to the local filesystem and rename it local.txt.
 
+```
 HDFS main component:
 
 * NameNode
 * DataNode
+```
 
 ## [Lab 2: YARN](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%202:%20YARN%20.md)
 
 We tried to execute a job (execute mapreduce example code) using YARN client from our edge node.
 
+```
 YARN main components:
 
 1. Client: submits jobs to Resource Manager
@@ -33,6 +36,7 @@ YARN main components:
   * Request the container from the node manager
   * Once the application start it sends the health report to the resource manager from time to time
 5. Container:
+```
 
 ## [Lab 3: Map-Reducer](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%203:%20Map-Reducer%20.md)
 
