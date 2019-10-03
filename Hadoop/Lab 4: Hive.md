@@ -21,15 +21,23 @@ switch to dsti database
 `> use dsti;`
 
 ```
->CREATE EXTERNAL TABLE drivers_YuHsuan
-(driverId INT, name STRING,   ssn INT,   location STRING,   certified STRING,   wageplan STRING)
-ROW FORMAT DELIMITED 
-FIELDS TERMINATED BY ',' 
-STORED AS textfile
-LOCATION "/user/yu-hsuan.ting-dsti/drivers";
+>CREATE EXTERNAL TABLE IF NOT EXISTS drivers_yuhsuan(
+	driverId INT,
+	name STRING,
+	ssn STRING,
+	location STRING,
+	certified STRING,
+	wage_plan STRING)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS TEXTFILE
+location '/user/yu-hsuan.ting-dsti/drivers'
+tblproperties ("skip.header.line.count"="1");
 ```
 
 show if your table created successfully
 
 `> show tables;`
+
+select * from drivers_yuhsuan;
 
