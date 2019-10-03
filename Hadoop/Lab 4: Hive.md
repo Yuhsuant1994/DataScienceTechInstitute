@@ -48,14 +48,12 @@ check my external table
 
 ```
 > CREATE TABLE IF NOT EXISTS  drivers_yuhsuan_in( driverId INT, name STRING, ssn STRING, location STRING, certified STRING, wage_plan STRING)
-ROW FORMAT DELIMITED
-FIELDS TERMINATED BY ','
-STORED AS TEXTFILE;
+STORED AS ORC;
 ```
 
 insert the data into internal table from external table
 
-`> INSERT OVERWRITE TABLE drivers_yuhsuan_in SELECT * FROM drivers_yuhsuan;`
+`> INSERT INTO TABLE drivers_yuhsuan_in SELECT * FROM drivers_yuhsuan;`
 
 check external table
 
