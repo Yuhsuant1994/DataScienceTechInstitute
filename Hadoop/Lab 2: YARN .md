@@ -4,7 +4,7 @@ We tried to execute a job (execute mapreduce example code) using YARN client fro
 
 ## 1. Try to find the file
 
-`$ find / -name *hadoop-mapreduce-examples*`
+`$ find /usr -name *hadoop-mapreduce-examples*`
 
 ## 2. go to the file path
 
