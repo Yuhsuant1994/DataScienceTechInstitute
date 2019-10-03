@@ -51,7 +51,7 @@ insert the data into internal table from external table
 
 check external table
 
-`> select * from drivers_yuhsuan_in;`
+`> select * from drivers_yuhsuan_in <LIMIT 10>;`
 
 
 Note delete talbe:
