@@ -61,3 +61,11 @@ using [IMDB](https://www.imdb.com/interfaces/) data to query
 4) Average rating of titles not having the genre "Comedy"
 5) Top 5 movies directed by Tarantino
 
+### to kill the application
+
+`yarn app -list`
+
+we can see the application like application_157000...2_23, select the one you want to kill
+
+`yarn app -kill application_157000...2_0176`
+
