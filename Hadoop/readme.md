@@ -44,3 +44,20 @@ We want to check what is the most used word in a e-book.
 
 - With only python code
 - Use YARN client to execute the job
+
+## [Lab 4: Hive table (from CSV file)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%204:%20Hive%20table%20(from%20CSV).md)
+
+* connect to hive
+* create an external table from a local directory
+* create an internal table using hive sql to extract data from external table
+
+## [Lab 5: Hive query](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%205:%20Hive%20query.md)
+
+using [IMDB](https://www.imdb.com/interfaces/) data to query
+
+1) Number of titles with duration superior than 2 hours.
+2) Average duration of titles containing the string "world".
+3) Average rating of titles having the genre "Comedy"
+4) Average rating of titles not having the genre "Comedy"
+5) Top 5 movies directed by Tarantino
+
