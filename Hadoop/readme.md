@@ -63,6 +63,8 @@ using [IMDB](https://www.imdb.com/interfaces/) data to query
 
 ### to kill the application
 
+if we made some mistake in our query want to stop the application we can check what is running.
+
 `yarn app -list`
 
 we can see the application like application_157000...2_23, select the one you want to kill
