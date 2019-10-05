@@ -46,18 +46,20 @@ There are 3 types of learning: **supervised learning** **unsupervised learning**
 
   * Regression: output is a real number or vector 
   * Classification: output is a class label
-  
+  *Note that: Decision tree seldom use alone, it’s very sensitive but explainable.*
   Method:
   
 Regression | Classification | Both
 --- | --- |---
-Linear regression, <br>gradient descent,<br>polynomial regression, | Logistic regression, <br> Support Vector Machine | K-nearest neighbors (KNN), <br> Random forest,<br>decision tree,<br>k-nearest neighbors,<br>artificial neural network
-
+Linear regression(and it's family, polynomial and GLM), <br>gradient descent | Logistic regression| Naïve naive bayes (easy to try),<br> K-nearest neighbors (KNN), <br> Random forest,<br>artificial neural network,<br>Gradient boost tree (kind of a decision tree), <br>SVM: primary use for classification
 
   2) Unsupervised learning
-
-  * Clustering: K-mean, Hierarchical clustering
   
+  *Note that: If we are doing clustering it’s better do the normalization and dimension reduction then to do the clustering*
+  
+  * Clustering: K-means, DBSCAN, Hierarchical clustering
+  * Dimension reduction: PCA, SVD(singular value decomposition)
+   
  #### Specific topics:
   * Feature selection: Wrapper methods (forward, backward, and stepwise selection),  Filter methods (ANOVA, Pearson correlation, variance thresholding), Embedded methods (Lasso, Ridge, Decision Tree)
   * PCA transformation
