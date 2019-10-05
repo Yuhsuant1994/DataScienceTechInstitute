@@ -2,6 +2,8 @@
 
 table information: https://www.imdb.com/interfaces/
 
+`> show tables;`-- to see all the tables
+
 IMDB Queries: 
 
 1) Number of titles with duration superior than 2 hours.
