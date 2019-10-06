@@ -302,10 +302,10 @@ set.seed(10)
 par(mfrow=c(1,2))
 x=rexp(1000)
 hist(x, freq=FALSE)
-
 y=floor(x)+1
-hist(y)
+barplot(table(y))
 table(y)
+
 ```
 
 
@@ -313,9 +313,9 @@ with Geometric distribution, $\mu=\frac{1}{p}$ therefor we get p=0.6207325 and w
 ```{r,fig.width=10}
 gp=1/mean(y)
 par(mfrow=c(1,2))
-hist(y)
+barplot(table(y))
 rg=rgeom(1000,gp)+1
-hist(rg)
+barplot(table(rg))
 ```
 We can then check the distribution from `ks.test`, but since ks.test is meant to use for continouse variable, therefore I use `chisq.test` instead and it suggest me that it is a geometric distribution.
 
