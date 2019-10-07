@@ -98,10 +98,10 @@ Schema:
 
 4. 4 kinds of file generated: 
 
-* **WAL: ** store the modified data (to HDFS)
-* **Memstore: ** before storing to HDFS
-* **HFile: ** Finally file store to HDFS
-* **Block Cache: ** when reading the data, it would also store a copy to ram
+* **WAL:** store the modified data (to HDFS)
+* **Memstore:** before storing to HDFS
+* **HFile:** Finally file store to HDFS
+* **Block Cache:** when reading the data, it would also store a copy to ram
 
 5. HBase Compontent:
 
