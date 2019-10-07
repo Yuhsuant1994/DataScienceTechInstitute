@@ -75,6 +75,11 @@ Linear regression(and it's family, polynomial and GLM), <br>gradient descent | L
   * RDFS + OWL
   * other Data Sources, Famous Schema
   
-### 8. Hadoop [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Hadoop)
+### 8. Hadoop & Spark [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Hadoop%20%26%20Spark)
   
   * HDFS
+  * YARN
+  * Map-Reducer
+  * Hive
+  * HBase
+  * Spark_pyspark
