@@ -86,9 +86,42 @@ rdd_city_sum=rdd_final.map(lambda v:(v[0],v[3])).\
             reduceByKey(lambda v1,v2: int(v1)+int(v2))
 rdd_city_sum.take(10)
 ```
-result
+result:
 ```
 [(u'paris', 1568), (u'troyes', 214), (u'lyon', 193), (u'toulouse', 177), (u'anger', 166), (u'orlean', 196), (u'rennes', 180), (u'marseilles', 515), (u'nice', 203), (u'nantes', 207)]
+```
+# Q4: Average per month per city
+```
+rdd_city_month=rdd_city_sum.map(lambda v: (v[0],v[1]/12))
+rdd_city_month.take(10)
+```
+result:
+```
+[(u'paris', 130), (u'troyes', 17), (u'lyon', 16), (u'toulouse', 14), (u'anger', 13), 
+(u'orlean', 16), (u'nice', 16), (u'marseilles', 42), (u'nantes', 17), (u'rennes', 15)]
+```
+# Q5:Total revenue per store on the year
+```
+rdd_store_sum=rdd_final.map(lambda v:(v[1],v[3]))\
+    .reduceByKey(lambda v1,v2: int(v1)+int(v2))
+rdd_store_sum.take(10)
+```
+result:
+```
+[(u'troyes', 214), (u'lyon', 193), (u'toulouse', 177), (u'marseilles_2', 231), (u'anger', 166), 
+(u'paris_3', 330), (u'paris_1', 596), (u'orlean', 196), (u'marseilles_1', 284), (u'rennes', 180)]
+```
+# Q6: For each month, best store (most revenue)
+```
+test=rdd_final.map(lambda v: (v[2],(int(v[3]),v[1])))\
+    .reduceByKey(lambda v1,v2: max(v1,v2))
+test.take(20)
+```
+result:
+```
+[(u'FEB', (42, u'paris_2')), (u'AUG', (45, u'paris_2')), (u'APR', (57, u'paris_1')), (u'JUN', (85, u'paris_2')), 
+(u'JUL', (61, u'paris_1')), (u'JAN', (51, u'paris_1')), (u'MAY', (72, u'paris_2')), (u'NOV', (64, u'paris_2')), 
+(u'MAR', (44, u'paris_2')), (u'DEC', (71, u'paris_1')), (u'OCT', (68, u'paris_1')), (u'SEP', (63, u'paris_2'))]
 ```
 
 
