@@ -28,9 +28,11 @@ rdd_count.take(20)
 ```
 
 * Because we want to sort by the value, so we should inverse key and value
+* sort by key descending
 ```
-%spark2.pyspark
-rdd_count.map(lambda v: (v[1], v[0])).take(5)
+rdd_count.map(lambda v: (v[1], v[0])) \
+         .sortByKey(False) \
+         .take(20)
 ```
 
 
