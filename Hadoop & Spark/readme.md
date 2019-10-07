@@ -121,6 +121,22 @@ Schema:
 * `put 'dsti_rating', '<rowkey>','opinion:vote','8','metadata:tsonst','t23'` : how to set up row key. it has to be unique and should be related to your frequent query, so it is usefull when it store in **Block cache**. For example: tconst+vote+username (t748xavier, t749victor, t749mary)
 * `put 'dsti_rating', '<rowkey>','opinion:vote','9','metadata:tsonst','t23'`: to update just to put and use the same rowkey
 
+
+## Spark:
+-	In-memory processing engine
+-	Runs Hadoop
+-	Open source (2014)
+- Storage: RDD  [1,(‘a’, ‘b’), ‘toto’]
+
+ -> Immutable: cannot change, only recreate
+ 
+ -> Partition 
+ 
+ -> Persisted in memory (stay in memory until it’s not use for a long time)
+ 
+- Operations: transformation, actions
+
+
 ## [Lab 7: Pyspark_WordCount](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%205:%20Hive%20query.md)
 
 Performing word count as in lab 3 using pyspark
