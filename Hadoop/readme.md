@@ -71,3 +71,42 @@ we can see the application like application_157000...2_23, select the one you wa
 
 `yarn app -kill application_157000...2_0176`
 
+## Topic 6: HBase
+
+Random access (like ram) column store system
+
+CAP theorem (a data base is at most 2 of the 3)
+*	Consistant **-Hbase** (wait for sync)
+*	Availability (get the result before sync)
+*	Partition tolerant **-Hbase**
+
+Schema:
+
+1. Write data: 
+
+ * client writes **WAL** to HDFS 
+ * It would go to the Memcache (Region server in memory) 
+ * Then it would be flash to HDFS HFile
+
+2. Insert Data: put in the table on row key
+
+3. Read Data
+
+ * client would read the data 
+ * RS fetch the data from HFile 
+ * Then it would return to the client with optimization. (when we fetch the data from the block, the region server would take the block and put it in RAM block cache because it assum you would query around the same data very soon)
+
+4. 4 kinds of file generated: 
+
+* **WAL: ** store the modified data (to HDFS)
+* **Memcache: ** before storing to HDFS
+* **HFile: ** Finally file store to HDFS
+* **Block Cache: ** when reading the data, it would also store a copy to ram
+
+5. HBase Compontent:
+
+* HBase master: create table, region assignment
+* Region servers
+
+
+
