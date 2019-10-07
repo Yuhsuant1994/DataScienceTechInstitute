@@ -121,3 +121,4 @@ Schema:
 
 `put 'dsti_rating', '<rowkey>','opinion:vote','8','metadata:tsonst','t23'` : how to set up row key. it has to be unique and should be related to your frequent query, so it is usefull when it store in **Block cache**. For example: tconst+vote+username (t748xavier, t749victor, t749mary)
 
+`put 'dsti_rating', '<rowkey>','opinion:vote','9','metadata:tsonst','t23'`: to update just to put and use the same rowkey
