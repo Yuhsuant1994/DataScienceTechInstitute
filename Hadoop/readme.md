@@ -85,7 +85,7 @@ Schema:
 1. Write data: 
 
  * client writes **WAL** to HDFS 
- * It would go to the Memcache (Region server in memory) 
+ * It would go to the MemStore (Region server in memory) 
  * Then it would be flash to HDFS HFile
 
 2. Insert Data: put in the table on row key
@@ -99,14 +99,15 @@ Schema:
 4. 4 kinds of file generated: 
 
 * **WAL: ** store the modified data (to HDFS)
-* **Memcache: ** before storing to HDFS
+* **Memstore: ** before storing to HDFS
 * **HFile: ** Finally file store to HDFS
 * **Block Cache: ** when reading the data, it would also store a copy to ram
 
 5. HBase Compontent:
 
 * HBase master: create table, region assignment
-* Region servers
+* Region servers: answering the query to the client, can split the region when it's too big. 
+* ZooKeeper: for high availability (have to be odd number generally 3 to vote for who is the active master with all the standby master)
 
 
 
