@@ -109,5 +109,15 @@ Schema:
 * Region servers: answering the query to the client, can split the region when it's too big. 
 * ZooKeeper: for high availability (have to be odd number generally 3 to vote for who is the active master with all the standby master)
 
+6. Query HBase
 
+* HBase Shell
+* Apache Phoneix (OLTP)-> allows ACID transaction
+* Hive (OLAP)
+
+7. example query
+
+`create 'dsti_rating', 'opinion', 'metadata'` : table name + columns family
+
+`put 'dsti_rating', '<rowkey>','opinion:vote','8','metadata:tsonst','t23'` : how to set up row key. it has to be unique and should be related to your frequent query, so it is usefull when it store in **Block cache**. For example: tconst+vote+username (t748xavier, t749victor, t749mary)
 
