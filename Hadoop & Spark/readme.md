@@ -125,7 +125,7 @@ Schema:
 
 Performing word count as in lab 3 using pyspark
 
-## [Lab 8: Pyspark_Lab]
+## [Lab 8: Pyspark_Lab](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%208:%20Pyspark_Lab.md)
 
 We would be use the city data in HDFS to answer below quetions
 
