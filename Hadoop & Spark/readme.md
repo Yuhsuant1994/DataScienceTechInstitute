@@ -1,6 +1,6 @@
 # Hadoop lab
 
-## [Lab 1: HDFS](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%201:%20HDFS.md)
+## [Lab 1: HDFS](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%201:%20HDFS.md)
 
 * Download the most frequently downloaded e-book (in Plain Text UTF-8) from Project Gutenberg.
 * Create a directory called raw inside your HDFS home directory.
@@ -19,7 +19,7 @@ HDFS main component:
 * DataNode
 ```
 
-## [Lab 2: YARN](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%202:%20YARN%20.md)
+## [Lab 2: YARN](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%202:%20YARN%20.md)
 
 We tried to execute a job (execute mapreduce example code) using YARN client from our edge node.
 
@@ -38,14 +38,14 @@ YARN main components:
 5. Container:
 ```
 
-## [Lab 3: Map-Reducer](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%203:%20Map-Reducer%20.md)
+## [Lab 3: Map-Reducer](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%203:%20Map-Reducer%20.md)
 
 We want to check what is the most used word in a e-book.
 
 - With only python code
 - Use YARN client to execute the job
 
-## [Lab 4: Hive table (from CSV file)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%204:%20Hive%20table%20(from%20CSV).md)
+## [Lab 4: Hive table (from CSV file)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%204:%20Hive%20table%20(from%20CSV).md)
 
 * connect to hive
 * create an external table from a local directory
@@ -121,5 +121,17 @@ Schema:
 * `put 'dsti_rating', '<rowkey>','opinion:vote','8','metadata:tsonst','t23'` : how to set up row key. it has to be unique and should be related to your frequent query, so it is usefull when it store in **Block cache**. For example: tconst+vote+username (t748xavier, t749victor, t749mary)
 * `put 'dsti_rating', '<rowkey>','opinion:vote','9','metadata:tsonst','t23'`: to update just to put and use the same rowkey
 
-## [Lab 7: Spark_pyspark](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%207:%20Spark_pyspark.md)
+## [Lab 7: Pyspark_WordCount](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%205:%20Hive%20query.md)
 
+Performing word count as in lab 3 using pyspark
+
+## [Lab 8: Pyspark_Lab]
+
+We would be use the city data in HDFS to answer below quetions
+
+1) Format (city, store, month, revenue)
+2) Average per month of the the shop (all stores combined)
+3) Total revenue per city for the year
+4) Average per month per city (on this 1 year data)
+5) Total revenue per store on the year
+6) For each month, best store (most revenue)
