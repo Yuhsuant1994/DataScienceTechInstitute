@@ -71,7 +71,7 @@ we can see the application like application_157000...2_23, select the one you wa
 
 `yarn app -kill application_157000...2_0176`
 
-## Topic 6: HBase
+## Lab 6: HBase
 
 Random access (like ram) column store system
 
@@ -120,3 +120,6 @@ Schema:
 * `create 'dsti_rating', 'opinion', 'metadata'` : table name + columns family
 * `put 'dsti_rating', '<rowkey>','opinion:vote','8','metadata:tsonst','t23'` : how to set up row key. it has to be unique and should be related to your frequent query, so it is usefull when it store in **Block cache**. For example: tconst+vote+username (t748xavier, t749victor, t749mary)
 * `put 'dsti_rating', '<rowkey>','opinion:vote','9','metadata:tsonst','t23'`: to update just to put and use the same rowkey
+
+## [Lab 7: Spark_pyspark](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%207:%20Spark_pyspark.md)
+
