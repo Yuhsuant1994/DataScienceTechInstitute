@@ -1,11 +1,12 @@
 Here we try to answer the questions for lab 5
 
-Number of titles with duration superior than 2 hours.
-Average duration of titles containing the string "world".
-Average rating of titles having the genre "Comedy"
-Average rating of titles not having the genre "Comedy"
-Top 5 movies directed by Tarantino
+1. Number of titles with duration superior than 2 hours.
+2. Average duration of titles containing the string "world".
+3. Average rating of titles having the genre "Comedy"
+4. Average rating of titles not having the genre "Comedy"
+5. Top 5 movies directed by Tarantino
 
+## prepare data
 
 ```
 %spark2.pyspark
@@ -29,50 +30,45 @@ names=[title_basics,title_rating,title_crew,name_basics]
 for i in names:
     i.show(10)
 ```
-
+## Q1: Number of titles with duration superior than 2 hours.
 ```
-#Q1: Number of titles with duration superior than 2 hours.
 count_2h=title_basics.filter(F.col('runtimeMinutes')>120)\
                     .agg(F.count('runtimeMinutes').alias('count over 2h'))
 count_2h.show()
 ```
-+-------------+
-|count over 2h|
-+-------------+
-|        60446|
-+-------------+
 
+|count over 2h|
+|-------------|
+|        60446|
+
+## Q2 Average duration of titles containing the string "world".
 ```
-#Q2 Average duration of titles containing the string "world".
 avg_duration=title_basics.filter(F.col('primaryTitle').contains("world"))\
                         .agg(F.avg('runtimeMinutes').alias('world avg duration'))
 avg_duration.show()
 ```
-+------------------+
+
 |world avg duration|
-+------------------+
+|------------------|
 | 43.58105263157895|
-+------------------+
 
 
 
+## Q3 Average rating of titles having the genre "Comedy"
 ```
-#Q3 Average rating of titles having the genre "Comedy"
 comedy_rating=title_basics.filter(F.col('genres').contains("Comedy"))\
                 .join(title_rating, (title_rating.tconst == title_basics.tconst))\
                 .agg(F.avg('averageRating').alias("comedy average rating"))
 comedy_rating.show()
 ```
-+---------------------+
+
 |comedy average rating|
-+---------------------+
+|---------------------|
 |    6.970428788330588|
-+---------------------+
 
 
-
+## Q4 Average rating of titles not having the genre "Comedy"
 ```
-#Q4 Average rating of titles not having the genre "Comedy"
 #or we can define a function
 #def is_comedy(genres):
 #    return('Comedy' in genres)
@@ -82,19 +78,12 @@ not_comedy_rating=title_basics.filter((F.col('genres').contains("Comedy"))!=True
                 .agg(F.avg('averageRating').alias("comedy average rating"))
 not_comedy_rating.show()
 ```
-
-+---------------------+
 |comedy average rating|
-+---------------------+
+|---------------------|
 |    6.886042545766083|
-+---------------------+
 
+## Top 5 movies directed by Quentin Tarantino
 ```
-#Top 5 movies directed by Quentin Tarantino
-#a=
-#a=title_crew.join(name_basics,name_basics.nconst==title_crew.directors)\
-#            .filter(F.col('primaryName')=="Quentin Tarantino")
-#a=name_basics.filter(F.col('primaryName') == "Quentin Tarantino")
 a=title_crew.select(F.col('tconst'),F.explode(F.split(F.col('directors'),",")).alias("directors"))\
         .join(name_basics,name_basics.nconst == F.col('directors'))\
         .join(title_rating,title_rating.tconst==title_crew.tconst)\
@@ -105,12 +94,11 @@ a=title_crew.select(F.col('tconst'),F.explode(F.split(F.col('directors'),",")).a
         .orderBy(title_rating.averageRating,ascending=False)
 a.show(5)
 ```
-+--------------------+-------------+
+
 |        primaryTitle|averageRating|
-+--------------------+-------------+
+|--------------------|-------------|
 |        Pulp Fiction|          8.9|
 |Kill Bill: The Wh...|          8.8|
 |    Django Unchained|          8.4|
 |Inglourious Basterds|          8.3|
 |      Reservoir Dogs|          8.3|
-+--------------------+-------------+
