@@ -84,21 +84,33 @@ result:
 ```
 rdd_city_sum=rdd_final.map(lambda v:(v[0],v[3])).\
             reduceByKey(lambda v1,v2: int(v1)+int(v2))
-rdd_city_sum.take(10)
+#rdd_city_sum.take(10)
+print 'Total revenue per city per year : ' 
+for k in rdd_city_sum.sortByKey("True").collect():
+    print k[0] + ' : ' + str(k[1])
 ```
 result:
 ```
-[(u'paris', 1568), (u'troyes', 214), (u'lyon', 193), (u'toulouse', 177), (u'anger', 166), (u'orlean', 196), (u'rennes', 180), (u'marseilles', 515), (u'nice', 203), (u'nantes', 207)]
+Total revenue per city per year : 
+anger : 166
+lyon : 193
+...
 ```
 # Q4: Average per month per city
 ```
-rdd_city_month=rdd_city_sum.map(lambda v: (v[0],v[1]/12))
-rdd_city_month.take(10)
+#Q4 Average per month per city
+rdd_city_month=rdd_city_sum.map(lambda v: (v[0],v[1]/12.0))
+#rdd_city_month.take(10)
+print 'Average monthly income of the shop in each city (on a 1 year data) : '
+for v in rdd_city_month.sortByKey("TRUE").collect():
+    print v[0] + ' : ' + str(v[1])
 ```
 result:
 ```
-[(u'paris', 130), (u'troyes', 17), (u'lyon', 16), (u'toulouse', 14), (u'anger', 13), 
-(u'orlean', 16), (u'nice', 16), (u'marseilles', 42), (u'nantes', 17), (u'rennes', 15)]
+Average monthly income of the shop in each city (on a 1 year data) : 
+anger : 13.8333333333
+lyon : 16.0833333333
+...
 ```
 # Q5:Total revenue per store on the year
 ```
@@ -117,11 +129,30 @@ test=rdd_final.map(lambda v: (v[2],(int(v[3]),v[1])))\
     .reduceByKey(lambda v1,v2: max(v1,v2))
 test.take(20)
 ```
+or
+```
+test=rdd_final.map(lambda v: (v[2],(int(v[3]),v[1]))).reduceByKey(lambda v1,v2: v1 if v1[0] > v2[0] else v2)
+test.take(20)
+```
 result:
 ```
 [(u'FEB', (42, u'paris_2')), (u'AUG', (45, u'paris_2')), (u'APR', (57, u'paris_1')), (u'JUN', (85, u'paris_2')), 
 (u'JUL', (61, u'paris_1')), (u'JAN', (51, u'paris_1')), (u'MAY', (72, u'paris_2')), (u'NOV', (64, u'paris_2')), 
 (u'MAR', (44, u'paris_2')), (u'DEC', (71, u'paris_1')), (u'OCT', (68, u'paris_1')), (u'SEP', (63, u'paris_2'))]
+```
+
+# Q6.1 sort the data
+```
+months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+
+for month in months:
+  print(month + ' best seller with ' +  str(test.lookup(month)[0][0]) + ' is ' + test.lookup(month)[0][1])
+```
+result
+```
+JAN best seller with 51 is paris_1
+FEB best seller with 42 is paris_2
+...
 ```
 
 
