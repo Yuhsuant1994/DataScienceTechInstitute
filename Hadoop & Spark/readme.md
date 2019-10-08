@@ -152,6 +152,6 @@ We would be use the city data in HDFS to answer below quetions
 5) Total revenue per store on the year
 6) For each month, best store (most revenue)
 
-## [Lab 9: PySQL_lab]
+## [Lab 9: PySQL_lab](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%209:%20Pyspark_Lab.md)
 
 Answer the same questions as above with PySQL
