@@ -151,3 +151,7 @@ We would be use the city data in HDFS to answer below quetions
 4) Average per month per city (on this 1 year data)
 5) Total revenue per store on the year
 6) For each month, best store (most revenue)
+
+## [Lab 9: PySQL_lab]
+
+Answer the same questions as above with PySQL
