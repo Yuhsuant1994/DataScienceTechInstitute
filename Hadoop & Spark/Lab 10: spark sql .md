@@ -1,3 +1,11 @@
+Here we try to answer the questions for lab 5
+
+Number of titles with duration superior than 2 hours.
+Average duration of titles containing the string "world".
+Average rating of titles having the genre "Comedy"
+Average rating of titles not having the genre "Comedy"
+Top 5 movies directed by Tarantino
+
 
 ```
 %spark2.pyspark
