@@ -51,7 +51,7 @@ We want to check what is the most used word in a e-book.
 * create an external table from a local directory
 * create an internal table using hive sql to extract data from external table
 
-## [Lab 5: Hive query](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop/Lab%205:%20Hive%20query.md)
+## [Lab 5: Hive query](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%205:%20Hive%20query.md)
 
 using [IMDB](https://www.imdb.com/interfaces/) data to query
 
