@@ -154,4 +154,8 @@ We would be use the city data in HDFS to answer below quetions
 
 ## [Lab 9: PySQL_lab](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%209:%20Pyspark_Lab.md)
 
-Answer the same questions as above with PySQL
+Answer the same questions as lab 8 with SparkSQL
+
+## [Lab 10: PySQL_lab2](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20&%20Spark/Lab%2010:%20spark%20sql%20.md)
+
+Answer the same questions as lab 5 with SparkSQL
