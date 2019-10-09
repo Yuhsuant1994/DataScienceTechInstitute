@@ -102,8 +102,8 @@ optional: might be better performance:
 start_time = time.time()
 direct=name_basics.select(name_basics.nconst).filter(F.col('primaryName')=="Quentin Tarantino").collect()
 
-value=[r['nconst'] for r in direct]
-
+#value=[r['nconst'] for r in direct]
+value=direct[0]['nconst']
 a=title_crew.filter(F.col('directors')==value[0])\
             .join(title_rating,title_rating.tconst==title_crew.tconst)\
             .join(title_basics,title_basics.tconst==title_crew.tconst)\
