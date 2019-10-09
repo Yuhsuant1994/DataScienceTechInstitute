@@ -82,4 +82,4 @@ Linear regression(and it's family, polynomial and GLM), <br>gradient descent | L
   * Map-Reducer
   * Hive
   * HBase
-  * Spark_pyspark
+  * Spark_pyspark + SparkSQL
