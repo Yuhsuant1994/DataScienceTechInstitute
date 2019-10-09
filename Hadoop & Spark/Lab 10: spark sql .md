@@ -5,7 +5,8 @@ Here we try to answer the questions for lab 5
 3. Average rating of titles having the genre "Comedy"
 4. Average rating of titles not having the genre "Comedy"
 5. Top 5 movies directed by Tarantino
-
+Extra:
+6. Calculate the weighted averageRating for title less then 2h
 ## prepare data
 
 ```
@@ -36,6 +37,9 @@ count_2h=title_basics.filter(F.col('runtimeMinutes')>120)\
                     .agg(F.count('runtimeMinutes').alias('count over 2h'))
 count_2h.show()
 ```
+|sumnumVotes| sumaverageRating|weighted rating for less than 2h|
+|-----------|-----------------|--------------------------------|
+|  600137552|4337895.500000066|            0.007228168751553254|
 
 |count over 2h|
 |-------------|
@@ -123,5 +127,20 @@ print("RunTime: "+ str(end_time-start_time))
 |    Django Unchained|          8.4|
 |Inglourious Basterds|          8.3|
 |      Reservoir Dogs|          8.3|
+
+## Q6: Calculate the weighted averageRating for title less then 2h
+
+```
+test=title_basics.filter(F.col('runtimeMinutes')<120)\
+                .join(title_rating,title_basics.tconst==title_rating.tconst)\
+                .withColumn('sumRating',F.col('averageRating')*F.col('numVotes'))\
+                .agg(F.sum(F.col('numVotes')).alias('sumnumVotes'),F.sum(F.col('averageRating')).alias('sumaverageRating'))\
+                .withColumn('weighted rating for less than 2h',F.col('sumaverageRating')/F.col('sumnumVotes'))
+                #.select((F.col('sumaverageRating')/F.col('sumnumVotes')).alias('weighted rating for less than 2h'))
+            
+                
+test.show()
+```
+
 
 
