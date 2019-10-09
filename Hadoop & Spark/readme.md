@@ -152,11 +152,11 @@ We would be use the city data in HDFS to answer below quetions
 5) Total revenue per store on the year
 6) For each month, best store (most revenue)
 
-## [Lab 9: PySQL_lab](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%209:%20Pyspark_Lab.md)
+## [Lab 9: SparkSQL_lab1](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20%26%20Spark/Lab%209:%20SparkSQL_lab1.md)
 
 Answer the same questions as lab 8 with SparkSQL
 
-## [Lab 10: PySQL_lab2](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20&%20Spark/Lab%2010:%20spark%20sql%20.md)
+## [Lab 10: SparkSQL_lab2](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20&%20Spark/Lab%2010:%20SparkSQL_lab2.md)
 
 Answer the same questions as lab 5 with SparkSQL
 Add extra question: Calculate the weighted averageRating for title less then 2h
