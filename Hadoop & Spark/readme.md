@@ -159,4 +159,5 @@ Answer the same questions as lab 8 with SparkSQL
 ## [Lab 10: SparkSQL_lab2](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Hadoop%20&%20Spark/Lab%2010:%20SparkSQL_lab2.md)
 
 Answer the same questions as lab 5 with SparkSQL
+
 Add extra question: Calculate the weighted averageRating for title less then 2h
