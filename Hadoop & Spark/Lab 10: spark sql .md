@@ -84,6 +84,7 @@ not_comedy_rating.show()
 
 ## Top 5 movies directed by Quentin Tarantino
 ```
+start_time = time.time()
 a=title_crew.select(F.col('tconst'),F.explode(F.split(F.col('directors'),",")).alias("directors"))\
         .join(name_basics,name_basics.nconst == F.col('directors'))\
         .join(title_rating,title_rating.tconst==title_crew.tconst)\
@@ -93,6 +94,26 @@ a=title_crew.select(F.col('tconst'),F.explode(F.split(F.col('directors'),",")).a
         .select(title_basics.primaryTitle, title_rating.averageRating)\
         .orderBy(title_rating.averageRating,ascending=False)
 a.show(5)
+end_time=time.time()
+print("RunTime: "+ str(end_time-start_time))
+```
+optional: might be better performance:
+```
+start_time = time.time()
+direct=name_basics.select(name_basics.nconst).filter(F.col('primaryName')=="Quentin Tarantino").collect()
+
+value=[r['nconst'] for r in direct]
+
+a=title_crew.filter(F.col('directors')==value[0])\
+            .join(title_rating,title_rating.tconst==title_crew.tconst)\
+            .join(title_basics,title_basics.tconst==title_crew.tconst)\
+            .filter(title_basics.titleType=="movie")\
+            .select(title_basics.primaryTitle, title_rating.averageRating)\
+            .orderBy(title_rating.averageRating,ascending=False)
+
+a.show(5)
+end_time=time.time()
+print("RunTime: "+ str(end_time-start_time))
 ```
 
 |        primaryTitle|averageRating|
@@ -102,3 +123,5 @@ a.show(5)
 |    Django Unchained|          8.4|
 |Inglourious Basterds|          8.3|
 |      Reservoir Dogs|          8.3|
+
+
