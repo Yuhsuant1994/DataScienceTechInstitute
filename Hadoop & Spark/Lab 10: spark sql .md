@@ -141,6 +141,8 @@ test=title_basics.filter(F.col('runtimeMinutes')<120)\
                 
 test.show()
 ```
-
+|sumnumVotes| sumaverageRating|weighted rating for less than 2h|
+|-----------|-----------------|--------------------------------|
+|  600137552|4337895.500000066|            0.007228168751553254|
 
 
