@@ -87,10 +87,10 @@ not_comedy_rating.show()
 start_time = time.time()
 a=title_crew.select(F.col('tconst'),F.explode(F.split(F.col('directors'),",")).alias("directors"))\
         .join(name_basics,name_basics.nconst == F.col('directors'))\
-        .join(title_rating,title_rating.tconst==title_crew.tconst)\
-        .join(title_basics,title_basics.tconst==title_crew.tconst)\
         .filter(F.col('primaryName')=="Quentin Tarantino")\
+        .join(title_basics,title_basics.tconst==title_crew.tconst)\
         .filter(title_basics.titleType=="movie")\
+        .join(title_rating,title_rating.tconst==title_crew.tconst)\
         .select(title_basics.primaryTitle, title_rating.averageRating)\
         .orderBy(title_rating.averageRating,ascending=False)
 a.show(5)
