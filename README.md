@@ -83,3 +83,5 @@ Linear regression(and it's family, polynomial and GLM), <br>gradient descent | L
   * Hive
   * HBase
   * Spark_pyspark + SparkSQL
+  
+ ### 9.DeepLearning with PyTorch [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/DeepLearning)
