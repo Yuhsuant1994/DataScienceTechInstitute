@@ -38,7 +38,7 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
 
   * Topic 1: Analyzing trend [(R exercise)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1.%20Analyzing%20trend.R)
   
-### 7. Machine learning in R and Python  [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/ANN)
+### 7. Machine learning and ANN [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/ANN)
 
 There are 3 types of learning: **supervised learning** **unsupervised learning** **reinforcement learning**
 
