@@ -14,3 +14,11 @@ Classification project, bank customer churn modeling.
 
 [Code notebook](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Machine%20learning%20and%20ANN/ANN_Project_Yu-Hsuan%20TING/ANN_project_Yu-Hsuan%20TING.ipynb)
 
+**Overview:**
+
+* Understanding the data
+* Data prerocessing: grouping, encoding and scaling
+* Models tuning
+* Model selection
+* Final model testing
+
