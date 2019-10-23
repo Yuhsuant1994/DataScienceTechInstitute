@@ -12,15 +12,12 @@ Basic concept of several different computer languages.
 
 ### 2. Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
 
-  * [FSML project](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic/FSML_project)[[Questions]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/DSTIFundationsjuil19.pdf)[[Report]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/(Report_PDF)FSMLpart2_Yu-Hsuan_TING.pdf)
+  1) FSML
   
-    -> Use R to compute probability and quantile 
-    
-    -> Estimator exercise
-    
-    -> Estimate distribution from raw data
-    
-    -> Exercise with exponential distribution
+* [FSML project](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic/FSML_project)[[Questions]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/DSTIFundationsjuil19.pdf)[[Report]](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/(Report_PDF)FSMLpart2_Yu-Hsuan_TING.pdf)
+ Topic include: Use R to **compute probability and quantile**, **Estimator exercise**, **Estimate distribution from raw data** and **Exercise with exponential distribution**
+  2) ASML
+  3) CART and Random Forest
 
 ### 3. AWS [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/AWS)
 
@@ -33,10 +30,6 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
    * Heuristic technique (GA) **(in R)**
 
 ### 5. Statistical analysis of massive data (in R)(TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
-
-  1) FSML
-  2) ASML
-  3) CART and Random Forest
 
 ### 6. Time series analysis [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
 
