@@ -51,7 +51,7 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
 
 ----------------------------------
 
-### Machine learning and ANN [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/ANN)
+### Machine learning and ANN [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Machine%20learning%20and%20ANN)
 
 There are 3 types of learning: **supervised learning** **unsupervised learning** **reinforcement learning**
 
