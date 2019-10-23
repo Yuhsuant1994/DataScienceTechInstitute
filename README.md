@@ -91,7 +91,6 @@ Linear regression(and it's family, polynomial and GLM), <br>gradient descent | L
  ### 9.DeepLearning with PyTorch [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/DeepLearning)
 
 * [Lab 1: ](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/DeepLearning/DSTI_DL_Labs1_2019_PyTorch_Basic.ipynb) PyTorch Basic
-
 * [Lab 2: ](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/DeepLearning/DSTI_DL_Labs2_2019_Autograd.ipynb)
 Automatic differentiation 
 
