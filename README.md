@@ -1,6 +1,8 @@
 ## DataScienceTechInstitute
 Projects and exercise from DSTI
 
+----------------------------------
+
 ### Software Engineerting (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering)
 
 Basic concept of several different computer languages.
@@ -10,7 +12,9 @@ Basic concept of several different computer languages.
    * [Python](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/Python) 
    * [SQL](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering/SQL)
 
-### 2. Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
+----------------------------------
+
+### Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
 
   1) FSML
   
@@ -21,23 +25,33 @@ Basic concept of several different computer languages.
 
   3) CART and Random Forest
 
-### 3. AWS [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/AWS)
+----------------------------------
+
+### AWS [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/AWS)
 
 Projects for the path for acquiring **Solution Architect Associate** certification
 
-### 4. Optimization [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Optimization)
+----------------------------------
+
+### Optimization [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Optimization)
 
    * Variable neighborhood search **(in python)**
    * Gradient based algorithm **(in python)**
    * Heuristic technique (GA) **(in R)**
 
-### 5. Statistical analysis of massive data (in R)(TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
+----------------------------------
 
-### 6. Time series analysis [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
+### Statistical analysis of massive data (in R)(TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
+
+----------------------------------
+
+### Time series analysis [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
 
   * Topic 1: Analyzing trend [(R exercise)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1.%20Analyzing%20trend.R)
-  
-### 7. Machine learning and ANN [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/ANN)
+
+----------------------------------
+
+### Machine learning and ANN [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/ANN)
 
 There are 3 types of learning: **supervised learning** **unsupervised learning** **reinforcement learning**
 
@@ -66,15 +80,19 @@ Linear regression(and it's family, polynomial and GLM), <br>gradient descent | L
   * NLP
   * Image image recognition
 
-### 7. Semantic Web [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Semantic%20Web)
+----------------------------------
+
+### Semantic Web [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Semantic%20Web)
   
   * Principle Linked Data
   * RDF
   * SPARQL
   * RDFS + OWL
   * other Data Sources, Famous Schema
-  
-### 8. Hadoop & Spark [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Hadoop%20%26%20Spark)
+
+----------------------------------
+
+### Hadoop & Spark [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Hadoop%20%26%20Spark)
   
   * HDFS
   * YARN
@@ -82,15 +100,18 @@ Linear regression(and it's family, polynomial and GLM), <br>gradient descent | L
   * Hive
   * HBase
   * Spark_pyspark + SparkSQL
-  
- ### 9.DeepLearning with PyTorch [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/DeepLearning)
+
+----------------------------------
+
+ ### DeepLearning with PyTorch [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/DeepLearning)
 
 * [Lab 1: ](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/DeepLearning/DSTI_DL_Labs1_2019_PyTorch_Basic.ipynb) PyTorch Basic
 * [Lab 2: ](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/DeepLearning/DSTI_DL_Labs2_2019_Autograd.ipynb)
 Automatic differentiation 
 
+----------------------------------
 
-### 10.Survival Analysis with R  [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Survival%20Analysis)
+### Survival Analysis with R  [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Survival%20Analysis)
 
 * Model based, classic statistical inference and regression analysis
 * Nonparametric methods for survival analysis
