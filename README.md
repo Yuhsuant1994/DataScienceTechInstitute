@@ -34,6 +34,10 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
 
 ### 5. Statistical analysis of massive data (in R)(TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
 
+  1) FSML
+  2) ASML
+  3) CART and Random Forest
+
 ### 6. Time series analysis [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
 
   * Topic 1: Analyzing trend [(R exercise)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1.%20Analyzing%20trend.R)
@@ -90,3 +94,14 @@ Linear regression(and it's family, polynomial and GLM), <br>gradient descent | L
 
 * [Lab 2: ](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/DeepLearning/DSTI_DL_Labs2_2019_Autograd.ipynb)
 Automatic differentiation 
+
+
+### 10.Survival Analysis with R  [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Survival%20Analysis)
+
+* Model based, classic statistical inference and regression analysis
+* Nonparametric methods for survival analysis
+* Semi-parametric regression
+* Semi-parametric regression: model building and diagnostic
+* Penalized regression, Case study
+* Survival Analysis final project
+
