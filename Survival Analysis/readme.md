@@ -4,7 +4,7 @@
 
 ### 2. [R Lab 2](): Nonparametric methods for survival analysis
 
-### 3. [R Lab 3](): Semi-parametric regression
+### 3. [R Lab 3](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Survival%20Analysis/030-CPH.pdf): Semi-parametric regression
 
 ### 4. [R Lab 4](): Semi-parametric regression: model building and diagnostic
 
