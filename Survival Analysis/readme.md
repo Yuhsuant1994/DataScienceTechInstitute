@@ -2,7 +2,7 @@
 
 ### 1. [R Lab 1](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Survival%20Analysis/010-statistical-modeling.pdf): Model based, classic statistical inference and regression analysis
 
-### 2. [R Lab 2](): Nonparametric methods for survival analysis
+### 2. [R Lab 2](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Survival%20Analysis/020-nonparam.pdf): Nonparametric methods for survival analysis
 
 ### 3. [R Lab 3](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Survival%20Analysis/030-CPH.pdf): Semi-parametric regression
 
