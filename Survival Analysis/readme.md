@@ -11,6 +11,6 @@
 ### 5. [R Lab 5: Penalized regression](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Survival%20Analysis/050-CPH-penalized.pdf)
 
 
-Case study
+### [Full Case study](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Survival%20Analysis/050-case_study.pdf)
 
 ### Final project
