@@ -8,6 +8,9 @@
 
 ### 4. [R Lab 4](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Survival%20Analysis/040-CPH-building.pdf): Semi-parametric regression: model building and diagnostic
 
-### 5. [R Lab 5](): Penalized regression, Case study
+### 5. [R Lab 5: Penalized regression](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Survival%20Analysis/050-CPH-penalized.pdf)
+
+
+Case study
 
 ### Final project
