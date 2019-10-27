@@ -11,3 +11,12 @@
    -> Estimate distribution from raw data
     
    -> Exercise with exponential distribution
+   
+   
+ ## [CART: Classification and Regression Trees](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/CART.pdf)
+ 
+   * Step 1: Build maximal tree
+   * Step 2: Prunning
+   * Step 3: Select tree
+   * Unstability solution: bagging
+   * Prediction and variable selection from CART
