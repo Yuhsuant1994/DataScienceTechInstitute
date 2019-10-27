@@ -23,7 +23,7 @@ Basic concept of several different computer languages.
 
   2) ASML
 
-  3) CART and Random Forest
+  3) CART: Classification and Regression Trees
 
 ----------------------------------
 
