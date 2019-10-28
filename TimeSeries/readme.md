@@ -16,4 +16,13 @@ follow the edX corse FA18: Time Series Analysis using R
  * Seasonality
  * Stationary
  
+ ## [2nd Part (see more in the file)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/2st_Part.md)
+ 
+ * ARMA model
+ * ACP and PACF (AR & MA simulation)
+ * Parameter estimation )
+ * Order selection
+ * Residuals analysis (uncorrelated white noise, iid, normal distribution)
+ * Exponential smoothing
+ 
  
