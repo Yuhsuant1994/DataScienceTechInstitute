@@ -10,7 +10,3 @@ Optimization for below 3 functions using gradient based algorithm (in Python Sci
 2. Eggcrate function
 3. Golinski’s Speed Reducer
 
-## [Classification assignment](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Optimization/Classification%20assignment)
-
-Given a Bank customer, can we build a classifier which can determine whether they will leave or not
-
