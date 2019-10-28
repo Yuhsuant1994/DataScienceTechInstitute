@@ -1,6 +1,8 @@
-# 1) Foundations of Statistical Analysis 
+# Statistic
+
+## 1) Foundations of Statistical Analysis 
   
-## [FSML project](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic/FSML_project)
+### [FSML project](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic/FSML_project)
 
 [Questions](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/DSTIFundationsjuil19.pdf)
 
@@ -14,9 +16,9 @@
     
    -> Exercise with exponential distribution
 
-# 2) Advance Statistical Analysis 
+## 2) Advance Statistical Analysis 
 
-# 3) CART: Classification and Regression Trees (final combine with Random Forest)
+## 3) CART: Classification and Regression Trees (final combine with Random Forest)
 
 [rmarkdown report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/CART.pdf)
  
