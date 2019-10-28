@@ -3,7 +3,7 @@ Projects and exercise from DSTI
 
 ----------------------------------
 
-### Software Engineerting (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering)
+### Software Engineerting [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/SoftwareEngineering)
 
 Basic concept of several different computer languages.
 
