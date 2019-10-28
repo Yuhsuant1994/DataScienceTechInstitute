@@ -20,3 +20,9 @@
    * Step 3: Select tree
    * Unstability solution: bagging
    * Prediction and variable selection from CART
+ 
+ Final part for the project is to combine it with Random Forest, which is commonly used in practice.
+ 
+ * use random forest to perform variable selection
+ * built CART from the selected variables
+ * visualize the selected tree
