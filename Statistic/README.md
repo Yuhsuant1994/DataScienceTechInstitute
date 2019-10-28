@@ -1,4 +1,6 @@
-## [1. FSML project](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic/FSML_project)
+# 1) Foundations of Statistical Analysis 
+  
+## [FSML project](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic/FSML_project)
 
 [Questions](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/FSML_project/DSTIFundationsjuil19.pdf)
 
@@ -11,9 +13,12 @@
    -> Estimate distribution from raw data
     
    -> Exercise with exponential distribution
-   
-   
- ## [CART: Classification and Regression Trees](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/CART.pdf)
+
+# 2) Advance Statistical Analysis 
+
+# 3) CART: Classification and Regression Trees (final combine with Random Forest)
+
+[rmarkdown report](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/CART.pdf)
  
    * Step 1: Build maximal tree
    * Step 2: Prunning
