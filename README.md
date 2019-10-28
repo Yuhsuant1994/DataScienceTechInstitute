@@ -14,7 +14,7 @@ Basic concept of several different computer languages.
 
 ----------------------------------
 
-### Statistic (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
+### Statistic (in R) (TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistic)
 
 1) Foundations of Statistical Analysis 
   
@@ -25,6 +25,7 @@ Basic concept of several different computer languages.
 
 3) CART: Classification and Regression Trees (final combine with Random Forest)
 
+4) Statistical analysis of massive data (in R)(TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
 ----------------------------------
 
 ### AWS [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/AWS)
@@ -38,10 +39,6 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
    * Variable neighborhood search **(in python)**
    * Gradient based algorithm **(in python)**
    * Heuristic technique (GA) **(in R)**
-
-----------------------------------
-
-### Statistical analysis of massive data (in R)(TBF) [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/Statistical%20analysis%20of%20massive%20data)
 
 ----------------------------------
 
@@ -61,7 +58,6 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
   * Order selection
   * Residuals analysis (uncorrelated white noise, iid, normal distribution)
   * Exponential smoothing
- 
 
 ----------------------------------
 
