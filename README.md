@@ -47,7 +47,21 @@ Projects for the path for acquiring **Solution Architect Associate** certificati
 
 ### Time series analysis [(see folder)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/tree/master/TimeSeries)
 
-  * Topic 1: Analyzing trend [(R exercise)](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/TimeSeries/1.%20Analyzing%20trend.R)
+1st part:
+
+  * Trend
+  * Seasonality
+  * Stationary
+
+2nd part:
+
+  * ARMA model
+  * ACP and PACF (AR & MA simulation)
+  * Parameter estimation )
+  * Order selection
+  * Residuals analysis (uncorrelated white noise, iid, normal distribution)
+  * Exponential smoothing
+ 
 
 ----------------------------------
 
