@@ -1,0 +1,155 @@
+---
+title: "dimensional reduction"
+output: pdf_document
+---
+
+# dimensional reduction
+
+## principle componenet analysis (PCA)
+
+let's first try to code PCA:
+```{r}
+myPCA <- function(x, d=2){
+  #step 1: covariance estimation
+  #scale function to center the data: scale=False, not normalize, only centered
+  xbar=scale(x,center=TRUE,scale = FALSE)
+  sigma=1/nrow(xbar)*t(xbar)%*%xbar
+  
+  #step 2: eigen-decomposition
+  out=eigen(sigma)
+  
+  #step 3: return the PC axes
+  return(out$vector[,1:d])
+  #return(out)
+  
+}
+```
+
+now let's try it on some data:
+
+```{r}
+data("swiss")
+u=myPCA(swiss,d=3)
+
+#now we have to project the data
+xproj=as.matrix(swiss) %*% u
+#xproj
+#plot(xproj, type='p', pch=19) # for 1-2 dimension 
+pairs(xproj)#for more then 2 dimension 
+
+
+#so we move from 6 dimensional spaces to other number of dimensional spaces
+```
+
+now we can combine the ploting into the function
+
+```{r}
+myPCAPlot <- function(x, d=2){
+  #step 1: covariance estimation
+  #scale function to center the data: scale=False, not normalize, only centered
+  xbar=scale(x,center=TRUE,scale = FALSE)
+  sigma=1/nrow(xbar)*t(xbar)%*%xbar
+  
+  #step 2: eigen-decomposition
+  out=eigen(sigma)
+  
+  #step 3: return the PC axes
+  #return(out$vector[,1:d])
+  #return(out)
+  u=out$vector[,1:d]
+  xproj=as.matrix(x) %*% u
+  if(d<=2)
+    plot (xproj, type = 'p', pch = 19)
+  else
+    pairs(xproj,pch=19)
+  return(list(u=u,lambda=out$values))
+}
+```
+
+try with swiss
+
+```{r}
+myPCAPlot(swiss,d=3)
+```
+
+if we use the R function 'princomp':
+```{r}
+#comparision between PCA and scaled PCA:
+out=princomp(swiss)
+out1=princomp(swiss,cor = TRUE)#scaleD ?????????
+xproj=predict(out,swiss)
+#par(mfrow=c(1,2))
+biplot(out)
+biplot(out1)
+
+clus=kmeans(swiss,3)
+plot(predict(out,swiss),col=clus$cluster,pch=19) 
+plot(predict(out1,swiss),col=clus$cluster,pch=19) #once it's scaled, the cluster is not that obvious
+#it is not clear since it's combining the 2 plot
+```
+
+in the 'FactoMineR' package several additional visualizations are possible:
+```{r}
+#install.packages('FactoMineR')
+#here unlike biplot it seperate 2 graph
+library(FactoMineR)
+out=PCA(swiss)
+plot(out)
+```
+
+>exercise: use the three methods we saw in class for chossig the right number of components to retain
+
+### 90% rule,eigenvalue scree:
+```{r}
+out=princomp(swiss)
+out$sdev
+plot(out) #variance of the variable
+summary(out)
+# with the 90% rule we can take already first 2 variable
+#eigenvalue scree: 3 is still important so choose between 2-3
+```
+
+### The Cattell's test:
+
+```{r}
+out=myPCAPlot(swiss)
+diff=abs(diff(out$lambda))
+plot(diff)
+abline(h=0.1*max(diff),col='red')
+#cattell say we should retain 2+1=3 dimension
+```
+
+## MDS: Multi dimensional scaling 
+```{r}
+myMDS<- function(x,d=2){
+  n=nrow(x);
+  D =as.matrix(dist(x)) #dist() for continuous data, if it's other type, we need to find the apporpriate function to compute the distance
+  fun<-function(par,D){
+    Z=matrix(par,ncol=d)
+    s=0
+    for(i in 1:n)
+      for(j in 1:n)
+        s=s+(D[i,j]-sqrt(sum(Z[i,]-Z[j,])^2))^2
+    return(s) #return s
+  }
+  zstart=matrix(runif(n*d),ncol=d)
+  out=optim(zstart,fun,D=D,method='SANN')
+  Z=out$par
+}
+
+Z=myMDS(swiss,d=2)
+Z
+plot(Z,type='p',pch=19,col=clus$cluster)
+#MDS is very time consuming
+```
+
+* MDS in R 'cmdscale'
+Much better in performance
+
+```{r}
+d=dist(swiss)
+res=cmdscale(d,k=2,eig=TRUE)
+res
+plot(res$points,type='p',pch=19,col=clus$cluster)
+```
+

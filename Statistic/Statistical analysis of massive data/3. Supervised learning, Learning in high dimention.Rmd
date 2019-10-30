@@ -1,0 +1,137 @@
+---
+title: "Supervised learning, Learnin in high dimention"
+
+output: pdf_document
+---
+# Supervised learning
+
+## The general procedure
+
+let's condider some classification problem with the iris data
+
+```{r}
+library(MASS);library(class); library(e1071)
+x=iris[,-5]
+y=iris[,5]
+E=matrix(NA,3,nrow(x))
+# I would like to compare several classification technique (LDA, KNN, SVM)
+#use leave one out method
+for (b in 1:nrow(x)){
+  xl=x[-b,];yl=y[-b]
+  xv=x[b,];yv=y[b] #leave one out
+  #LDA
+  y1=predict(lda(xl,yl),xv)
+  #KNN
+  y2=knn(xl,xv,yl)
+  #SVM
+  y3=predict(svm(xl,yl),xv)
+  
+  E[1,b]= as.numeric(y1$class != yv)
+  E[2,b]= as.numeric(y2 != yv)
+  E[3,b]= as.numeric(y3 != yv)
+}
+
+#pick the most appropriate method
+boxplot(t(E))
+
+apply(E,1,mean)
+apply(E,1,sd)
+#smallest mean and smallest sd, lda is the best method
+
+#my final pick lda
+clf=lda(x,y)
+
+#in the future when i have new observation
+xstar=c(0.5, 8,56,4)
+predict(clf,xstar)
+```
+
+# Learning in high-dimensional spaces
+
+## The curs of dimensionality
+
+The volume of the hyper-sphere is $V(p) = \frac{\pi^{p/2}}{\Gamma(p/2+1)}$.
+
+```{r}
+p = 1:100
+plot(p,pi^(p/2) / gamma(p/2+1), type='b')
+```
+
+## High-dimensional data clustering (HDDC)
+
+HDDC is implemented in the `HDclassif` library (which also p^roposes the HDDA method for classification).
+
+```{r}
+#install.packages('HDclassif')
+library(HDclassif)
+#?hddc
+```
+
+We may try HHDC on the wine data set:
+
+```{r}
+data(wine)
+X = scale(wine[,-1])
+Y = wine$class
+
+out = hddc(X,K=1:10)#,threshold = (1:10)/100)
+plot(out)
+out$d
+table(out$cl,Y)
+```
+
+Comparison with Mclust
+
+```{r}
+library(mclust)
+out1 = hddc(X,K=3)
+table(out1$cl,Y)
+
+out2 = Mclust(X,G=3)
+table(out2$cl,Y)
+
+```
+
+Let's now move to higher dimensions:
+
+```{r}
+#install.packages('MBCbook')
+library(MBCbook)
+data("usps358")
+X = usps358[,-1]
+Y = usps358$cls
+
+system.time(out1 <- hddc(X,K=3))
+table(out1$cl,Y)
+
+#system.time(out2 <- Mclust(X,G=3,modelNames = 'VVV'))
+#table(out2$cl,Y)
+```
+
+```{r}
+library(MBCbook)
+library(HDclassif)
+data("usps358")
+X = usps358[,-1]
+Y = usps358$cls
+
+out1 = hddc(X,K=3)
+table(out1$cl,Y)
+
+image(matrix(out1$mu[1,],ncol=16))
+image(matrix(out1$mu[2,],ncol=16))
+image(matrix(out1$mu[3,],ncol=16))
+```
+
+Fisher EM
+```{r}
+#install.packages('FisherEM')
+library(FisherEM)
+out=fem(X,K=3)
+table(out$cl,Y)
+plot(out)
+
+```
+
+
+

@@ -1,0 +1,242 @@
+---
+title: "Descriptive statistic and clustering"
+output:
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, out.width = "50%")
+```
+
+# reminder about the descriptive statisic
+```{r}
+x=iris
+summary(x)
+```
+
+As we saw, descriptive statistics are useful to start discovering the data(here is obvious a supervise learning)
+
+* about histogram: best choice by R (bins number)
+```{r}
+hist(x$Sepal.Length)
+```
+
+* best choice by ggplot (bins number)
+```{r}
+library(ggplot2)
+ggplot(x)+geom_histogram(aes(x=Sepal.Length))
+```
+
+```{r}
+ggplot(x)+geom_histogram(aes(x=Sepal.Length),bins=100)
+hist(x$Sepal.Length,breaks=20,freq=FALSE)
+lines(density(x$Sepal.Length),col='red')
+```
+
+* boxplot
+check petal.length, here we have a distribution, very low to increase and very fast to decrease
+```{r}
+boxplot(x[,-5])
+```
+
+
+```{r}
+barplot(summary(x$Species))
+```
+* try to pair to see the relationship
+```{r}
+pairs(x[,-5],col=as.numeric(x$Species))
+```
+
+
+# Unsupervised learning: Clustering
+
+## K-means
+
+The K means algorithm is provided in the `class` package and the function is named `kmeans`
+
+```{r}
+library(class)
+#?kmeans
+```
+
+we see here that k-means 38,50,62 are not perfect solutions
+```{r}
+#try 1. not set nstart, 2. try nstart=10 not a good result
+#interesting in 3 group
+table(x[,5])
+out=kmeans(x[,-5],3)
+out
+```
+
+* betweenss: is the between clusters sum of squares. In fact it is the mean of distances between cluster centers. 
+* totss: total some of square
+
+```{r}
+out$betweenss
+out$totss
+```
+
+let's try to find the most appropriate number of groups:
+```{r}
+J=c()
+for (k in 1:15){
+  out=kmeans(x[,-5],k,nstart=15)
+  J[k]=out$betweenss/out$totss   #B/S
+}
+plot(1:15,J,type='b') 
+#we choose k from 2-15, so
+```
+
+here we shoud choose wither 3 or 4 groups
+```{r}
+out= kmeans(x[,-5],4)
+pairs(x[,-5],col=out$cluster,pch=19)
+out1= kmeans(x[,-5],3)
+pairs(x[,-5],col=out1$cluster,pch=19)
+```
+
+> exercuse: use the k-means to cluster 'swiss' data
+
+```{r}
+x1=swiss
+summary(swiss)
+```
+
+```{r}
+J1=c()
+for (k in 1:15){
+  out=kmeans(x1,k,nstart=15)
+  J1[k]=out$betweenss/out$totss   #B/S
+}
+plot(1:15,J1,type='b') 
+
+# we find a smallest point up to the last 10 % (we can put a threshold on the plot)
+abline(h=0.9*max(J1[15]-J1[1]),col='red')
+J1
+```
+
+Better automation to find give us the optimal point with threshold=0.1
+```{r}
+#better automation: point to point difference
+thd=0.1
+plot(diff(J1),type='b')
+abline(h=thd*max(diff(J1)),col='red')
+#plus one because the points here are the difference
+#for
+Kstar=max(which(diff(J1)>=thd*max(diff(J1))))+1
+Kstar
+```
+
+I assume either 4 or 5 groups to choose
+```{r}
+out11= kmeans(x1,4,nstart=15)
+pairs(x1,col=out11$cluster,pch=19)
+out12= kmeans(x1,5, nstart=15)
+pairs(x1,col=out12$cluster,pch=19)
+
+out12
+#here we see that the cluster 2 means we think it is a big city, more balance
+#there's geneve, Rive Droite, Rive Gauche
+#with K-mean we don't really see which variable is most contributed
+```
+
+## The hierarchical clustering
+
+This method is implemented in R within the `class` package and the appriopriate method is named `hclust`.
+
+> Exercise: cluster the `swiss` data with `hclust`.
+
+```{r}
+data(swiss)
+
+D = dist(swiss)
+out = hclust(D,method = "ward.D2")
+
+plot(out)
+```
+
+```{r}
+par(mfrow=c(2,2))
+out = hclust(D,method = "single"); plot(out)
+out = hclust(D,method = "complete"); plot(out)
+out = hclust(D,method = "centroid"); plot(out)
+out = hclust(D,method = "ward.D2"); plot(out)
+```
+
+* now we choose only 2 to compare: complete and ward
+at this point we don't have yet the assignment to the clustering: we need cutree
+
+```{r}
+out1 = hclust(D,method = "complete")
+plot(out1)
+K1 = 3
+#get clustering
+res1 = cutree(out1, K1)
+#visualize for cluster
+rect.hclust(out1,K1)
+
+out2 = hclust(D,method = "ward.D2")
+plot(out2)
+K2 = 2 
+res2 = cutree(out2, K2)
+rect.hclust(out2,K2)
+```
+
+make a pair to see the variable result compaire to the clustering
+
+```{r}
+pairs(swiss,col = res1, pch=19)
+pairs(swiss,col = res2, pch=19)
+```
+
+## The Mixture model and the EM algorithm
+
+The `mclust` package (Raftery et al.) allows to cluster some datat with GMM and the EM algorithm.
+
+```{r}
+#install.packages('mclust')
+library(mclust)
+```
+
+```{r}
+data(swiss)
+out = Mclust(swiss,G = 2:10)
+#plot(out)
+# plot 1:
+#get the highest point of BIC (3 groups)
+#here best model is EEE, which is exactly K-mean
+
+
+# plot 2:
+# we see that the result is exactly the same as HC (complete)
+
+#plot 3:
+# the larger is the point the larger is the uncertainty
+```
+
+```{r}
+out$modelName
+out$parameters$mean
+```
+
+```{r}
+out$parameters$pro
+out$parameters$variance
+```
+
+The `Rmixmod` package also allows to use the GGM + EM:
+
+```{r}
+#install.packages('Rmixmod')
+library(Rmixmod)
+```
+
+```{r}
+out = mixmodCluster(swiss,2:10)
+# 2:10 = means that it would choose the best group between it
+#default is 1 to 9. if it's 1 it means that there's no need to do clustering
+#plot(out) # type in the console
+```
+
+(short insert cut ctrl+alt+I)
