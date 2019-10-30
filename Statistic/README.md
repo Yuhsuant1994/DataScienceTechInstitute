@@ -33,3 +33,29 @@
  * use random forest to perform variable selection
  * built CART from the selected variables
  * visualize the selected tree
+ 
+ ## 4) Statistical analysis of massive data
+
+[Descriptive statistic and clustering](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/Statistical%20analysis%20of%20massive%20data/1.%20Descriptive%20statistic%20and%20clustering.pdf)
+
+**Descriptive statistic**
+
+* Histogram: `hist` by R, `ggplot` (additional density lines by `lines`)
+* Boxplot: `boxplot`
+* Barplot:  `barplot`
+* Pair plot: `pairs` to see the relationship between variable
+
+**Unsupervised learning: clustering**
+
+* K-means clustering: `kmeans` form `library(class)`
+* hierarchical clustering: `hclust` from `library(class)`
+* The Mixture model and the EM algorithm: `Mclust` from `library(mclust)`, `mixmodCluster` from `library(Rmixmod)`
+
+[**Dimension reduction**](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/Statistical%20analysis%20of%20massive%20data/2.%20dimensional%20reduction.pdf)
+
+* PCA: `princomp` in R, `PCA` in `library(FactoMineR)`
+* Multidimensional scaling: `cmdscale`
+
+[**Supervised learning, Learning in high-dimensional spaces**](https://github.com/Yuhsuant1994/DataScienceTechInstitute/blob/master/Statistic/Statistical%20analysis%20of%20massive%20data/3.%20Supervised%20learning%2C%20Learning%20in%20high%20dimention.pdf)
+
+
