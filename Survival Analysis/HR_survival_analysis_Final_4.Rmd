@@ -1,0 +1,776 @@
+---
+title: "Employee attrition"
+author: "Petra Kaferle Devisschere,Alix Sarrazin and Yu-Hsuan Ting"
+date: "29/11/2019"
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+---
+
+\fontsize{10}{10}
+
+```{r setup,include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,fig.width = 9.2,fig.height = 3.5)
+```
+
+```{r message=FALSE,warning=FALSE,include=FALSE,paged.print=FALSE}
+library(survival)
+library(tidyverse)
+library(lubridate)
+library(survivalROC)
+library(ggplot2)
+library(dplyr)
+library(survminer)
+library(RColorBrewer)
+library(glmnet)
+library(gridExtra)
+library(pander)
+```
+
+# 1. Introduction
+
+Employee turnover is an important issue for each company as filling the vacancies is costly procedure, financially and timewise, especially for critical positions. On the other hand, planned departures gives employers the opportunities to revise their organisational structure and potentially close down the positions that bring less benefits to the organisation. The same approach has been used to look for biases in employee retention in specific working environments (e.g. Survival Analysis of Faculty Retention and Promotion in the Social Sciences by Gender, Box-Steffensmeier et al. 2015).
+In this project we explored synthetic dataset, simulating employee data from HR database. First, we formatted it and constructed additional variables. Then, we applied different methodologies to find the model that would best describe the relationship between available attributes and employee withdrawal.  
+
+## 1.1 Dataset description
+
+We downloaded data in October 2019 from: http://rpubs.com/rhuebner/HRCodebook-13. In total, there are 310 observations with 35 variables. Below is the description of each variable. 
+
+|Data Dictionary|
+|-------------------------------|-------------------------------------------------|--------------------------|
+|**Feature**                    |**Description**                                  |**DataType**              |
+|-------------------------------|-------------------------------------------------|--------------------------|
+|Employee Name|Employee's full name|Text|
+|EmpID|Employee ID is unique to each employee|Text|
+|MarriedID|Is the person married (1 or 0 for yes or no)|Binary|
+|MaritalStatusID|Marital status code that matches the text field MaritalDesc|Integer|
+|EmpStatusID|Employment status code that matches text field EmploymentStatus|Integer|
+|DeptID|Department ID code that matches the department the employee works in|Integer|
+|PerfScoreID|Performance Score code that matches the employee's most recent performance score|     Integer|
+|FromDiversityJobFairID|Was the employee sourced from the Diversity job fair? 1 or 0 for yes or no| Binary|
+|PayRate|The person's hourly pay rate. All salaries are converted to hourly pay rate|Float|
+|Termd|Has this employee been terminated - 1 or 0|Binary|
+|PositionID|An integer indicating the person's position|Integer|
+|Position|The text name/title of the position the person has|Text|
+|State|The state that the person lives in|Text|
+|Zip|The zip code for the employee|Text|
+|DOB|Date of Birth for the employee|Date|
+|Sex|Sex - M or F|Text|
+|MaritalDesc| The marital status of the person (divorced, single, widowed, separated, etc)| Text|
+|CitizenDesc| 	Label for whether the person is a Citizen or Eligible NonCitizen | Text|
+|HispanicLatino| 	Yes or No field for whether the employee is Hispanic/Latino | Text|
+|RaceDesc| 	Description/text of the race the person identifies with | Text|
+|DateofHire| 	Date the person was hired | Date|
+|DateofTermination| 	Date the person was terminated, only populated if, in fact, Termd = 1 | Date|
+|TermReason| 	A text reason / description for why the person was terminated | Text|
+|EmploymentStatus| 	A description/category of the person's employment status. Anyone currently working full time = Active | Text|
+|Department| 	Name of the department that the person works in | Text|
+|ManagerName| 	The name of the person's immediate manager 	| Text|
+|ManagerID| 	A unique identifier for each manager. | Integer|
+|RecruitmentSource| 	The name of the recruitment source where the employee was recruited from | Text|
+|PerformanceScore| 	Performance Score text/category (Fully Meets, Partially Meets, PIP, Exceeds) | Text|
+|EngagementSurvey| 	Results from the last engagement survey, managed by our external partner | Float|
+|EmpSatisfaction| 	A basic satisfaction score between 1 and 5, as reported on a recent employee satisfaction survey | Integer|
+|SpecialProjectsCount| 	The number of special projects that the employee worked on during the last 6 months | Integer|
+|LastPerformanceReviewDate| 	The most recent date of the person's last performance review. | Date|
+|DaysLateLast30| 	The number of times that the employee was late to work during the last 30 days | Integer| 
+
+## 1.2 Data preparation
+
+```{r include=FALSE}
+data <- read.csv(file="./HRDataset_v1.csv",header=TRUE,sep=",")
+```
+
+The data pre-processing steps are the following:
+
+* Remove following variables: Employee_Name, EmployeeID, MarriedID, GenderID, epStatusID, DeptID, PerfScoreID, FromDiversityJobFairID, PositionID, State, Zip, HispanicLatino, TermReason, EmploymentStatus, RecruitmentSource, LatestPerformanceReview_Date, DaysLateLast30
+* Transform all the data columns from factor to date format
+* Determine the last date of the dataset and add 1 to the last date to simulate the probable date of data export ("2017-04-21")
+* Change all string-based factors to lower-case to avoid mixed lower/upper case typing
+* Create additional groups for the attributes in Table 1. Two different groups were made based on recruitment source, found in the column ProximityRec (proximity recruitment). Value 1 indicates all the categories where recruiters and candidates have some level of personal contact (in contrast to applying online - value 0)
+
+|New Group|From column|        |New Group|From column|
+|---------|-----------|--------|---------|-----------|
+|**AgeGrp**|Age||**EmpSatGrp**| EmpSatisfaction|
+|**PayGrp**| PayRate||**PerfScrGrp**| PerfScoreID|
+|**ProximityRec**|RecruitmentSource||**IsManager**| position|
+
+```{r}
+fmt <- "%m/%d/%Y"
+data$DateofHire <- as.Date(as.character(data$DateofHire),format=fmt)
+data$DateofTermination <- as.Date(as.character(data$DateofTermination),format=fmt)
+data$DOB <- as.Date(as.character(data$DOB),format = fmt)
+endtime <- max(data$DateofHire,data$DateofTermination,na.rm = TRUE) + 1
+
+is_manager<-(str_detect(data$Position,"Manager")|str_detect(data$Position,"Director")|
+               str_detect(data$Position,"CIO")|str_detect(data$Position,"CTO"))
+
+data<-mutate(data,Duration=ifelse(is.na(DateofTermination),(endtime - DateofHire)/365.25,
+                      (DateofTermination - DateofHire)/365.25),
+             Age=as.numeric(floor((endtime-DOB)/365.25)),
+             IsManager=ifelse(is_manager,"is manager","not manager"))
+
+data$AgeGrp<-cut(data$Age,breaks = c(20,30,40,50,60,70),right = FALSE,
+                  labels = c("20-29","30-39","40-49","50-59","60-69"))
+data$PayGrp<-cut(data$PayRate,breaks = c(10,20,30,40,50,60,90),right = FALSE,
+                  labels = c("10-19","20-29","30-39","40-49","50-59",">60"))
+data$PerfScrGrp<-cut(data$PerfScoreID,breaks = c(1,2.99,3.01,5),right = FALSE,
+                     labels = c("low","medium","high"))
+data$EmpSatGrp<-cut(as.numeric(data$EmpSatisfaction),breaks = c(1,2.99,3.01,6),
+                    right = FALSE,labels = c("low","medium","high"))
+
+data$Sex  <-  factor(tolower(data$Sex))
+data$PositionID <- factor(tolower(data$PositionID))
+data$ManagerID <- factor(tolower(data$ManagerID))
+data$MaritalDesc <- factor(tolower(data$MaritalDesc))
+data$Department <- factor(tolower(data$Department))
+data$ManagerName <- factor(tolower(data$ManagerName))
+data$RecruitmentSource <- factor(tolower(data$RecruitmentSource))
+data$PerformanceScore <- factor(data$PerformanceScore)
+data$EmpSatisfaction <- factor(data$EmpSatisfaction)
+data$IsManager<-factor(data$IsManager)
+
+prox <- c('company intranet - partner','diversity job fair','employee referral',
+          'information session','on-campus recruiting','professional society',
+          'social networks - facebook twitter etc','vendor referral','word of mouth' )
+data <- mutate(data,ProximityRec = ifelse(tolower(RecruitmentSource) %in% prox,1,0))
+data$ProximityRec=factor(data$ProximityRec)
+```
+
+
+To reduce the size of the dataset we will be manipulating, we selected only specific columns. 
+```{r}
+df <-subset(data,select=c(Sex,Age,AgeGrp,MaritalDesc,Position,IsManager,Department,
+            ManagerName,PayRate,PayGrp,SpecialProjectsCount,PerfScrGrp,EngagementSurvey,
+            EmpSatisfaction,EmpSatGrp,RecruitmentSource,ProximityRec,Duration,Termd))
+```
+
+The summary of working dataset shows that we have no missing values, nor extreme outliers for any variable.
+```{r set-options, echo=FALSE, cache=FALSE}
+options(width = 100)
+
+summary(df)
+```
+
+```{r, include =FALSE}
+#* Checking censoring data percentage
+table(factor(df$Termd))
+```
+
+# 2. Data and methods
+
+## 2.1 Descriptive analysis with Kaplan-Meier estimator
+
+First, we looked at the global survival curve, without taking censoring into account. We estimated the expected stay in the company and compared Kaplan-Meier and Nelson-AAlen estimators. Further on, we explored the dataset by comparing differences between subgroups of the following variables: Sex, PayGrp, Manager and Department. Is any of them significantly contributing to employee turnover?  
+
+```{r}
+y<-with(df,Surv(Duration ,Termd))
+km<-survfit(y ~ 1,data = df,conf.type = "log-log")
+na<-survfit(y ~ 1,data=df,type="fh")
+
+splots <- list()
+splots[[1]]<- ggsurvplot(km,data=df,risk.table =T,palette= 'red',censor=T,
+                        conf.int.style="step",xlab='Duration (Years)',break.time.by = 1,
+                        surv.median.line='hv', 
+                        risk.table.fontsize = 2,fontsize = 2,risk.table.height = 0.35,
+                        legend='none',legend.title="none",title='K-M estimator',
+                        ggtheme = theme(plot.title = element_text(hjust = 0.5)))
+splots[[2]]<- ggsurvplot(na,data=df,risk.table =T,palette ='blue',censor=T,
+                         conf.int.style="step",xlab='Duration (Years)',break.time.by = 1,
+                         surv.median.line='hv', 
+                         risk.table.fontsize = 2,fontsize = 2,risk.table.height = 0.35,
+                         legend='none',legend.title="none", title='N-A estimator',
+                         ggtheme = theme(plot.title = element_text(hjust = 0.5)))
+arrange_ggsurvplots(splots,print = TRUE,ncol = 2,nrow = 1)
+```
+
+```{r, include=FALSE}
+km
+na
+with(data,table(Termd,Duration > 7))
+```
+
+|**Estimator**|**N**|**Events**|**Median**|**0.95 LCL**|**0.95 UCL**|
+|-------------|-----|----------|----------|------------|------------|
+|K-M|310.00|103.00|7.07|4.92|NA|
+|N-A|310.00|103.00|7.07|5.04|NA|
+
+
+The results show that both metrics give roughly the same results. Expected stay in this company is about 7 years. Lower limits of confidence interval differ, but remain very similar. The upper CI limit cannot be estimated, since it never drops below 50%. It can also be noticed that all departures happen before employees reach 7.07 years of tenure.
+
+```{r, include = FALSE}
+# ## 2.1 Basic statistic
+plot1 <- ggplot(df,aes(x=Sex,y=PayRate)) +
+       geom_boxplot() +
+       ggtitle("Pay Rate Vs Gender")+ theme(plot.title = element_text(hjust = 0.5))
+
+plot2 <- ggplot(df,aes(x=AgeGrp,y=PayRate)) +
+       geom_boxplot() +
+       ggtitle("Pay Rate Vs AgeGrp") + theme(plot.title = element_text(hjust = 0.5))
+
+grid.arrange(plot1, plot2, ncol=2)    
+#As we can see, the distribution for men and women is very different even though the median is similar. 
+#Surprisingly, the median is very similar between different age groups. 
+```
+
+```{r, include = FALSE}
+#The plot above represent the number of people hired per year based on their gender. On the x axis, the size of each year is proportionnal to the number of people hired.  The repartition altogether seems to be equal (except for the years with very few hired people).
+plot(data$Sex~year(data$DateofHire), data= data, xlab = "Hire year", ylab = "Sex")
+```
+
+### 2.1.1 Sex
+
+Are either men or women more likely to leave?
+
+```{r }
+gen<- survfit(y ~ Sex,data=df,conf.type="log-log")
+ggsurvplot(gen,data=df,risk.table =T,censor=T,xlab='Duration (Years)',break.time.by = 1,
+           legend="bottom",legend.title="",risk.table.fontsize = 4,pval=T, 
+           title = "Survival probability for men and women ",
+           risk.table.height = 0.35,surv.median.line='hv',
+           ggtheme = theme(plot.title = element_text(hjust = 0.5)))
+```
+
+There is no statistical difference between genders, which is evident from the overlap of survival curves and the matching p-value.
+
+```{r, include = FALSE}
+survdiff(y ~ Sex,data=df)
+```
+
+### 2.1.2 Salary level
+
+Are badly paid employees more likely to leave? 
+```{r}
+pal<- brewer.pal(6,"BrBG")
+pay<- survfit(y ~ PayGrp,data=df)
+ggsurvplot(pay,data=df,risk.table =T,palette =pal,censor=T,xlab='Duration (Years)',
+break.time.by = 1,legend='none',pval=T,legend.title="",
+title = "Survival probability for Salary levels",
+risk.table.fontsize = 3,risk.table.height = 0.50)
+```
+
+There is a clear trend between pay group and survivability. The low global p-value tells us that we can reject null hypothesis - that all beta coefficients are equal to zero - but it doesn't tell us which one of them are different. To find it out, we can use pairwise_survdiff to compare all pairs of groups. 
+
+```{r, include = FALSE}
+survdiff(y ~ PayGrp,data=df)
+```
+
+```{r}
+t1=pairwise_survdiff(Surv(Duration,Termd) ~PayGrp,data=df)
+pander(t1, style ='rmarkdown')
+```
+Statistically significant differences can be observed only between individual groups. From the plot above, it was expected to detect some amount of different behaviour between group 10-19 with 30-39, 50-59 and >60. Indeed, the p-values drop significantly after the comparison 10-19 with 30-39, but not under 0.05. Moreover, groups 10-19 and 20-29 display almost the same p-values in the comparisons and have overlaping survival curves. Therefore, we decided to treat them as one group. 
+
+```{r, include=FALSE}
+#Can we set a reasonable limit between badly and well paid employees to see if there's really no division? 
+#Let's set different thresholds for LowPay group (1 if < TH,0 otherwise) and compare the two groups.
+
+lowpay_comp = function(dat,th) {
+  data = dat
+  p.val = c()
+  ctrl_i = c()
+  for (i in th) {
+    data = mutate(data,LowPay = ifelse(PayRate < i,1,0))
+    x = survdiff(y ~ LowPay,data=data)
+    p_temp = 1 - pchisq(x$chisq,length(x$n) - 1)
+    p.val = c(p_temp,p.val)
+    ctrl_i = c(i,ctrl_i)
+    cutoff = ctrl_i
+    }
+  df_th = data.frame(cbind(cutoff,p.val))
+  return(df_th)}
+```
+
+```{r, include = FALSE}
+th<-c(20,30,40,50)
+lowpay_comp(df,th)
+
+#From the table we see that the first significant difference is if we split the group on the PayRate = 30. This means that we merge PayGrp 10-19 and 20-29,which look very similar on the plot above. We will check later with Cox regression if the effect size is significant.
+```
+
+
+```{r, include = FALSE}
+df<-mutate(df,LowPay = ifelse(PayRate < 30,1,0))
+```
+
+```{r, include = FALSE}
+survdiff(y ~ LowPay,data=df)
+```
+
+```{r, include = FALSE}
+lowpay<-survfit(y ~ LowPay,data=df)
+ggsurvplot(lowpay,data=df,risk.table =T,palette =pal,censor=T,
+           xlab='Duration (Years)',break.time.by = 1,legend='none',
+           legend.title="",risk.table.fontsize = 2,fontsize = 2,
+           risk.table.height = 0.35)
+
+#With merging,we get a significant difference between "badly" paid employees and the others. However,if we increase the threshold for low payment group (from 30 to 40 or to 50) all the comparisons with the remaining group have p-value less than 0.05.
+```
+
+The results suggest that salary level influences the duration of stay to certain extend, but the critical condition is if being paid below or above 30. 
+
+### 2.1.3 Manager 
+
+Is there a manager with higher turnover?     
+
+```{r}
+colnames(df)[8] <- "MN"
+mng<-survfit(y ~ MN,data=df)
+splots <- list()
+splots[[1]]<-ggsurvplot(mng,data=df,risk.table =F,censor=T,pval=T,
+           xlab='Duration (Years)',break.time.by = 1,legend='none',legend.title="",title = "Survival probability for Managers")
+splots[[2]]<-ggsurvplot(mng,data=df,risk.table =T,censor=T,
+           xlab='Years',break.time.by = 1,legend='none',
+           legend.title="",risk.table.fontsize = 2,fontsize = 2,risk.table.height = 1)
+arrange_ggsurvplots(splots,print = TRUE,ncol = 2,nrow = 1)
+```
+
+One manager (Webster Butler) has worse long-term survival and remarkable drop at about 4 years of tenure. After manual inspection of the data, we can see that the parting employees didn't constitute one group, that would for instance be hired and left at the same period (eg. due to temporary increase of workload). Also, from his hiring date we notice that he was on the position for only one year and the departures were due earlier, meaning that the trend might be due to some other events in the company and not his management style. To analyse the managers' curves further, we see that nobody has such a big drop, so he might be managing the most difficult position. We also wanted to explore the flat line on the top of the graph: does this line consist of only well-payed individuals? This group is comprised of 19 people, assigned to 2 managers and a board of directors. Their survival time ranges between 1-11 years and they are of all age groups. Mostly they are well paid, besides for some exceptions. 
+
+```{r, include=FALSE}
+wb_df <- filter(df,MN == "webster butler")
+wb_mng<-survfit(Surv(Duration,Termd) ~ MN,data=wb_df)
+ggsurvplot(wb_mng,data=wb_df,
+           risk.table =F,censor=T,conf.int.style="step",
+           xlab='Duration (Years)',break.time.by = 1,legend='none',
+           legend.title="")
+
+#The manual inspection of data shows that the drop is not related to a group of people that would be hired and terminated at the same time (ex. temporary increase of orders). 
+```
+
+```{r,include=FALSE}
+data$Employee_Name = trimws(data$Employee_Name)
+wb_name_df<-filter(data,EmpID == "1110029990")
+wb_name_df
+
+#Looking at Webster Butler's data it turns out that he was hired on 2016-01-28 and he spent 449 days in the company (=1.2 years). Only 3 people in his group have been hired after him. Which means that observed trend doesn't really tell anything about manager himself,but about the position he is supervising.
+```
+    
+
+```{r, include=FALSE}
+df$Department<-trimws(df$Department)
+prod_df<-filter(df,Department == "production")
+prod_mng<-survfit(Surv(Duration,Termd) ~ MN,data=prod_df,conf.type = "log-log")
+ggsurvplot(prod_mng,data=prod_df,risk.table =F,censor=T,pval=T,
+xlab='Duration (Years)',break.time.by = 1,legend='none',legend.title="")
+```
+
+
+```{r, include = FALSE}
+none_df<-filter(df,MN %in% c("board of directors","eric dougall","lynn daneault"))
+none_mng <- survfit(Surv(Duration,Termd) ~ MN,data=none_df)
+ggsurvplot(none_mng,data=none_df,
+           risk.table =F,censor=T,pval=T,
+           xlab='Duration (Years)',break.time.by = 1,legend='none',
+           legend.title="")
+```
+
+```{r}
+par(mfrow=c(1,2))
+barplot(table(none_df$AgeGrp),xlab = "Age group", main = "Age distribution in subgroup of employees")
+barplot(table(none_df$PayGrp),xlab = "Pay group",main = "Salary distribution in subgroup of employees")
+```
+
+```{r, include = FALSE}
+#If we look at the data of Lynn Daneaultand Eric Dougall,equivalently as for WB,we see they havn't been very long in the company (about 3 years). Again,loyal employees are not consequence of their managemental success. 
+#I'm not sure that with this data we can dig deeper on the noneic.
+
+ld_name_df <- filter(data,EmpID %in% c("1402065303","1101023754"))
+ld_name_df
+```
+
+```{r, include = FALSE}
+#individual pvalues are quite different from the global pvalue
+pairwise_survdiff(Surv(Duration,Termd) ~MN,data=df)
+```
+
+### 2.1.4 Department
+
+Since we saw some difference in turnover between different managers, we verified also for different departments. The shape of the survival curve for Production department is quite different, but that might be due to much bigger group. We didn't find any significant difference, but at the same time, the p-value is not very high, so Department variable might still be used in more complex models.  
+
+```{r, include = FALSE}
+dpt <- survfit(y ~ Department,data=df)
+#Check if we include the risk table too
+splots[[2]]<- ggsurvplot(dpt,data=df,risk.table =F,censor=T,xlab='Duration (Years)'
+                         ,break.time.by = 1,legend='none',legend.title="",fun = "event")
+splots[[3]]<- ggsurvplot(dpt,data=df,risk.table =F,censor=T,xlab='Duration (Years)',
+                         break.time.by = 1,legend='none',legend.title="",fun = "cumhaz")
+```
+
+```{r}
+dpt <- survfit(y ~ Department,data=df)
+splots <- list()
+splots[[1]]<- ggsurvplot(dpt,data=df,risk.table =F,censor=T,pval=T,xlab='Duration (Years)'
+                         ,break.time.by = 1,legend='none',legend.title="",title = "Survival probability for Departments")
+
+arrange_ggsurvplots(splots,print = TRUE,ncol = 1,nrow = 1)
+ggsurvplot(dpt,data=df, risk.table =T,censor=T, xlab='Years',break.time.by = 1,
+legend='none',legend.title="",risk.table.fontsize = 4,fontsize = 2,risk.table.height = 1)
+```
+
+
+### 2.1.5 Summary of Kaplan-Meiers models
+
+Manual check variable significant with KM-Models tested
+
+|Sex|PayGrp|Manager|Department|
+|---|------|---------|----------|
+|0.96|0.0088||0.00027|0.12 |
+
+## 2.2 Cox proportionl hazard models 
+
+CPHM is semi-parametric regression model, which quantifies the hazard ratio between two groups (parametric part: beta, non-parametric: baseline hazard).
+In this chapter we would like to quantify the effect, observed by KM models earlier. In addition, we will construct different multiparametric models and compare their performances. 
+
+### 2.2.1 Salary level
+
+Since Cox model is a regression model, we don't need to take grouped variable, but instead numeric value for PayRate.
+
+```{r}
+payrate_cph<-coxph(y ~ I(PayRate/10), data=data)
+#summary(payrate_cph)
+```
+We observe that for every 10 units of salary the chance of leaving drops for roughly 20%. 
+
+### 2.2.2 Manager
+```{r}
+df<-mutate(df, MN = relevel(factor(MN), ref = "webster butler"))
+mana_cph<-coxph(y ~ MN, data=df)
+#summary(mana_cph)
+```
+
+We compared all the managers with Webster Butler. All managers have negative coefficients. 6 of them have p-value less than 0.05 and 3 more between 0.05 and 0.1. 
+
+Employees working for Webster Butler have about 3-times higher risk of leaving than the employees of managers having p-value less than 0.1.
+
+
+### 2.2.3 Department
+
+```{r, include=FALSE}
+dpt_cph = coxph(y ~ Department, data=df)
+#summary(dpt_cph)
+
+#First, let's address the error. It only applies to variable one, which is Department=executive office. It only has one observetion with event 0 and no observations with event 1. The Wald test for this variable in this case might not perform well.  
+#https://stackoverflow.com/questions/54650567/r-coxph-warning-loglik-converged-before-variable-valid-results-for-other-va
+
+```
+
+```{r}
+ggsurvplot(dpt, data=df, risk.table =F, censor=T,xlab='Duration (Years)',
+            break.time.by = 1, legend='bottom',
+            title="Cumulative hazards grouped by department",fun = "cumhaz", 
+            pval = T,
+            ggtheme = theme(plot.title = element_text(hjust = 0.5)))
+```
+
+```{r, include=FALSE}
+with(df, table(Department, Termd))
+#table(data$ManagerName, data$ManagerID)
+
+#Meaning of the results:
+#1st reported p-value is related to the beta (H0: beta=0 -> no difference between groups).
+#In  this case we don't reject the null hypothesis 
+#2nd reported p-values are related to the intercept.
+
+
+```
+
+In the test, all of the groups were compared against the first group in alphabetical order ('admin offices'). In our case, the critical department according to KM was production. Thus, we set the production as a comparative group.
+
+```{r}
+df<-mutate(df, Department = relevel(factor(Department), ref = "production"))
+prod_cph<-coxph(y ~ Department, data=df)
+summary(prod_cph)
+```
+
+The only statistically significant difference is between production and sales (p=0.0119), with coefficient value -1.288 and exp(coef) = 0.28, meaning that employees in production will have around 3.6-times higher risk of leaving in comparison to sales department. Also, the coefficents for all other departments are negative, suggesting that employees have higher risk of leaving if they work in the production.   
+
+```{r, include = FALSE}
+#Another way of asking questions is to merge all departments except production in one group and compare with production.
+
+df<-mutate(df, Production = ifelse(Department=="production", 1, 0))
+prod_cph_2<-coxph(y ~ Production, data=df)
+summary(prod_cph_2)
+
+#P-value suggest there's a statistical difference.
+```
+
+### 2.2.4 Managerial position
+
+Is having a manager position influencing the duration? 
+
+```{r}
+mana <- survfit(y ~ IsManager,data=df)
+ggsurvplot(mana, data=df, risk.table =F, censor=T,xlab='Duration (Years)',
+            break.time.by = 1, legend='bottom',
+            title="Cumulative hazards grouped by IsManager",fun = "cumhaz", 
+            pval = T,
+            ggtheme = theme(plot.title = element_text(hjust = 0.5)))
+```
+
+If you're a manager, the risk of leaving is significantly higher. However the duration of stay is not affected. 
+
+## 2.3 Multivariate Cox regression analysis
+
+### 2.3.1 Comparison of Cox models  
+
+Based on the following two articles ( [article 1](https://harver.com/blog/employee-attrition-employee-turnover/) and [article 2](https://www.researchgate.net/profile/Mark_Somers/publication/211394328_Modelling_employee_withdrawal_behaviour_over_time_A_study_of_turnover_using_survival_analysis/links/5a00d4c44585159634c03ed8/Modelling-employee-withdrawal-behaviour-over-time-A-study-of-turnover-using-survival-analysis.pdf) ) we constructed 2 models. 
+The first one is based on the performance at work : the important factors are absenteeism, disengagement and low productivity. In our dataset we have the following variables: performance score, engagement survey, employee satisfaction, special projects count in last 6 months and the number of times that the employee was late to work during the last 30 days. The latter being either NA or 0, we removed it from analysis.
+The second one is based on social criterias : Sex, Age, Marital status, Race, proximity recruitment.
+
+```{r}
+M1 <- coxph(y ~ PerfScrGrp + EngagementSurvey + EmpSatGrp + SpecialProjectsCount, data =  data)
+data<-mutate(data, RaceDesc = relevel(factor(RaceDesc), ref = "White"))
+data<-mutate(data, MaritalDesc = relevel(factor(MaritalDesc), ref = "married"))
+df<-mutate(df, MaritalDesc = relevel(factor(MaritalDesc), ref = "married"))
+M2<-coxph(y ~ Sex + Age + MaritalDesc + RaceDesc + factor(ProximityRec), data =  data)
+M3 <- coxph(y ~ I(PayRate/10) + MaritalDesc + PerfScrGrp + IsManager, data =df)
+M4 <- coxph(y~ Sex+Department,data =df)
+M5 <- coxph(y ~ Age + I(PayRate/10), data = df)
+M6 <- coxph(y~ Sex + Age + I(PayRate/10), data = df)
+M7 <- coxph(y ~ Sex + AgeGrp + PayGrp, data = df)
+M8 <- coxph(y ~ Sex+ Age+ I(PayRate/10) + PerfScrGrp +EmpSatGrp, data = df)
+M9 <- coxph(y ~ Age + I(PayRate/10) + EmpSatisfaction, data = df)
+M10 <- coxph(y ~ I(PayRate/10) + PerfScrGrp, data=df)
+```
+
+```{r}
+summary(M1)
+```
+
+```{r}
+summary(M2)
+```
+
+The only important variable from the first model seems to be the Performance Score Group. 
+The only significant variable from the second model is marital status (we were comparing with married employees). Interestingly, divorced have positive coefficient, while separated and single have a negative one. 
+
+We implemented additional models to determine what covariates would influence an employee from quitting the company. 
+The best model was based on the following covariates: Sex, Age, PayRate, PerfScrGrp and EmpSatGrp.
+
+
+```{r}
+fits <- list(M1 = M1, M2=M2, M3=M3, M4=M4, M5=M5, M6=M6, M7=M7, M8=M8, M9=M9, M10 = M10)
+sapply(fits, AIC)
+```
+
+Here the best model is M3 (PayRate, MaritalDesc, PerfScrGrp and IsManager) by AIC. 
+
+```{r}
+summary(M3)
+```
+
+For each PayRate/10, there is a ~6% less chance of leaving the company while before it was 20% (when doing Cox regression with only PayRate/10).
+
+```{r}
+res.cox1 <- M3
+test.ph1 <- cox.zph(res.cox1, transform = "km", global=TRUE)
+test.ph1
+```
+
+Considering that p-values are not small, it means that there are no time dependent coefficients. Which means that the hazard rate of groups in tested covariates is relatively constant in time. 
+
+# 3. Machine learning approach
+
+In order to find out which factors would affect the risk of leaving, we built different models following a machine learning approach. 
+In this section, we used some simple machine learning method such as : 
+
+* Elastic-Net Regularized Generalized Linear Models (`glmnet`)
+* Coxph models selected by aic step function (`step`)
+* Parameters chosen from the section above. 
+
+In order to analyse, we first have to build another dataset for the modeling part.
+We have to :
+
+* Change the binary categorical variables to zero and one
+* Remove some duplicated information (such as keep the Age and remove AgeGrp)
+* Rescale some small value variables to have bigger effect on the models
+
+```{r}
+mdf<-mutate(df,IsManager=ifelse(IsManager=="is manager",1,0)#1 is manager 
+           ,Sex=ifelse(Sex=='m ',1,0)#1 is male
+           ,EngagementSurvey_10=I(EngagementSurvey/10)
+           ,SpecialProjects_10=I(SpecialProjectsCount /10)
+           ,PayRate_10=I(PayRate/10))
+
+mdf<-subset(mdf,select=-c(MN,Position,AgeGrp,EmpSatisfaction,PayGrp,
+                EngagementSurvey,RecruitmentSource,SpecialProjectsCount))
+
+mx<-subset(mdf,select = -c(Termd,Duration))
+my<-with(mdf,Surv(Duration ,Termd))
+#summary(mdf)
+```
+
+## 3.1 Linear model: Elastic net
+
+In the elastic net model the regularization path is computed for the elasticnet penalty at a grid of values for the regularization parameter $\lambda$. We selected the best coefficent using $\lambda$ that gives minimum mean cross-validated error to select the variables that provide the most regularized model.
+
+```{r}
+set.seed(123)
+X<-model.matrix(my~.,data=mx)
+Mglmnet <-cv.glmnet(X,my,family="cox")
+plot(Mglmnet)
+b.enet.all<-coef(Mglmnet,s="lambda.min")
+suppressMessages(b.enet<-b.enet.all[b.enet.all != 0])
+names(b.enet) <- colnames(X)[as.logical(b.enet.all != 0)]
+```
+
+The plot of cross-validated partial log-likelihood deviance, including upper and lower standard deviations, as a function of log$\lambda$ for the data set. The dotted vertical lines indicate the $\lambda$ values with minimal deviance (left) and with the largest $\lambda$ value within one standard deviation of the minimal deviance (right).
+
+As one standard deviation of the minimal deviance didn't select any variables, here we chose to use minimal deviance $\lambda$ with 11 variables selected as shown below:
+
+```{r echo=FALSE}
+b.enet
+```
+
+
+## 3.2 Cox models
+
+### 3.2.1 Manual and AIC models
+
+* Manual model
+
+To build the manual model we used the information from the above analysis.
+We deduced some important factors: payrate, manager, performance score and marital status. The variable Department doesn't appear to have an obvious impact on the model. 
+Therefore we used the nested models test `anova` to check if adding in Department variable would have an influence. The null hypothesis is that there's no difference between the 2 nested models. The result show that the p-value is high and that there's no difference. We can therefore take out the variable Department for future models.
+
+```{r}
+Mmanual<-coxph(my~ PayRate_10+MaritalDesc+IsManager+PerfScrGrp,data=mx)
+Mmanual1<-coxph(my~ PayRate_10+MaritalDesc+IsManager+PerfScrGrp+Department,data=mx)
+anova(Mmanual,Mmanual1)
+b.manual<-coef(Mmanual)
+```
+
+* AIC Step-model
+
+In the AIC model we used the  `step` functions with backward method to choose the best aic score of different combinations of variables for the Cox model.
+
+```{r}
+Maic<-step(coxph(my~.,data=mx),trace = FALSE)  #coxph(my~.,data=mx) is the full model
+b.aic<-coef(Maic)
+Maic
+```
+
+### 3.2.2 Cox model diagnostics
+
+For Cox models (manual and aic), we verified if there were outliers by checking the residuals of the models. We also checked the proportional hazards assumption for Cox models.
+
+* Cox model residuals 
+
+We plot the residuals, with `type = 'dfbetas'`. From plots below, we didn't see extreme outliers.
+
+```{r}
+rmanual<-residuals(Mmanual,type = 'dfbetas')
+raic<-residuals(Maic,type = 'dfbetas')
+par(mfrow = c(1,2))
+plot(sqrt(rowSums(rmanual^2)),type='h')
+plot(sqrt(rowSums(raic^2)),type='h')
+```
+
+* Proportionality of risk
+
+Schoenfeld residuals are used to verify the proportionality of the risk. Using null hypothesis being that the model is proportional. 
+We do not reject the null hypothesis (p-value bigger than 0.05). 
+We can see that for all variables as for the global p-value in both models (Mmanual and Maic) , we do not reject the proportionality. 
+
+```{r}
+cox.zph(Mmanual)
+cox.zph(Maic)
+```
+
+* Stratification
+
+However, since the p-value of the AIC model is not far from 0.05, we can try to stratify some variables to see if the model gets better (using the concordance of the model). We stratified the variables that has p-value less then 0.1 on the above 2 models : MaritalDesc and Age. The results showed that the concordance of the new models didn't improve. We won't stratify values in the following models.
+
+```{r}
+N_Mmanual<-coxph(my~ PayRate_10+strata(MaritalDesc)+IsManager+PerfScrGrp,data=mx)
+N_Maic<-coxph(my~strata(Age)+MaritalDesc+IsManager + PerfScrGrp,data=mx)
+
+df_global_p<-tibble(model = c("manual","aic"),
+                    origin_conc=c(summary(Mmanual)$concordance[1],summary(Maic)$concordance[1]),
+                    new_conc=c(summary(N_Mmanual)$concordance[1],summary(N_Maic)$concordance[1]))
+df_global_p
+```
+
+## 3.3 Models variable summary
+
+Below we can see a summary of all the chosen variable among all three candidate models. We see that MaritalDesc, IsManager and PerfScrGrp are selected in the models.
+
+```{r}
+names(b.enet)
+Mmanual$formula
+Maic$formula
+```
+
+# 4. Model selection
+
+We have three candidate models above. In this section we compare their performance using the models' coefficients in order to elect the best one.
+
+```{r}
+#We get all the coefficients of models
+models_coefficients <- tibble(model = c("enet","manual","aic"),
+                              coefficients = list(b.enet,b.manual,b.aic))
+```
+
+## 4.1 Log rank ratio
+
+First method for performance: log hazard ratio. We use the coefficient retrieved from above models to build the prediction in order to construct the Log rank ratio for all models. The estimates (the bigger the better) and p-values show that the AIC model performs the best.
+
+```{r}
+lincom <- function(b,X) rowSums(sweep(X[,names(b),drop = FALSE],2,b,FUN = "*"))
+X.new=model.matrix(my~.,data=mx)
+models_performance <- mutate(models_coefficients,
+                      predictions = map(coefficients,~ lincom(.,X.new)),
+                      cox_obj = map(predictions,~ coxph(my ~ I(. / sd(.)))),
+                      cox_tab = map(cox_obj,broom::tidy)) %>% unnest(cox_tab)
+models_performance[c(1,6,7,8)]
+```
+
+## 4.2 AUC + ROC plot
+
+Another value we can check is the ROC curve, to check different thresholds affecting false positive and true positive rate. We would prefer to have higher AUC rate. We can see from the numeric value and the plot that here AIC still is the best model. The prediction time we used is 11.5 years due to the max duration of the whole dataset is around 11.5 years. We are comparing the prediction with the true value of the entire dataset.
+
+```{r}
+ROC.enet=survivalROC(my[,1],my[,2],models_performance$predictions[[1]],
+                     predict.time = 365.25 * 11.5,method = "KM")
+ROC.manual=survivalROC(my[,1],my[,2],models_performance$predictions[[2]],
+                       predict.time = 365.25 * 11.5,method = "KM")
+ROC.aic=survivalROC(my[,1],my[,2],models_performance$predictions[[3]],
+                    predict.time = 365.25 * 11.5,method = "KM")
+ROC<-list(ENet=ROC.enet,maual=ROC.manual,AIC=ROC.aic)
+map_dbl(ROC,"AUC")
+```
+
+```{r}
+df<- map(ROC,~ with(.,tibble(cutoff = cut.values,FP,TP)))
+for(nm in names(df)) {df[[ nm ]]$marker <- nm}
+dat <- do.call(rbind,df)
+ggplot(dat,aes(FP,TP,color = marker)) +
+  geom_line() +
+  geom_abline(slope = 1)+
+  ggtitle("                                                                          ROC curve for proposed models")+
+  theme_bw(base_size = 9)
+```
+
+## 4.3 Final model selection
+
+We summarize here using the value of each performance score and give it a weighted score (the score divided by the highest score , hence 100 is the best). Note that we don't have concordance score for enet model as well as the concordance for AIC and manual model are very similar, we didn't take it for the comparison.
+
+```{r echo=FALSE}
+tibble(model = c("enet","manual","aic"),
+       LRR=round(as.vector(t(models_performance[6])),3),
+       LRR_Score=round(LRR/max(LRR)*100),
+       ROC=round(map_dbl(ROC,"AUC"),3),
+       ROC_Score=round(ROC/max(ROC)*100),
+       AVG_Score=round((LRR_Score+ROC_Score)/2))
+```
+
+After comparing 2 different scores the result for the final model selection is clearly AIC model. It is also interesting to see that the manual model, of which the variables were chosen by our own anaysis, perform very well and almost similar to AIC function. There is only one variable different in both models, three other variables are the same (MaritalDesc, IsManager and PerfScrGr).
+
+# 5. Summary
+
+The purpose of the project was to determine which factors contribute the most to the turnover of the employees. 
+We used the following methodologies:
+Kaplan-Meier, Cox models, Machine Learning (ElasticNet, AIC), with different selections of variables. We determined that the most important are : Marital status, IsManager, Performance Score and Age. However depending on the method, the PayRate and Manager showed to be significant. 
